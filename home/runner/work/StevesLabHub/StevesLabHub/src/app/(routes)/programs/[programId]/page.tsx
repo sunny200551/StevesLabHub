@@ -23,7 +23,7 @@ export default function ProgramPage({ params }: { params: { programId: string } 
   const subject = subjects.find(s => s.id === program.subjectId);
 
   return (
-    <div className="animate-fade-in container py-12">
+    <div className="container py-12">
        <Button asChild variant="ghost" className="mb-8">
         <Link href={`/subjects/${program.subjectId}?year=${subject?.year}&sem=${subject?.semester}`}>
           <ArrowLeft className="mr-2 h-4 w-4" />

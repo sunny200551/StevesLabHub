@@ -2,56 +2,58 @@
 import type { Subject, Program, Note, Syllabus, Material } from './types';
 
 // Import all data from the new structure
-import sem1_1_data from './data/year-1/sem-1.json';
-import sem1_2_data from './data/year-1/sem-2.json';
-import sem2_1_data from './data/year-2/sem-1.json';
-import sem2_2_data from './data/year-2/sem-2.json';
+import year1sem1_subjects from './data/year-1/sem-1.json';
+import year1sem2_subjects from './data/year-1/sem-2.json';
+import year2sem1_subjects from './data/year-2/sem-1.json';
+import year2sem2_subjects from './data/year-2/sem-2.json';
 
 // Year 3, Semester 1
-import cs31t1_sub from './data/year-3/sem-1/23CS31T1/subject.json';
-import cs31t2_sub from './data/year-3/sem-1/23CS31T2/subject.json';
-import cs31t3_sub from './data/year-3/sem-1/23CS31T3/subject.json';
-import cs31e4_sub from './data/year-3/sem-1/23CS31E4/subject.json';
-import cs31p1_sub from './data/year-3/sem-1/23CS31P1/subject.json';
-import cs31p1_prog from './data/year-3/sem-1/23CS31P1/programs.json';
-import cs31p2_sub from './data/year-3/sem-1/23CS31P2/subject.json';
-import cs31p2_prog from './data/year-3/sem-1/23CS31P2/programs.json';
-import ad31sc_sub from './data/year-3/sem-1/23AD31SC/subject.json';
-import ad31sc_prog from './data/year-3/sem-1/23AD31SC/programs.json';
-import es31p1_sub from './data/year-3/sem-1/23ES31P1/subject.json';
-import es31p1_prog from './data/year-3/sem-1/23ES31P1/programs.json';
-import es31t1_sub from './data/year-3/sem-1/23ES31T1/subject.json';
+import y3s1_cs31t1_sub from './data/year-3/sem-1/23CS31T1/subject.json';
+import y3s1_cs31t2_sub from './data/year-3/sem-1/23CS31T2/subject.json';
+import y3s1_cs31t3_sub from './data/year-3/sem-1/23CS31T3/subject.json';
+import y3s1_cs31e4_sub from './data/year-3/sem-1/23CS31E4/subject.json';
+import y3s1_cs31p1_sub from './data/year-3/sem-1/23CS31P1/subject.json';
+import y3s1_cs31p1_prog from './data/year-3/sem-1/23CS31P1/programs.json';
+import y3s1_cs31p2_sub from './data/year-3/sem-1/23CS31P2/subject.json';
+import y3s1_cs31p2_prog from './data/year-3/sem-1/23CS31P2/programs.json';
+import y3s1_ad31sc_sub from './data/year-3/sem-1/23AD31SC/subject.json';
+import y3s1_ad31sc_prog from './data/year-3/sem-1/23AD31SC/programs.json';
+import y3s1_es31p1_sub from './data/year-3/sem-1/23ES31P1/subject.json';
+import y3s1_es31p1_prog from './data/year-3/sem-1/23ES31P1/programs.json';
+import y3s1_es31t1_sub from './data/year-3/sem-1/23ES31T1/subject.json';
 
 // Year 3, Semester 2
-import cs32t1_sub from './data/year-3/sem-2/23CS32T1/subject.json';
-import cs32t2_sub from './data/year-3/sem-2/23CS32T2/subject.json';
-import cs32t3_sub from './data/year-3/sem-2/23CS32T3/subject.json';
-import cs32e2_sub from './data/year-3/sem-2/23CS32E2/subject.json';
-import cs32p1_sub from './data/year-3/sem-2/23CS32P1/subject.json';
-import cs32p1_prog from './data/year-3/sem-2/23CS32P1/programs.json';
-import cs32p2_sub from './data/year-3/sem-2/23CS32P2/subject.json';
-import cs32ac_sub from './data/year-3/sem-2/23CS32AC/subject.json';
-import cs32sc_sub from './data/year-3/sem-2/23CS32SC/subject.json';
+import y3s2_cs32ac_sub from './data/year-3/sem-2/23CS32AC/subject.json';
+import y3s2_cs32p1_sub from './data/year-3/sem-2/23CS32P1/subject.json';
+import y3s2_cs32p1_prog from './data/year-3/sem-2/23CS32P1/programs.json';
+import y3s2_cs32p2_sub from './data/year-3/sem-2/23CS32P2/subject.json';
+import y3s2_cs32sc_sub from './data/year-3/sem-2/23CS32SC/subject.json';
+import y3s2_cs32t1_sub from './data/year-3/sem-2/23CS32T1/subject.json';
+import y3s2_cs32t2_sub from './data/year-3/sem-2/23CS32T2/subject.json';
+import y3s2_cs32t3_sub from './data/year-3/sem-2/23CS32T3/subject.json';
+import y3s2_cs32e2_sub from './data/year-3/sem-2/23CS32E2/subject.json';
 
-// Materials
+
+// Legacy files (only for notes and syllabi for now)
+import programsData from './programs.json';
 import materialsData from './materials.json';
 
 
 const allSemesterData = [
-  { year: 1, semester: 1, data: sem1_1_data.subjects },
-  { year: 1, semester: 2, data: sem1_2_data.subjects },
-  { year: 2, semester: 1, data: sem2_1_data.subjects },
-  { year: 2, semester: 2, data: sem2_2_data.subjects },
-  { year: 3, semester: 1, data: [cs31t1_sub, cs31t2_sub, cs31t3_sub, cs31e4_sub, cs31p1_sub, cs31p2_sub, ad31sc_sub, es31p1_sub, es31t1_sub] },
-  { year: 3, semester: 2, data: [cs32t1_sub, cs32t2_sub, cs32t3_sub, cs32e2_sub, cs32p1_sub, cs32p2_sub, cs32ac_sub, cs32sc_sub] },
+  { year: 1, semester: 1, data: year1sem1_subjects.subjects },
+  { year: 1, semester: 2, data: year1sem2_subjects.subjects },
+  { year: 2, semester: 1, data: year2sem1_subjects.subjects },
+  { year: 2, semester: 2, data: year2sem2_subjects.subjects },
+  { year: 3, semester: 1, data: [y3s1_cs31t1_sub, y3s1_cs31t2_sub, y3s1_cs31t3_sub, y3s1_cs31e4_sub, y3s1_cs31p1_sub, y3s1_cs31p2_sub, y3s1_ad31sc_sub, y3s1_es31p1_sub, y3s1_es31t1_sub] },
+  { year: 3, semester: 2, data: [y3s2_cs32ac_sub, y3s2_cs32p1_sub, y3s2_cs32p2_sub, y3s2_cs32sc_sub, y3s2_cs32t1_sub, y3s2_cs32t2_sub, y3s2_cs32t3_sub, y3s2_cs32e2_sub] },
 ];
 
 const allProgramsData = [
-    ...cs31p1_prog.map(p => ({...p, subjectId: '23CS31P1'})),
-    ...cs31p2_prog.map(p => ({...p, subjectId: '23CS31P2'})),
-    ...ad31sc_prog.map(p => ({...p, subjectId: '23AD31SC'})),
-    ...es31p1_prog.map(p => ({...p, subjectId: '23ES31P1'})),
-    ...cs32p1_prog.map(p => ({...p, subjectId: '23CS32P1'})),
+    ...y3s1_cs31p1_prog.map(p => ({...p, subjectId: '23CS31P1'})),
+    ...y3s1_cs31p2_prog.map(p => ({...p, subjectId: '23CS31P2'})),
+    ...y3s1_ad31sc_prog.map(p => ({...p, subjectId: '23AD31SC'})),
+    ...y3s1_es31p1_prog.map(p => ({...p, subjectId: '23ES31P1'})),
+    ...y3s2_cs32p1_prog.map(p => ({...p, subjectId: '23CS32P1'})),
 ];
 
 
@@ -98,7 +100,7 @@ allProgramsData.forEach(p => {
             ...p,
             canRunInBrowser: p.language.toLowerCase() === 'html/css/js',
             aim: p.problem,
-            code: p.code || "No code available", // Fallback for missing code
+            code: (p as any).code || "No code available", // Fallback for missing code
             year: matchingSubject.year,
             semester: matchingSubject.semester,
         } as Program);
@@ -113,6 +115,31 @@ materialsData.materials.forEach(m => {
             year: matchingSubject.year,
             semester: matchingSubject.semester,
         } as Material);
+    }
+});
+
+// Legacy notes and syllabi
+programsData.notes.forEach((n: any) => {
+    const matchingSubject = finalSubjects.find(s => s.shortTitle.toLowerCase() === n.subject.toLowerCase() || s.title.toLowerCase().includes(n.subject.toLowerCase()));
+    if (matchingSubject) {
+        finalNotes.push({
+            ...n,
+            id: `note-${n.title.replace(/\s+/g, '-').toLowerCase()}`,
+            subjectId: matchingSubject.id,
+            year: matchingSubject.year,
+            semester: matchingSubject.semester,
+        } as Note);
+    }
+});
+
+programsData.syllabi.forEach((s: any) => {
+    const matchingSubject = finalSubjects.find(subj => subj.id === s.subjectId);
+    if (matchingSubject) {
+        finalSyllabi.push({
+            ...s,
+            year: matchingSubject.year,
+            semester: matchingSubject.semester,
+        } as Syllabus);
     }
 });
 
