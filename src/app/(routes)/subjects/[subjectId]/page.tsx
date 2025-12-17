@@ -22,7 +22,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function SubjectPage({ params, searchParams }: { params: { subjectId: string }, searchParams: { [key: string]: string | string[] | undefined } }) {
+export default function SubjectPage({ params }: { params: { subjectId: string } }) {
   const data = getSubjectData(params.subjectId);
 
   if (!data) {
@@ -30,13 +30,11 @@ export default function SubjectPage({ params, searchParams }: { params: { subjec
   }
 
   const { subject, subjectPrograms, subjectMaterials } = data;
-  const year = searchParams.year || '1';
-  const sem = searchParams.sem || '1';
 
   return (
     <div className="container py-12">
        <Button asChild variant="ghost" className="mb-8">
-        <Link href={`/dashboard?year=${year}&sem=${sem}#subjects`}>
+        <Link href={`/dashboard#subjects`}>
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Subjects
         </Link>
