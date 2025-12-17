@@ -9,13 +9,24 @@ import year2sem2 from './data/year-2/sem-2.json';
 import year3sem1 from './data/year-3/sem-1.json';
 import year3sem2 from './data/year-3/sem-2.json';
 
-const allYearSubjects = [
-    ...year1sem1.subjects,
-    ...year1sem2.subjects,
-    ...year2sem1.subjects,
-    ...year2sem2.subjects,
-    ...year3sem1.subjects,
-    ...year3sem2.subjects,
+// Create a structure for year 4, even if empty
+const year4sem1 = { subjects: [] };
+const year4sem2 = { subjects: [] };
+
+
+type SemesterData = {
+    subjects: any[];
+};
+
+const allSemesters: { year: number; semester: number; data: SemesterData }[] = [
+    { year: 1, semester: 1, data: year1sem1 },
+    { year: 1, semester: 2, data: year1sem2 },
+    { year: 2, semester: 1, data: year2sem1 },
+    { year: 2, semester: 2, data: year2sem2 },
+    { year: 3, semester: 1, data: year3sem1 },
+    { year: 3, semester: 2, data: year3sem2 },
+    { year: 4, semester: 1, data: year4sem1 },
+    { year: 4, semester: 2, data: year4sem2 },
 ];
 
 const subjectColorMap: Record<string, Subject['color']> = {
@@ -64,14 +75,14 @@ const subjectColorMap: Record<string, Subject['color']> = {
   '23AD31SC': 'fsd',
   '23ES31P1': 'tinkering',
   '23ES31T1': 'ai',
-  '23CS32T1': 'ml',
-  '23CS32P1': 'ml',
-  '23CS32T3': 'cns',
-  '23CS32P2': 'cns',
-  '23CS32T2': 'cloud',
-  '23CS32E2': 'cyber',
-  '23CS32AC': 'writing',
-  '23CS32SC': 'speaking',
+  '23CS32T1': 'ml', // ML
+  '23CS32P1': 'ml', // ML Lab
+  '23CS32T3': 'cns', // CNS
+  '23CS32P2': 'cns', // CNS Lab
+  '23CS32T2': 'cloud', // CC
+  '23CS32E2': 'cyber', // CS
+  '23CS32AC': 'writing', // TRW & IPR
+  '23CS32SC': 'speaking', // Soft Skills
 };
 
 const shortTitleMap: Record<string, string> = {
@@ -130,66 +141,92 @@ const shortTitleMap: Record<string, string> = {
     '23CS32SC': 'Soft Skills'
 };
 
+const finalSubjects: Subject[] = [];
+const finalPrograms: Program[] = [];
+const finalMaterials: Material[] = [];
+const finalSyllabi: Syllabus[] = [];
+const finalNotes: Note[] = [];
 
-const subjectMap = new Map<string, Subject>();
-
-allYearSubjects.forEach(s => {
-    if (!subjectMap.has(s.id)) {
-        subjectMap.set(s.id, {
-            ...s,
+allSemesters.forEach(sem => {
+    sem.data.subjects.forEach(s => {
+        const subject: Subject = {
+            id: s.id,
             title: s.name,
             shortTitle: shortTitleMap[s.id] || s.short || s.name.split(' ')[0],
             description: s.short || '',
             color: subjectColorMap[s.id] || 'default',
+            hasLab: s.hasLab,
+            isLabOnly: s.isLabOnly,
+            year: sem.year,
+            semester: sem.semester,
+        };
+        finalSubjects.push(subject);
+
+        if (s.programs) {
+            s.programs.forEach((p: any) => {
+                finalPrograms.push({
+                    ...p,
+                    subjectId: s.id,
+                    canRunInBrowser: p.language.toLowerCase() === 'html/css/js',
+                    aim: p.problem,
+                    year: sem.year,
+                    semester: sem.semester,
+                });
+            });
+        }
+    });
+});
+
+
+// Process materials from materials.json and assign them to correct subjects
+materialsData.materials.forEach(m => {
+    const matchingSubject = finalSubjects.find(s => s.id === m.subjectId);
+    if (matchingSubject) {
+        finalMaterials.push({
+            ...m,
+            year: matchingSubject.year,
+            semester: matchingSubject.semester,
+        } as Material);
+    }
+});
+
+// Process syllabi from programs.json and assign them
+let syllabusIdCounter = 1;
+(programsData.syllabi || []).forEach(s => {
+    const matchingSubject = finalSubjects.find(subj => subj.id === s.subjectId);
+    if (matchingSubject) {
+        finalSyllabi.push({
+            id: s.id || `syllabus-${syllabusIdCounter++}`,
+            title: s.title,
+            subjectId: s.subjectId,
+            type: s.type as 'PDF' | 'Link',
+            url: s.url,
+            year: matchingSubject.year,
+            semester: matchingSubject.semester,
+        });
+    }
+});
+
+// Process notes from programs.json and assign them
+let noteIdCounter = 1;
+(programsData.notes || []).forEach(n => {
+    const matchingSubject = finalSubjects.find(s => s.shortTitle.toLowerCase() === n.subject.toLowerCase() || s.title.toLowerCase().includes(n.subject.toLowerCase()));
+    if(matchingSubject) {
+        finalNotes.push({
+            id: `note-${noteIdCounter++}`,
+            title: n.title,
+            subjectId: matchingSubject.id,
+            type: n.type as 'PDF' | 'Link' | 'Document',
+            url: n.url,
+            year: matchingSubject.year,
+            semester: matchingSubject.semester,
         });
     }
 });
 
 
-export const subjects: Subject[] = Array.from(subjectMap.values());
-
-export const programs: Program[] = programsData.programs.map(p => {
-      const sub = subjectMap.get(p.subjectId);
-      return {
-        ...p,
-        canRunInBrowser: p.language.toLowerCase() === 'html/css/js',
-        year: sub?.year || 0,
-        semester: sub?.semester || 0,
-      };
-  });
-
-let noteIdCounter = 1;
-export const notes: Note[] = (programsData.notes || []).map(n => {
-    const matchingSubject = subjects.find(s => s.shortTitle.toLowerCase() === n.subject.toLowerCase() || s.title.toLowerCase().includes(n.subject.toLowerCase()));
-    return {
-        id: `note-${noteIdCounter++}`,
-        title: n.title,
-        subjectId: matchingSubject ? matchingSubject.id : 'tinkering-lab',
-        type: n.type as 'PDF' | 'Link' | 'Document',
-        url: n.url,
-        year: matchingSubject?.year || 4,
-        semester: matchingSubject?.semester || 1,
-    };
-});
-
-export const syllabi: Syllabus[] = (programsData.syllabi || []).map(s => {
-    const matchingSubject = subjects.find(subj => subj.id === s.subjectId);
-    return {
-        id: s.id,
-        title: s.title,
-        subjectId: s.subjectId,
-        type: s.type as 'PDF' | 'Link',
-        url: s.url,
-        year: matchingSubject?.year || 1,
-        semester: matchingSubject?.semester || 1,
-    };
-});
-
-export const materials: Material[] = materialsData.materials.map(m => {
-    const matchingSubject = subjects.find(s => s.id === m.subjectId);
-    return {
-        ...m,
-        year: matchingSubject?.year || 4,
-        semester: matchingSubject?.semester || 1,
-    } as Material;
-});
+export const subjects: Subject[] = finalSubjects;
+export const programs: Program[] = finalPrograms;
+export const materials: Material[] = finalMaterials;
+export const syllabi: Syllabus[] = finalSyllabi;
+export const notes: Note[] = finalNotes;
