@@ -430,7 +430,29 @@
       "title": "Temp Controlled Reactor Simulation",
       "subject": "Tinkering Lab",
       "type": "Link",
-      "url": "https://www fetal"
+      "url": "https://www.tinkercad.com/things/fndGND1saJ4-automatic-room-temperature-controller"
+    },
+    {
+      "title": "ECG Signal Acquisition Simulation",
+      "subject": "Tinkering Lab",
+      "type": "Link",
+      "url": "https://www.tinkercad.com/things/hbXyygH4jbr-portable-electrocardiograph-ecg"
+    }
+  ],
+  "syllabi": [
+    {
+      "id": "syllabus-ai",
+      "title": "AI Lab Syllabus",
+      "subjectId": "23CS31P1",
+      "type": "PDF",
+      "url": "/syllabi/ai-lab-syllabus.pdf"
+    },
+    {
+      "id": "syllabus-cs",
+      "title": "Cyber Security Syllabus",
+      "subjectId": "23CS32E2",
+      "type": "PDF",
+      "url": "/syllabi/cyber-security-syllabus.pdf"
     }
   ]
 }
