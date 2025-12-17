@@ -6,8 +6,12 @@ const withPWA = withPWAInit({
   disable: process.env.NODE_ENV === "development",
 });
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  basePath: isProd ? '/StevesLabHub' : '',
+  assetPrefix: isProd ? '/StevesLabHub/' : '',
   typescript: {
     ignoreBuildErrors: true,
   },

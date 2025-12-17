@@ -14,7 +14,7 @@ const navItems = [
   { href: '/', label: 'Home', icon: GraduationCap },
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/games', label: 'Games', icon: Gamepad2 },
-  { href: '/ai-tools', label: 'AI Tools', icon: Bot },
+  // { href: '/ai-tools', label: 'AI Tools', icon: Bot },
 ];
 
 export function Header() {

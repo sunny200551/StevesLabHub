@@ -11,8 +11,8 @@ import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard';
 import { Terminal, Copy, Check, Play, X, Sparkles, BrainCircuit, Loader2, Bot } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from "@/hooks/use-toast";
-import { generateVivaQuestions } from '@/ai/flows/viva-questions-flow';
-import type { VivaQuestion } from '@/ai/flows/viva-questions-types';
+// import { generateVivaQuestions } from '@/ai/flows/viva-questions-flow';
+// import type { VivaQuestion } from '@/ai/flows/viva-questions-types';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 type ProgramDetailClientProps = {
@@ -29,9 +29,9 @@ const subjectColorClasses: Record<string, string> = {
 
 export function ProgramDetailClient({ program, subject }: ProgramDetailClientProps) {
     const [isRunModalOpen, setIsRunModalOpen] = useState(false);
-    const [isVivaModalOpen, setIsVivaModalOpen] = useState(false);
-    const [vivaQuestions, setVivaQuestions] = useState<VivaQuestion[]>([]);
-    const [isGenerating, setIsGenerating] = useState(false);
+    // const [isVivaModalOpen, setIsVivaModalOpen] = useState(false);
+    // const [vivaQuestions, setVivaQuestions] = useState<VivaQuestion[]>([]);
+    // const [isGenerating, setIsGenerating] = useState(false);
 
     const { isCopied, copy } = useCopyToClipboard();
     const { toast } = useToast();
@@ -44,26 +44,26 @@ export function ProgramDetailClient({ program, subject }: ProgramDetailClientPro
         });
     };
 
-    const handleGenerateViva = async () => {
-        setIsVivaModalOpen(true);
-        if (vivaQuestions.length > 0) return;
+    // const handleGenerateViva = async () => {
+    //     setIsVivaModalOpen(true);
+    //     if (vivaQuestions.length > 0) return;
 
-        setIsGenerating(true);
-        try {
-            const result = await generateVivaQuestions({ code: program.code, aim: program.aim });
-            setVivaQuestions(result.questions);
-        } catch (error) {
-            console.error("Failed to generate viva questions:", error);
-            toast({
-                variant: "destructive",
-                title: "AI Error",
-                description: "Could not generate viva questions at this time.",
-            });
-            setIsVivaModalOpen(false);
-        } finally {
-            setIsGenerating(false);
-        }
-    };
+    //     setIsGenerating(true);
+    //     try {
+    //         const result = await generateVivaQuestions({ code: program.code, aim: program.aim });
+    //         setVivaQuestions(result.questions);
+    //     } catch (error) {
+    //         console.error("Failed to generate viva questions:", error);
+    //         toast({
+    //             variant: "destructive",
+    //             title: "AI Error",
+    //             description: "Could not generate viva questions at this time.",
+    //         });
+    //         setIsVivaModalOpen(false);
+    //     } finally {
+    //         setIsGenerating(false);
+    //     }
+    // };
 
 
     return (
@@ -79,10 +79,10 @@ export function ProgramDetailClient({ program, subject }: ProgramDetailClientPro
                             )}
                             <Badge variant="outline">{program.language}</Badge>
                         </div>
-                        <Button variant="outline" size="sm" onClick={handleGenerateViva}>
+                        {/* <Button variant="outline" size="sm" onClick={handleGenerateViva}>
                             <Sparkles className="mr-2 h-4 w-4 text-primary" />
                             Generate Viva Questions
-                        </Button>
+                        </Button> */}
                     </div>
                     <h1 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{program.title}</h1>
                     <div className="mt-4 flex flex-wrap gap-2">
@@ -160,7 +160,7 @@ export function ProgramDetailClient({ program, subject }: ProgramDetailClientPro
                 </DialogContent>
             </Dialog>
 
-            <Dialog open={isVivaModalOpen} onOpenChange={setIsVivaModalOpen}>
+            {/* <Dialog open={isVivaModalOpen} onOpenChange={setIsVivaModalOpen}>
                 <DialogContent className="max-w-3xl animate-scale-in">
                     <DialogHeader>
                         <DialogTitle className="flex items-center gap-2 text-xl">
@@ -197,7 +197,7 @@ export function ProgramDetailClient({ program, subject }: ProgramDetailClientPro
                         )}
                     </div>
                 </DialogContent>
-            </Dialog>
+            </Dialog> */}
         </>
     );
 }
