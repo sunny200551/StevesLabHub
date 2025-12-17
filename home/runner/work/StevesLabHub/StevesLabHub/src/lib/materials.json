@@ -21,23 +21,23 @@
       "subjectId": "23CS32AC",
       "type": "Notes",
       "title": "Tinkercad Lab Manual – TRW & IPR",
-      "url": "/materials/TINKERCAD LAB MANUAL_CSE(DS)_13_08_25 (1).pdf",
+      "url": "/materials/tinkercad-lab-manual.pdf",
       "fileType": "PDF"
     },
     {
       "id": "mat-dwm-all-units-assignments",
       "subjectId": "23CS31E4",
       "type": "Assignment",
-      "title": "DW&amp;M All Units Assignment Questions (2025–26) – R23",
-      "url": "/materials/DW&amp;M ALL UNITS  ASSIGNMENT QUESTIONS(2025-26) R23.pdf",
+      "title": "DW&M All Units Assignment Questions (2025–26) – R23",
+      "url": "/materials/dwm-assignments-r23.pdf",
       "fileType": "PDF"
     },
     {
       "id": "mat-dwm-model-paper-2025-26",
       "subjectId": "23CS31E4",
       "type": "Question Paper",
-      "title": "DW&amp;M (R23) Model Paper (2025–26)",
-      "url": "/materials/DW&amp;M(R23) MODEL PAPER 2025-26.pdf",
+      "title": "DW&M (R23) Model Paper (2025–26)",
+      "url": "/materials/dwm-model-paper-r23.pdf",
       "fileType": "PDF"
     }
   ]
