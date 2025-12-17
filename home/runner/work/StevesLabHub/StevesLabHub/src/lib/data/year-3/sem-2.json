@@ -1,4 +1,93 @@
 
 {
-    "subjects": []
+    "subjects": [
+        {
+            "id": "23CS32AC",
+            "name": "Technical Report Writing & IPR",
+            "short": "TRW & IPR",
+            "description": "Skills for research paper writing and IPR concepts.",
+            "color": "writing",
+            "hasLab": false,
+            "isLabOnly": false,
+            "year": 3,
+            "semester": 2
+        },
+        {
+            "id": "23CS32P1",
+            "name": "Machine Learning Lab",
+            "short": "ML Lab",
+            "description": "Implementation of ML models and algorithms.",
+            "color": "ml",
+            "hasLab": true,
+            "isLabOnly": true,
+            "year": 3,
+            "semester": 2
+        },
+        {
+            "id": "23CS32P2",
+            "name": "Cryptography and Network Security Lab",
+            "short": "CNS Lab",
+            "description": "Practical implementation of security protocols.",
+            "color": "cns",
+            "hasLab": true,
+            "isLabOnly": true,
+            "year": 3,
+            "semester": 2
+        },
+        {
+            "id": "23CS32SC",
+            "name": "Soft Skills",
+            "short": "Soft Skills",
+            "description": "Communication and interpersonal skills development.",
+            "color": "speaking",
+            "hasLab": false,
+            "isLabOnly": true,
+            "year": 3,
+            "semester": 2
+        },
+        {
+            "id": "23CS32T1",
+            "name": "Machine Learning",
+            "short": "ML",
+            "description": "Core machine learning algorithms and techniques.",
+            "color": "ml",
+            "hasLab": true,
+            "isLabOnly": false,
+            "year": 3,
+            "semester": 2
+        },
+        {
+            "id": "23CS32T2",
+            "name": "Cloud Computing",
+            "short": "CC",
+            "description": "Fundamentals of cloud computing models and services.",
+            "color": "cloud",
+            "hasLab": false,
+            "isLabOnly": false,
+            "year": 3,
+            "semester": 2
+        },
+        {
+            "id": "23CS32T3",
+            "name": "Cryptography & Network Security",
+            "short": "CNS",
+            "description": "Concepts of secure communication and cryptography.",
+            "color": "cns",
+            "hasLab": true,
+            "isLabOnly": false,
+            "year": 3,
+            "semester": 2
+        },
+        {
+            "id": "23CS32E2",
+            "name": "Cyber Security",
+            "short": "CS",
+            "description": "Principles and practices of cyber security.",
+            "color": "cyber",
+            "hasLab": false,
+            "isLabOnly": false,
+            "year": 3,
+            "semester": 2
+        }
+    ]
 }
