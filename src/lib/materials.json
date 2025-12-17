@@ -1,4 +1,3 @@
-
 {
   "materials": [
     {
@@ -18,12 +17,13 @@
       "fileType": "PDF"
     },
     {
-      "id": "mat-trw-syllabus",
+      "id": "mat-tinkercad-lab-manual",
       "subjectId": "23CS32AC",
       "type": "Notes",
-      "title": "TRW & IPR Syllabus",
-      "url": "/materials/trw-ipr-syllabus.png",
-      "fileType": "Image"
+      "title": "Tinkercad Lab Manual – CSE (DS)",
+      "url": "/public/materials/TINKERCAD LAB MANUAL_CSE(DS)_13_08_25 (1).pdf",
+      "fileType": "PDF"
     }
   ]
 }
+
