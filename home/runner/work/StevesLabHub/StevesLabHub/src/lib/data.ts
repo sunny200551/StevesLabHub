@@ -19,39 +19,26 @@ const allYearSubjects = [
 ];
 
 const subjectColorMap: Record<string, Subject['color']> = {
-  'ai-lab': 'ai',
-  'fsd-lab-2': 'fsd',
-  'cn-ip-lab': 'cn',
-  'tinkering-lab': 'tinkering',
-  'spm': 'spm',
-  'cyber-security': 'cyber',
-  'cloud-computing': 'cloud',
-  'ml': 'ml',
-  'tpw-ipr': 'writing',
-  'aw-ps': 'speaking',
-  'cns': 'cns',
-  'ws': 'ws',
-  'sfs': 'sfs',
-  '23A15501': 'speaking', // Communicative English
-  '23A15301': 'cloud', // Chemistry
-  '23A15101': 'ml', // Linear Algebra & Calculus
-  '23A11301': 'tinkering', // Basic Civil & Mechanical Engineering
-  '23A10501': 'fsd', // Introduction to Programming
-  '23A15502': 'speaking', // Communicative English Lab
-  '23A15302': 'cloud', // Chemistry Lab
-  '23A10302': 'tinkering', // Engineering Workshop
-  '23A10502': 'fsd', // Computer Programming Lab
-  '23A15901': 'sfs', // Health and wellness, Yoga and sports
-  '23A25201': 'ai', // Engineering Physics
-  '23A25101': 'ml', // Differential Equations and Vector Calculus
-  '23A22401': 'cn', // Basic Electrical and Electronics Engineering
-  '23A20302': 'tinkering', // Engineering Graphics
-  '23A20501': 'fsd', // Data Structures
-  '23A25202': 'ai', // Engineering Physics Lab
-  '23A20501-it': 'ws', // IT Work Shop - custom id
-  '23A22402': 'cn', // Electrical and Electronics Engineering Workshop
-  '23A20503': 'fsd', // Data Structures -Lab
-  '23A25902': 'sfs', // NSS/NCC /SCOUTS and Guides/ Community Service
+  '23A15501': 'speaking',
+  '23A15301': 'cloud',
+  '23A15101': 'ml',
+  '23A11301': 'tinkering',
+  '23A10501': 'fsd',
+  '23A15502': 'speaking',
+  '23A15302': 'cloud',
+  '23A10302': 'tinkering',
+  '23A10502': 'fsd',
+  '23A15901': 'sfs',
+  '23A25201': 'ai',
+  '23A25101': 'ml',
+  '23A22401': 'cn',
+  '23A20302': 'tinkering',
+  '23A20501': 'fsd',
+  '23A25202': 'ai',
+  '23A20501-it': 'ws',
+  '23A22402': 'cn',
+  '23A20503': 'fsd',
+  '23A25902': 'sfs',
   '23A35105': 'ml',
   '23A35401a': 'spm',
   '23A30503': 'cn',
@@ -88,19 +75,6 @@ const subjectColorMap: Record<string, Subject['color']> = {
 };
 
 const shortTitleMap: Record<string, string> = {
-    'ai-lab': 'AI Lab',
-    'fsd-lab-2': 'FSD-II',
-    'cn-ip-lab': 'CN & IP Lab',
-    'tinkering-lab': 'Tinkering',
-    'spm': 'SPM',
-    'cyber-security': 'Cyber Sec',
-    'cloud-computing': 'Cloud',
-    'ml': 'ML',
-    'tpw-ipr': 'TPW',
-    'aw-ps': 'AWPS',
-    'cns': 'CNS',
-    'ws': 'W.S',
-    'sfs': 'SFS',
     '23A15501': 'English',
     '23A15301': 'Chemistry',
     '23A15101': 'Maths-I',
@@ -157,21 +131,16 @@ const shortTitleMap: Record<string, string> = {
 };
 
 
-const combinedSubjectsRaw = [...allYearSubjects];
 const subjectMap = new Map<string, Subject>();
 
-combinedSubjectsRaw.forEach(s => {
+allYearSubjects.forEach(s => {
     if (!subjectMap.has(s.id)) {
         subjectMap.set(s.id, {
-            id: s.id,
+            ...s,
             title: s.name,
             shortTitle: shortTitleMap[s.id] || s.short || s.name.split(' ')[0],
             description: s.short || '',
             color: subjectColorMap[s.id] || 'default',
-            hasLab: s.hasLab,
-            isLabOnly: s.isLabOnly,
-            year: s.year,
-            semester: s.semester,
         });
     }
 });
@@ -182,14 +151,8 @@ export const subjects: Subject[] = Array.from(subjectMap.values());
 export const programs: Program[] = programsData.programs.map(p => {
       const sub = subjectMap.get(p.subjectId);
       return {
-        id: p.id,
-        title: p.title,
-        language: p.language,
-        tags: p.tags,
-        aim: p.problem,
-        code: p.code,
+        ...p,
         canRunInBrowser: p.language.toLowerCase() === 'html/css/js',
-        subjectId: p.subjectId,
         year: sub?.year || 0,
         semester: sub?.semester || 0,
       };

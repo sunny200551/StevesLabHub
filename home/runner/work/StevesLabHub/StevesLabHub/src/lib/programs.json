@@ -397,6 +397,15 @@
       "url": "https://www.tinkercad.com/things/2cTfQT7fAno-automated-plant-watering-system"
     },
     {
+      "id": "ml-lab-cycle-programs",
+      "title": "ML Lab Cycle Programs",
+      "subjectId": "23CS32P1",
+      "language": "Python",
+      "tags": ["cycle", "all"],
+      "problem": "All cycle programs for Machine Learning Lab.",
+      "code": "This is a placeholder for all ML lab programs combined."
+    },
+    {
       "title": "Door Lock System Simulation",
       "subject": "Tinkering Lab",
       "type": "Link",
