@@ -1,9 +1,10 @@
+
 "use client";
 
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, Code, X, GraduationCap, List, FileText, BookCopy, LayoutDashboard, Gamepad2 } from 'lucide-react';
+import { Menu, Code, X, GraduationCap, List, FileText, BookCopy, LayoutDashboard, Gamepad2, Bot } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from '@/components/ui/sheet';
@@ -13,6 +14,7 @@ const navItems = [
   { href: '/', label: 'Home', icon: GraduationCap },
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { href: '/games', label: 'Games', icon: Gamepad2 },
+  { href: '/ai-tools', label: 'AI Tools', icon: Bot },
 ];
 
 export function Header() {
@@ -30,10 +32,11 @@ export function Header() {
 
   const isDashboardPage = pathname.startsWith('/dashboard');
   const isGamesPage = pathname.startsWith('/games');
+  const isAiToolsPage = pathname.startsWith('/ai-tools');
   const isHomePage = pathname === '/';
 
   const NavLink = ({ href, label, icon: Icon, isMobile = false }: { href: string, label: string, icon: React.ElementType, isMobile?: boolean }) => {
-    const isActive = (pathname === href || (href === '/dashboard' && isDashboardPage));
+    const isActive = (pathname === href || (href === '/dashboard' && isDashboardPage) || (href === '/ai-tools' && isAiToolsPage));
     
     return (
       <Button
