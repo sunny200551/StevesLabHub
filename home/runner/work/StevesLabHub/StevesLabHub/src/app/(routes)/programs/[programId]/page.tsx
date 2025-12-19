@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { programs, subjects } from '@/lib/data';
@@ -23,7 +22,7 @@ export default function ProgramPage({ params }: { params: { programId: string } 
   const subject = subjects.find(s => s.id === program.subjectId);
 
   return (
-    <div className="container py-12">
+    <div className="container py-12 animate-fade-in">
        <Button asChild variant="ghost" className="mb-8">
         <Link href={`/subjects/${program.subjectId}?year=${program.year}&sem=${program.semester}`}>
           <ArrowLeft className="mr-2 h-4 w-4" />

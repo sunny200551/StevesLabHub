@@ -91,10 +91,10 @@ const y3s2_subjects = [
 
 
 export const subjects: Subject[] = [
-    ...year1sem1.subjects,
-    ...year1sem2.subjects,
-    ...year2sem1.subjects,
-    ...year2sem2.subjects,
+    ...year1sem1.subjects.map(s => ({...s, year: 1, semester: 1})),
+    ...year1sem2.subjects.map(s => ({...s, year: 1, semester: 2})),
+    ...year2sem1.subjects.map(s => ({...s, year: 2, semester: 1})),
+    ...year2sem2.subjects.map(s => ({...s, year: 2, semester: 2})),
     ...y3s1_subjects,
     ...y3s2_subjects,
 ];
@@ -103,13 +103,17 @@ const subjectMap = new Map(subjects.map(s => [s.id, s]));
 const processPrograms = (programsArr: any[], subjectId: string): Program[] => {
     const sub = subjectMap.get(subjectId);
     if (!sub) return [];
-    return programsArr.map(p => ({
+    return programsArr.map((p: any) => ({
         ...p,
         subjectId: subjectId,
         year: sub.year,
         semester: sub.semester,
         aim: p.problem,
-        canRunInBrowser: p.language.toLowerCase() === 'html/css/js',
+        canRunInBrowser: p.language?.toLowerCase() === 'html/css/js',
+        // Make sure all required fields are present
+        language: p.language || 'N/A',
+        tags: p.tags || [],
+        code: p.code || 'No code available.'
     }));
 }
 
@@ -127,14 +131,14 @@ export const programs: Program[] = [
     ...processPrograms(y3s2_23CS32E2_prog, '23CS32E2'),
 ];
 
-export const materials: Material[] = materialsData.materials.map(m => {
+export const materials: Material[] = materialsData.materials.map((m: any) => {
     const sub = subjectMap.get(m.subjectId);
     return {
         ...m,
         year: sub?.year ?? 0,
         semester: sub?.semester ?? 0,
     };
-}).filter(m => m.year !== 0);
+}).filter((m: any) => m.year !== 0);
 
 // These are now part of materials.json
 export const notes: Note[] = [];
