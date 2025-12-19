@@ -10,7 +10,7 @@ type SubjectCardProps = {
   programCount: number;
 };
 
-const iconMap: Record<Subject['color'], React.ReactNode> = {
+const iconMap: Record<string, React.ReactNode> = {
   ai: <Bot size={28} />,
   fsd: <Code size={28} />,
   cn: <Network size={28} />,
@@ -27,7 +27,7 @@ const iconMap: Record<Subject['color'], React.ReactNode> = {
   default: <FileQuestion size={28} />,
 };
 
-const colorClasses: Record<Subject['color'], string> = {
+const colorClasses: Record<string, string> = {
   ai: 'from-subject-ai/20 to-subject-ai/5 border-subject-ai/30 hover:border-subject-ai/60 text-subject-ai dark:hover:shadow-glow-ai',
   fsd: 'from-subject-fsd/20 to-subject-fsd/5 border-subject-fsd/30 hover:border-subject-fsd/60 text-subject-fsd dark:hover:shadow-glow-fsd',
   cn: 'from-subject-cn/20 to-subject-cn/5 border-subject-cn/30 hover:border-subject-cn/60 text-subject-cn dark:hover:shadow-glow-cn',
@@ -44,7 +44,7 @@ const colorClasses: Record<Subject['color'], string> = {
   default: 'from-slate-500/20 to-slate-500/5 border-slate-500/30 hover:border-slate-500/60 text-slate-500',
 };
 
-const iconBgClasses: Record<Subject['color'], string> = {
+const iconBgClasses: Record<string, string> = {
     ai: 'bg-subject-ai/10',
     fsd: 'bg-subject-fsd/10',
     cn: 'bg-subject-cn/10',
@@ -63,17 +63,19 @@ const iconBgClasses: Record<Subject['color'], string> = {
 
 
 export function SubjectCard({ subject, programCount }: SubjectCardProps) {
+  const safeColor = subject.color || 'default';
+  
   return (
     <Link 
       href={`/subjects/${subject.id}?year=${subject.year}&sem=${subject.semester}`}
       className={cn(
         "group relative flex flex-col w-full rounded-2xl border-2 bg-gradient-to-br p-5 text-left transition-all duration-300 hover:-translate-y-1",
-        colorClasses[subject.color]
+        colorClasses[safeColor]
       )}
     >
         <div className="flex justify-between items-start">
-            <div className={cn("flex h-12 w-12 items-center justify-center rounded-xl", iconBgClasses[subject.color])}>
-                {iconMap[subject.color]}
+            <div className={cn("flex h-12 w-12 items-center justify-center rounded-xl", iconBgClasses[safeColor])}>
+                {iconMap[safeColor]}
             </div>
             <div className='flex items-center gap-2'>
                 <Badge variant="outline" className="border-current/30 bg-current/10 text-current">R-23</Badge>

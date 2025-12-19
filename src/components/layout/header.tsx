@@ -4,7 +4,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, Code, X, GraduationCap, List, FileText, BookCopy, LayoutDashboard, Gamepad2, Bot, Book, FileQuestion, StickyNote } from 'lucide-react';
+import { Menu, Code, X, GraduationCap, LayoutDashboard, Gamepad2, Book, FileQuestion, StickyNote } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from '@/components/ui/sheet';
