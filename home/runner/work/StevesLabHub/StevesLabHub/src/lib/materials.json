@@ -128,6 +128,102 @@
       "title": "Cyber Security Syllabus",
       "url": "/syllabi/cyber-security-syllabus.pdf",
       "fileType": "PDF"
+    },
+    {
+      "id": "syllabus-iqta",
+      "subjectId": "23ES31T1",
+      "type": "Syllabus",
+      "title": "Introduction to Quantum Technologies and Applications – Syllabus",
+      "url": "/materials/23ES31T1-INTRODUCTION_TO_QUANTUM_TECHNOLOGIES_AND_APPLICATIONS.pdf",
+      "fileType": "PDF"
+    },
+    {
+      "id": "syllabus-dwdm",
+      "subjectId": "23CS31E4",
+      "type": "Syllabus",
+      "title": "Data Mining & Data Warehousing – Syllabus",
+      "url": "/materials/23CS31E4-DATA_MINING_&_DATA_WAREHOUSING.pdf",
+      "fileType": "PDF"
+    },
+    {
+      "id": "syllabus-ai-theory",
+      "subjectId": "23CS31T1",
+      "type": "Syllabus",
+      "title": "Artificial Intelligence – Syllabus",
+      "url": "/materials/23CS31T1-ARTIFICIAL_INTELLIGENCE.pdf",
+      "fileType": "PDF"
+    },
+    {
+      "id": "syllabus-atcd",
+      "subjectId": "23CS31T3",
+      "type": "Syllabus",
+      "title": "Automata Theory and Compiler Design – Syllabus",
+      "url": "/materials/23CS31T3-AUTOMATA_THEORY_AND_COMPILER_DESIGN.pdf",
+      "fileType": "PDF"
+    },
+    {
+      "id": "syllabus-cnip",
+      "subjectId": "23CS31T2",
+      "type": "Syllabus",
+      "title": "Computer Networks & Internet Protocols – Syllabus",
+      "url": "/materials/23CS31T2-COMPUTER_NETWORKS_&_INTERNET_PROTOCOLS.pdf",
+      "fileType": "PDF"
+    },
+    {
+      "id": "syllabus-trw-ipr",
+      "subjectId": "23CS32AC",
+      "type": "Syllabus",
+      "title": "Technical Report Writing & IPR – Syllabus",
+      "url": "/materials/23CS32AC-TECHNICAL_REPORT_WRITING_&_IPR.pdf",
+      "fileType": "PDF"
+    },
+    {
+      "id": "syllabus-ml-lab",
+      "subjectId": "23CS32P1",
+      "type": "Syllabus",
+      "title": "Machine Learning Lab – Syllabus",
+      "url": "/materials/23CS32P1-MACHINE_LEARNING_LAB.pdf",
+      "fileType": "PDF"
+    },
+    {
+      "id": "syllabus-cns-lab",
+      "subjectId": "23CS32P2",
+      "type": "Syllabus",
+      "title": "Cryptography & Network Security Lab – Syllabus",
+      "url": "/materials/23CS32P2-CRYPTOGRAPHY_AND_NETWORK_SECURITY_LAB.pdf",
+      "fileType": "PDF"
+    },
+    {
+      "id": "syllabus-soft-skills",
+      "subjectId": "23CS32SC",
+      "type": "Syllabus",
+      "title": "Soft Skills – Syllabus",
+      "url": "/materials/23CS32SC-SOFT_SKILLS.pdf",
+      "fileType": "PDF"
+    },
+    {
+      "id": "syllabus-ml-theory",
+      "subjectId": "23CS32T1",
+      "type": "Syllabus",
+      "title": "Machine Learning – Syllabus",
+      "url": "/materials/23CS32T1-MACHINE_LEARNING.pdf",
+      "fileType": "PDF"
+    },
+    {
+      "id": "syllabus-cloud",
+      "subjectId": "23CS32T2",
+      "type": "Syllabus",
+      "title": "Cloud Computing – Syllabus",
+      "url": "/materials/23CS32T2-CLOUD_COMPUTING.pdf",
+      "fileType": "PDF"
+    },
+    {
+      "id": "syllabus-cns-theory",
+      "subjectId": "23CS32T3",
+      "type": "Syllabus",
+      "title": "Cryptography & Network Security – Syllabus",
+      "url": "/materials/23CS32T3-CRYPTOGRAPHY_AND_NETWORK_SECURITY.pdf",
+      "fileType": "PDF"
     }
   ]
 }
