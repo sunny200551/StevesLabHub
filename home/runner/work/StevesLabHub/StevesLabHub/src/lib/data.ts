@@ -1,5 +1,5 @@
 
-import type { Subject, Program, Material } from './types';
+import type { Subject, Program, Material, Syllabus, Note } from './types';
 
 // --- New Structure Data ---
 // Year 3, Semester 1
@@ -383,3 +383,8 @@ export const materials: Material[] = materialsData.materials.map((m: any) => {
         semester: sub?.semester ?? 0,
     };
 }).filter((m: any) => m.year !== 0);
+
+export const notes: Note[] = [];
+export const syllabi: Syllabus[] = [];
+
+    
