@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import type { Subject } from '@/lib/types';
 import { cn } from '@/lib/utils';
-import { Bot, Code, Network, Wrench, BookOpen, ShieldCheck, Cloud, BrainCircuit, PenTool, Mic, KeyRound, Presentation, Hand, FileQuestion } from 'lucide-react';
+import { Bot, Code, Network, Wrench, BookOpen, ShieldCheck, Cloud, BrainCircuit, PenTool, Mic, KeyRound, Presentation, Hand, FileQuestion, Cpu, Binary, Layers } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 type SubjectCardProps = {
@@ -24,6 +24,9 @@ const iconMap: Record<string, React.ReactNode> = {
   cns: <KeyRound size={28} />,
   ws: <Presentation size={28} />,
   sfs: <Hand size={28} />,
+  mpmc: <Cpu size={28} />,
+  atcd: <Binary size={28} />,
+  ooad: <Layers size={28} />,
   default: <FileQuestion size={28} />,
 };
 
@@ -41,6 +44,9 @@ const colorClasses: Record<string, string> = {
   cns: 'from-pink-500/20 to-pink-500/5 border-pink-500/30 hover:border-pink-500/60 text-pink-500 dark:hover:shadow-glow-cns',
   ws: 'from-indigo-500/20 to-indigo-500/5 border-indigo-500/30 hover:border-indigo-500/60 text-indigo-500 dark:hover:shadow-glow-ws',
   sfs: 'from-teal-500/20 to-teal-500/5 border-teal-500/30 hover:border-teal-500/60 text-teal-500 dark:hover:shadow-glow-sfs',
+  mpmc: 'from-rose-500/20 to-rose-500/5 border-rose-500/30 hover:border-rose-500/60 text-rose-500 dark:hover:shadow-glow-mpmc',
+  atcd: 'from-sky-500/20 to-sky-500/5 border-sky-500/30 hover:border-sky-500/60 text-sky-500 dark:hover:shadow-glow-atcd',
+  ooad: 'from-amber-500/20 to-amber-500/5 border-amber-500/30 hover:border-amber-500/60 text-amber-500 dark:hover:shadow-glow-ooad',
   default: 'from-slate-500/20 to-slate-500/5 border-slate-500/30 hover:border-slate-500/60 text-slate-500',
 };
 
@@ -58,6 +64,9 @@ const iconBgClasses: Record<string, string> = {
     cns: 'bg-pink-500/10',
     ws: 'bg-indigo-500/10',
     sfs: 'bg-teal-500/10',
+    mpmc: 'bg-rose-500/10',
+    atcd: 'bg-sky-500/10',
+    ooad: 'bg-amber-500/10',
     default: 'bg-slate-500/10',
 };
 

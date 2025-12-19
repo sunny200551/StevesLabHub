@@ -1,4 +1,3 @@
-
 export interface Program {
   id: string;
   title: string;
@@ -18,7 +17,7 @@ export interface Subject {
   title: string;
   shortTitle: string;
   description: string;
-  color: 'ai' | 'fsd' | 'cn' | 'tinkering' | 'spm' | 'cyber' | 'cloud' | 'ml' | 'writing' | 'speaking' | 'cns' | 'ws' | 'sfs' | 'default';
+  color: 'ai' | 'fsd' | 'cn' | 'tinkering' | 'spm' | 'cyber' | 'cloud' | 'ml' | 'writing' | 'speaking' | 'cns' | 'ws' | 'sfs' | 'default' | 'mpmc' | 'atcd' | 'ooad';
   hasLab: boolean;
   isLabOnly: boolean;
   year: number;

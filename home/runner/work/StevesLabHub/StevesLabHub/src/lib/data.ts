@@ -80,10 +80,10 @@ const allSubjectsData: { subject: Subject; programs: Omit<Program, 'subjectId' |
 
 const subjectColorMap: Record<string, Subject['color']> = {
     '23AD31SC': 'fsd', '23CS31P1': 'ai', '23CS31P2': 'cn', '23ES31P1': 'tinkering',
-    '23CS31T1': 'ai', '23CS31T2': 'cn', '23CS31T3': 'fsd', '23CS31E4': 'spm', '23ES31T1': 'ai',
+    '23CS31T1': 'ai', '23CS31T2': 'cn', '23CS31T3': 'atcd', '23CS31E4': 'spm', '23ES31T1': 'default',
     '23CS32AC': 'writing', '23CS32P1': 'ml', '23CS32P2': 'cns', '23CS32SC': 'speaking',
     '23CS32T1': 'ml', '23CS32T2': 'cloud', '23CS32T3': 'cns', '23CS32E2': 'cyber',
-    '23CS31E1': 'default', '23CS31E2': 'default', '23CS31E3': 'default', 
+    '23CS31E1': 'ooad', '23CS31E2': 'default', '23CS31E3': 'mpmc', 
     '23CS31O1': 'default', '23CS31O2': 'ai'
 };
 
