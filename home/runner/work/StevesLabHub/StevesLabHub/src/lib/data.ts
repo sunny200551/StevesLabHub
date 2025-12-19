@@ -1,7 +1,6 @@
 
 import type { Subject, Program, Material, Syllabus, Note } from './types';
 
-// --- New Structure Data ---
 // Year 3, Semester 1
 import y3s1_23AD31SC_sub from './data/year-3/sem-1/23AD31SC/subject.json';
 import y3s1_23AD31SC_prog from './data/year-3/sem-1/23AD31SC/programs.json';
