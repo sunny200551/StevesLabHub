@@ -98,7 +98,7 @@ export function SubjectPageClient({ subject, subjectPrograms, subjectMaterials }
         </section>
       )}
 
-      {(!subject.hasLab && subjectMaterials.length === 0) && (subjectPrograms.length === 0) && (
+      {(!subject.hasLab || subjectPrograms.length === 0) && (subjectMaterials.length === 0) && (
          <div className="text-center py-16 text-muted-foreground bg-card rounded-xl">
           <p className="text-lg font-semibold">No content available for this subject yet.</p>
           <p>Check back later for updates or explore other subjects.</p>

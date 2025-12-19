@@ -55,22 +55,20 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
   const isDownloadable = material.fileType === 'Document';
   const assetUrl = getAssetPath(material.url);
 
-  const handleCardClick = () => {
+  const handleCardClick = (e: React.MouseEvent) => {
+    e.preventDefault();
     if (canBeViewed) {
       setIsViewerOpen(true);
     } else if (isExternalLink) {
       window.open(assetUrl, '_blank', 'noopener,noreferrer');
-    } else if (isDownloadable) {
-      // Programmatically trigger download
+    } else {
+      // For downloadables or other types, trigger download via a link
       const link = document.createElement('a');
       link.href = assetUrl;
       link.download = material.title || 'download';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-    } else {
-        // Fallback for syllabus or other types that are just links to files
-        window.open(assetUrl, '_blank', 'noopener,noreferrer');
     }
   };
   
@@ -110,7 +108,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
         )}
         <div className="flex-grow" />
         
-        <Button size="sm" className="mt-4 w-full z-10" onClick={(e) => { e.stopPropagation(); handleCardClick(); }}>
+        <Button size="sm" className="mt-4 w-full z-10" onClick={handleCardClick}>
             {getButtonContent()}
         </Button>
       </div>
