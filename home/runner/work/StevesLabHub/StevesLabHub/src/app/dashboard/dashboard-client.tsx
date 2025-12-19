@@ -2,7 +2,7 @@
 "use client"
 
 import React, { useState, useMemo, useEffect } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { SubjectsSection } from '@/components/sections/subjects-section';
 import { AllProgramsSection } from '@/components/sections/all-programs-section';
 import { NotesSection } from '@/components/sections/notes-section';
@@ -13,20 +13,15 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 
 export function DashboardClient() {
   const searchParams = useSearchParams();
-  const router = useRouter();
 
   const [activeYear, setActiveYear] = useState(searchParams.get('year') || '3');
   const [activeSem, setActiveSem] = useState(searchParams.get('sem') || '1');
 
   useEffect(() => {
-    // The initial state is set from searchParams.
-    // We can update the URL on the client-side to keep it in sync with state changes,
-    // without causing a full page reload.
-    const currentParams = new URLSearchParams(window.location.search);
-    if (currentParams.get('year') !== activeYear || currentParams.get('sem') !== activeSem) {
-      router.replace(`?year=${activeYear}&sem=${activeSem}#`, { scroll: false });
-    }
-  }, [activeYear, activeSem, router]);
+    // This effect ensures the component is interactive and uses client-side hooks,
+    // but we won't push URL changes in a static build to avoid issues.
+    // The initial state is already set from searchParams.
+  }, [activeYear, activeSem]);
 
   const filteredData = useMemo(() => {
     const year = parseInt(activeYear);

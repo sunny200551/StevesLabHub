@@ -3,10 +3,8 @@
     "id": "23CS31P1",
     "name": "Artificial Intelligence Lab",
     "short": "Practical implementation of AI algorithms.",
-    "shortTitle": "AI Lab",
     "hasLab": true,
     "isLabOnly": true,
-    "color": "ai",
     "year": 3,
     "semester": 1
 }

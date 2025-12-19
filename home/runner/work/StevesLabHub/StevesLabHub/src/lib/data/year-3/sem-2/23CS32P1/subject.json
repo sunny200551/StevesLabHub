@@ -3,10 +3,8 @@
     "id": "23CS32P1",
     "name": "Machine Learning Lab",
     "short": "Implementation of ML models and algorithms.",
-    "shortTitle": "ML Lab",
     "hasLab": true,
     "isLabOnly": true,
-    "color": "ml",
     "year": 3,
     "semester": 2
 }

@@ -3,10 +3,8 @@
     "id": "23CS31E4",
     "name": "Data Mining & Data Warehousing",
     "short": "Techniques for discovering patterns in large datasets.",
-    "shortTitle": "DWDM",
     "hasLab": false,
     "isLabOnly": false,
-    "color": "spm",
     "year": 3,
     "semester": 1
 }

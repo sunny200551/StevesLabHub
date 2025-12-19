@@ -51,7 +51,7 @@ import y3s2_23CS32T3_prog from './data/year-3/sem-2/23CS32T3/programs.json';
 import y3s2_23CS32E2_sub from './data/year-3/sem-2/23CS32E2/subject.json';
 import y3s2_23CS32E2_prog from './data/year-3/sem-2/23CS32E2/programs.json';
 
-const allSubjectsData: { subject: Subject; programs: Program[] }[] = [
+const allSubjectsData: { subject: Subject; programs: Omit<Program, 'subjectId' | 'year' | 'semester'>[] }[] = [
     // --- Year 3, Semester 1 ---
     { subject: y3s1_23AD31SC_sub, programs: y3s1_23AD31SC_prog },
     { subject: y3s1_23CS31E1_sub, programs: y3s1_23CS31E1_prog },
@@ -78,6 +78,23 @@ const allSubjectsData: { subject: Subject; programs: Program[] }[] = [
     { subject: y3s2_23CS32E2_sub, programs: y3s2_23CS32E2_prog },
 ];
 
+const subjectColorMap: Record<string, Subject['color']> = {
+    '23AD31SC': 'fsd', '23CS31P1': 'ai', '23CS31P2': 'cn', '23ES31P1': 'tinkering',
+    '23CS31T1': 'ai', '23CS31T2': 'cn', '23CS31T3': 'fsd', '23CS31E4': 'spm', '23ES31T1': 'ai',
+    '23CS32AC': 'writing', '23CS32P1': 'ml', '23CS32P2': 'cns', '23CS32SC': 'speaking',
+    '23CS32T1': 'ml', '23CS32T2': 'cloud', '23CS32T3': 'cns', '23CS32E2': 'cyber',
+    '23CS31E1': 'default', '23CS31E2': 'default', '23CS31E3': 'default', 
+    '23CS31O1': 'default', '23CS31O2': 'ai'
+};
+
+const shortTitleMap: Record<string, string> = {
+    '23AD31SC': 'FSD-II', '23CS31E1': 'OOAD', '23CS31E2': 'Soft Computing', '23CS31E3': 'MPMC', '23CS31E4': 'DWDM',
+    '23CS31O1': 'Java', '23CS31O2': 'Intro AI', '23CS31P1': 'AI Lab', '23CS31P2': 'CN & IP Lab', '23CS31T1': 'AI',
+    '23CS31T2': 'CN & IP', '23CS31T3': 'ATCD', '23ES31P1': 'Tinkering', '23ES31T1': 'IQTA',
+    '23CS32AC': 'TRW & IPR', '23CS32P1': 'ML Lab', '23CS32P2': 'CNS Lab', '23CS32SC': 'Soft Skills', '23CS32T1': 'ML',
+    '23CS32T2': 'CC', '23CS32T3': 'CNS', '23CS32E2': 'CS'
+};
+
 let processedSubjects: Subject[] = [];
 let processedPrograms: Program[] = [];
 
@@ -87,7 +104,9 @@ allSubjectsData.forEach(data => {
     const subject: Subject = {
         ...subjectInfo,
         title: subjectInfo.name,
-        description: subjectInfo.short
+        shortTitle: shortTitleMap[subjectInfo.id] || subjectInfo.short || subjectInfo.name.split(' ')[0],
+        description: subjectInfo.short,
+        color: subjectColorMap[subjectInfo.id] || 'default'
     };
     processedSubjects.push(subject);
 

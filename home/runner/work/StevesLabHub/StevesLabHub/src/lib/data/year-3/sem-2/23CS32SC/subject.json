@@ -3,10 +3,8 @@
     "id": "23CS32SC",
     "name": "Soft Skills",
     "short": "Communication and interpersonal skills development.",
-    "shortTitle": "Soft Skills",
     "hasLab": false,
     "isLabOnly": true,
-    "color": "speaking",
     "year": 3,
     "semester": 2
 }
