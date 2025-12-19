@@ -9,7 +9,6 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from '@/components/ui/dialog';
 import { useState } from 'react';
 import { X } from 'lucide-react';
-import Link from 'next/link';
 
 type MaterialCardProps = {
   material: Material;
@@ -41,19 +40,19 @@ const subjectColorClasses: Record<string, string> = {
   cns: "bg-pink-500/10 text-pink-500 border-pink-500/20",
   ws: "bg-indigo-500/10 text-indigo-500 border-indigo-500/20",
   sfs: "bg-teal-500/10 text-teal-500 border-teal-500/20",
+  mpmc: 'bg-rose-500/10 text-rose-500 border-rose-500/20',
+  atcd: 'bg-sky-500/10 text-sky-500 border-sky-500/20',
+  ooad: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
   default: "bg-slate-500/10 text-slate-500 border-slate-500/20",
-  mpmc: "bg-rose-500/10 text-rose-500 border-rose-500/20",
-  atcd: "bg-sky-500/10 text-sky-500 border-sky-500/20",
-  ooad: "bg-amber-500/10 text-amber-500 border-amber-500/20",
 };
 
 export function MaterialCard({ material, subject }: MaterialCardProps) {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
-  // Fallback to 'Document' config if type is unknown to prevent crash
   const config = fileTypeConfig[material.type] || fileTypeConfig.Document;
   const canBeViewed = material.fileType === 'PDF' || material.fileType === 'Image';
   const isExternalLink = material.fileType === 'Link';
+  const isDownloadable = !canBeViewed && !isExternalLink;
   const assetUrl = getAssetPath(material.url);
 
   const handleCardClick = () => {
@@ -61,8 +60,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
       setIsViewerOpen(true);
     } else if (isExternalLink) {
       window.open(assetUrl, '_blank', 'noopener,noreferrer');
-    } else {
-       // For downloadable files, trigger download
+    } else if (isDownloadable) {
        const link = document.createElement('a');
        link.href = assetUrl;
        link.download = material.title || 'download';
