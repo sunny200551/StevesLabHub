@@ -3,7 +3,7 @@
 
 import type { Material, Subject } from '@/lib/types';
 import { cn, getAssetPath } from '@/lib/utils';
-import { FileText, Download, Image as ImageIcon, Link as LinkIcon } from 'lucide-react';
+import { FileText, Download, Image as ImageIcon, Link as LinkIcon, View } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from '@/components/ui/dialog';
@@ -15,7 +15,7 @@ type MaterialCardProps = {
   subject?: Subject;
 };
 
-const fileTypeConfig: Record<Material['type'], { icon: React.ReactNode; color: string }> = {
+const fileTypeConfig: Record<string, { icon: React.ReactNode; color: string }> = {
   PDF: { icon: <FileText />, color: 'bg-destructive/10 text-destructive' },
   Image: { icon: <ImageIcon />, color: 'bg-sky-500/10 text-sky-500' },
   Link: { icon: <LinkIcon />, color: 'bg-primary/10 text-primary' },
@@ -24,6 +24,7 @@ const fileTypeConfig: Record<Material['type'], { icon: React.ReactNode; color: s
   'Assignment': { icon: <FileText />, color: 'bg-orange-500/10 text-orange-500' },
   'Notes': { icon: <FileText />, color: 'bg-blue-500/10 text-blue-500' },
   'Syllabus': { icon: <FileText />, color: 'bg-indigo-500/10 text-indigo-500' },
+  default: { icon: <FileText />, color: 'bg-slate-500/10 text-slate-500' }
 };
 
 const subjectColorClasses: Record<string, string> = {
@@ -49,30 +50,43 @@ const subjectColorClasses: Record<string, string> = {
 export function MaterialCard({ material, subject }: MaterialCardProps) {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
-  const config = fileTypeConfig[material.type] || fileTypeConfig.Document;
+  const config = fileTypeConfig[material.type] || fileTypeConfig.default;
   const canBeViewed = material.fileType === 'PDF' || material.fileType === 'Image';
-  const isExternalLink = material.fileType === 'Link';
-  const isDownloadable = !canBeViewed && !isExternalLink;
+  const isExternalLink = material.type === 'Link';
   const assetUrl = getAssetPath(material.url);
 
-  const handleCardClick = () => {
+  const handleCardClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     if (canBeViewed) {
       setIsViewerOpen(true);
     } else if (isExternalLink) {
       window.open(assetUrl, '_blank', 'noopener,noreferrer');
-    } else if (isDownloadable) {
-       const link = document.createElement('a');
-       link.href = assetUrl;
-       link.download = material.title || 'download';
-       document.body.appendChild(link);
-       link.click();
-       document.body.removeChild(link);
+    } else {
+      // Trigger download for other file types
+      const link = document.createElement('a');
+      link.href = assetUrl;
+      link.download = material.title || 'download';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
+  };
+
+  const getButtonContent = () => {
+    if (canBeViewed) {
+      return <><View className="mr-2 h-4 w-4" /> View</>;
+    }
+    if (isExternalLink) {
+      return <><LinkIcon className="mr-2 h-4 w-4" /> Open Link</>;
+    }
+    return <><Download className="mr-2 h-4 w-4" /> Download</>;
   };
 
   return (
     <>
-      <div 
+      <div
         onClick={handleCardClick}
         className={cn(
           "group block rounded-xl border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col cursor-pointer"
@@ -96,8 +110,8 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
         )}
         <div className="flex-grow" />
         
-        <Button onClick={(e) => { e.stopPropagation(); handleCardClick(); }} size="sm" className="mt-4 w-full z-10">
-            {canBeViewed ? 'View' : (isExternalLink ? <><LinkIcon className="mr-2 h-4 w-4" /> Open Link</> : <><Download className="mr-2 h-4 w-4" /> Download</>)}
+        <Button onClick={handleCardClick} size="sm" className="mt-4 w-full z-10">
+            {getButtonContent()}
         </Button>
       </div>
 
