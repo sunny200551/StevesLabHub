@@ -1,12 +1,34 @@
-
 {
   "materials": [
     {
+<<<<<<< HEAD
+=======
+      "id": "mat-ai-assign-1",
+      "subjectId": "ai-lab",
+      "type": "Assignment",
+      "title": "AI Assignment 1: Search Algorithms",
+      "url": "/materials/ai-assignment-1.pdf",
+      "fileType": "PDF"
+    },
+    {
+      "id": "mat-cn-mid-1-2023",
+      "subjectId": "cn-ip-lab",
+      "type": "Question Paper",
+      "title": "CN & IP Mid Term 1 Question Paper (2023)",
+      "url": "/materials/cn-mid-1-2023.pdf",
+      "fileType": "PDF"
+    },
+    {
+>>>>>>> ce430c785e46d4c5658802902e6956a39489787c
       "id": "mat-trw-ipr-tinkercad-manual",
       "subjectId": "23CS32AC",
       "type": "Notes",
       "title": "Tinkercad Lab Manual – TRW & IPR",
+<<<<<<< HEAD
       "url": "/materials/trw-ipr-tinkercad-manual.pdf",
+=======
+      "url": "/materials/TINKERCAD%20LAB%20MANUAL_CSE(DS)_13_08_25%20(1).pdf",
+>>>>>>> ce430c785e46d4c5658802902e6956a39489787c
       "fileType": "PDF"
     },
     {
@@ -14,7 +36,11 @@
       "subjectId": "23CS31E4",
       "type": "Assignment",
       "title": "DW&M All Units Assignment Questions (2025–26) – R23",
+<<<<<<< HEAD
       "url": "/materials/dwm-assignments-r23.pdf",
+=======
+      "url": "/materials/DW%26M%20ALL%20UNITS%20%20ASSIGNMENT%20QUESTIONS(2025-26)%20R23.pdf",
+>>>>>>> ce430c785e46d4c5658802902e6956a39489787c
       "fileType": "PDF"
     },
     {
@@ -22,6 +48,7 @@
       "subjectId": "23CS31E4",
       "type": "Question Paper",
       "title": "DW&M (R23) Model Paper (2025–26)",
+<<<<<<< HEAD
       "url": "/materials/dwm-model-paper-r23.pdf",
       "fileType": "PDF"
     },
@@ -127,6 +154,9 @@
       "type": "Syllabus",
       "title": "Cyber Security Syllabus",
       "url": "/syllabi/cyber-security-syllabus.pdf",
+=======
+      "url": "/materials/DW%26M(R23)%20MODEL%20PAPER%202025-26.pdf",
+>>>>>>> ce430c785e46d4c5658802902e6956a39489787c
       "fileType": "PDF"
     }
   ]
