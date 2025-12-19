@@ -1,4 +1,3 @@
-
 "use client";
 
 import type { Material, Subject } from '@/lib/types';
@@ -47,21 +46,26 @@ const subjectColorClasses: Record<string, string> = {
 export function MaterialCard({ material, subject }: MaterialCardProps) {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
-  // Fallback to 'Document' config if type is unknown
   const config = fileTypeConfig[material.type] || fileTypeConfig.Document;
   const canBeViewed = material.fileType === 'PDF' || material.fileType === 'Image';
   const assetUrl = getAssetPath(material.url);
 
   const handleAction = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
     if (canBeViewed) {
+      e.preventDefault();
+      e.stopPropagation();
       setIsViewerOpen(true);
     }
   };
 
-  const content = (
-    <div className="group block rounded-xl border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col">
+  const CardContent = (
+    <div
+      onClick={canBeViewed ? handleAction : undefined}
+      className={cn(
+        "group block rounded-xl border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col",
+        canBeViewed && "cursor-pointer"
+      )}
+    >
       <div className="flex items-start justify-between">
         <div className={cn("flex h-12 w-12 items-center justify-center rounded-lg", config.color)}>
           {config.icon}
@@ -97,13 +101,11 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
 
   return (
     <>
-       <div onClick={canBeViewed ? handleAction : undefined} className={cn("h-full", canBeViewed && "cursor-pointer")}>
-        {canBeViewed ? content : (
-            <a href={assetUrl} target={material.fileType === 'Link' ? '_blank' : '_self'} rel="noopener noreferrer" className="h-full block">
-              {content}
-            </a>
-        )}
-      </div>
+      {canBeViewed ? CardContent : (
+        <a href={assetUrl} target="_blank" rel="noopener noreferrer" className="h-full block no-underline">
+          {CardContent}
+        </a>
+      )}
 
       {canBeViewed && (
         <Dialog open={isViewerOpen} onOpenChange={setIsViewerOpen}>
