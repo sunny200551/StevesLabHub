@@ -55,16 +55,13 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
   const isExternalLink = material.type === 'Link';
   const assetUrl = getAssetPath(material.url);
 
-  const handleCardClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-
+  const handleCardClick = () => {
     if (canBeViewed) {
       setIsViewerOpen(true);
     } else if (isExternalLink) {
       window.open(assetUrl, '_blank', 'noopener,noreferrer');
     } else {
-      // Trigger download for other file types
+      // Programmatically trigger download for other file types
       const link = document.createElement('a');
       link.href = assetUrl;
       link.download = material.title || 'download';
@@ -73,7 +70,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
       document.body.removeChild(link);
     }
   };
-
+  
   const getButtonContent = () => {
     if (canBeViewed) {
       return <><View className="mr-2 h-4 w-4" /> View</>;
@@ -110,7 +107,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
         )}
         <div className="flex-grow" />
         
-        <Button onClick={handleCardClick} size="sm" className="mt-4 w-full z-10">
+        <Button size="sm" className="mt-4 w-full z-10">
             {getButtonContent()}
         </Button>
       </div>
