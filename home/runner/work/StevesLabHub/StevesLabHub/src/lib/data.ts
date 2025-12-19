@@ -3,130 +3,128 @@ import type { Subject, Program, Note, Syllabus, Material } from './types';
 import programsData from './programs.json';
 import materialsData from './materials.json';
 
+// --- Data from old structure (year-X/sem-Y.json) ---
+// Note: We are moving to a folder-per-subject model, but will keep these for any subjects that haven't been migrated.
 import year1sem1 from './data/year-1/sem-1.json';
 import year1sem2 from './data/year-1/sem-2.json';
 import year2sem1 from './data/year-2/sem-1.json';
 import year2sem2 from './data/year-2/sem-2.json';
-import year3sem1 from './data/year-3/sem-1.json';
-import year3sem2 from './data/year-3/sem-2.json';
 
-const allYearSubjects = [
-  ...year1sem1.subjects,
-  ...year1sem2.subjects,
-  ...year2sem1.subjects,
-  ...year2sem2.subjects,
-  ...year3sem1.subjects,
-  ...year3sem2.subjects
-];
+// --- New Structure Data ---
+// Year 3, Semester 1
+import y3s1_23AD31SC_sub from './data/year-3/sem-1/23AD31SC/subject.json';
+import y3s1_23AD31SC_prog from './data/year-3/sem-1/23AD31SC/programs.json';
+import y3s1_23CS31P1_sub from './data/year-3/sem-1/23CS31P1/subject.json';
+import y3s1_23CS31P1_prog from './data/year-3/sem-1/23CS31P1/programs.json';
+import y3s1_23CS31P2_sub from './data/year-3/sem-1/23CS31P2/subject.json';
+import y3s1_23CS31P2_prog from './data/year-3/sem-1/23CS31P2/programs.json';
+import y3s1_23ES31P1_sub from './data/year-3/sem-1/23ES31P1/subject.json';
+import y3s1_23ES31P1_prog from './data/year-3/sem-1/23ES31P1/programs.json';
+import y3s1_23CS31T1_sub from './data/year-3/sem-1/23CS31T1/subject.json';
+import y3s1_23CS31T2_sub from './data/year-3/sem-1/23CS31T2/subject.json';
+import y3s1_23CS31T3_sub from './data/year-3/sem-1/23CS31T3/subject.json';
+import y3s1_23CS31E4_sub from './data/year-3/sem-1/23CS31E4/subject.json';
+import y3s1_23ES31T1_sub from './data/year-3/sem-1/23ES31T1/subject.json';
 
-const subjectMap = new Map<string, Subject>();
+// Year 3, Semester 2
+import y3s2_23CS32AC_sub from './data/year-3/sem-2/23CS32AC/subject.json';
+import y3s2_23CS32P1_sub from './data/year-3/sem-2/23CS32P1/subject.json';
+import y3s2_23CS32P1_prog from './data/year-3/sem-2/23CS32P1/programs.json';
+import y3s2_23CS32P2_sub from './data/year-3/sem-2/23CS32P2/subject.json';
+import y3s2_23CS32SC_sub from './data/year-3/sem-2/23CS32SC/subject.json';
+import y3s2_23CS32T1_sub from './data/year-3/sem-2/23CS32T1/subject.json';
+import y3s2_23CS32T2_sub from './data/year-3/sem-2/23CS32T2/subject.json';
+import y3s2_23CS32T3_sub from './data/year-3/sem-2/23CS32T3/subject.json';
+import y3s2_23CS32E2_sub from './data/year-3/sem-2/23CS32E2/subject.json';
 
-allYearSubjects.forEach(s => {
-  if (!subjectMap.has(s.id)) {
-    subjectMap.set(s.id, {
-      id: s.id,
-      title: s.name,
-      shortTitle: s.short || s.name.split(' ')[0],
-      description: s.description || '',
-      color: s.color || 'default',
-      hasLab: s.hasLab,
-      isLabOnly: s.isLabOnly,
-      year: s.year,
-      semester: s.semester
-    } as Subject);
-  }
+const subjectColorMap: Record<string, Subject['color']> = {
+    '23AD31SC': 'fsd', '23CS31P1': 'ai', '23CS31P2': 'cn', '23ES31P1': 'tinkering',
+    '23CS31T1': 'ai', '23CS31T2': 'cn', '23CS31T3': 'fsd', '23CS31E4': 'spm', '23ES31T1': 'ai',
+    '23CS32AC': 'writing', '23CS32P1': 'ml', '23CS32P2': 'cns', '23CS32SC': 'speaking',
+    '23CS32T1': 'ml', '23CS32T2': 'cloud', '23CS32T3': 'cns', '23CS32E2': 'cyber',
+};
+
+const shortTitleMap: Record<string, string> = {
+    '23AD31SC': 'FSD-II', '23CS31P1': 'AI Lab', '23CS31P2': 'CN & IP Lab', '23ES31P1': 'Tinkering',
+    '23CS31T1': 'AI', '23CS31T2': 'CN & IP', '23CS31T3': 'ATCD', '23CS31E4': 'DMDW', '23ES31T1': 'Quantum',
+    '23CS32AC': 'TRW & IPR', '23CS32P1': 'ML Lab', '23CS32P2': 'CNS Lab', '23CS32SC': 'Soft Skills',
+    '23CS32T1': 'ML', '23CS32T2': 'CC', '23CS32T3': 'CNS', '23CS32E2': 'CS'
+};
+
+const processSubject = (sub: any, year: number, semester: number): Subject => ({
+    ...sub,
+    year,
+    semester,
+    title: sub.name,
+    shortTitle: shortTitleMap[sub.id] || sub.short || sub.name.split(' ')[0],
+    description: sub.short,
+    color: subjectColorMap[sub.id] || 'default'
 });
 
-export const subjects: Subject[] = Array.from(subjectMap.values());
+const y3s1_subjects = [
+    processSubject(y3s1_23AD31SC_sub, 3, 1),
+    processSubject(y3s1_23CS31P1_sub, 3, 1),
+    processSubject(y3s1_23CS31P2_sub, 3, 1),
+    processSubject(y3s1_23ES31P1_sub, 3, 1),
+    processSubject(y3s1_23CS31T1_sub, 3, 1),
+    processSubject(y3s1_23CS31T2_sub, 3, 1),
+    processSubject(y3s1_23CS31T3_sub, 3, 1),
+    processSubject(y3s1_23CS31E4_sub, 3, 1),
+    processSubject(y3s1_23ES31T1_sub, 3, 1),
+];
 
-export const programs: Program[] = programsData.subjects.flatMap(subject =>
-  (subject.programs || []).map(p => {
-    const sub = subjectMap.get(subject.id);
+const y3s2_subjects = [
+    processSubject(y3s2_23CS32AC_sub, 3, 2),
+    processSubject(y3s2_23CS32P1_sub, 3, 2),
+    processSubject(y3s2_23CS32P2_sub, 3, 2),
+    processSubject(y3s2_23CS32SC_sub, 3, 2),
+    processSubject(y3s2_23CS32T1_sub, 3, 2),
+    processSubject(y3s2_23CS32T2_sub, 3, 2),
+    processSubject(y3s2_23CS32T3_sub, 3, 2),
+    processSubject(y3s2_23CS32E2_sub, 3, 2),
+];
 
-    if (!sub) {
-      console.warn('Invalid program subjectId:', subject.id);
-      return null;
-    }
 
+export const subjects: Subject[] = [
+    ...year1sem1.subjects,
+    ...year1sem2.subjects,
+    ...year2sem1.subjects,
+    ...year2sem2.subjects,
+    ...y3s1_subjects,
+    ...y3s2_subjects,
+];
+const subjectMap = new Map(subjects.map(s => [s.id, s]));
+
+const processPrograms = (programsArr: any[], subjectId: string): Program[] => {
+    const sub = subjectMap.get(subjectId);
+    if (!sub) return [];
+    return programsArr.map(p => ({
+        ...p,
+        subjectId: subjectId,
+        year: sub.year,
+        semester: sub.semester,
+        aim: p.problem,
+        canRunInBrowser: p.language.toLowerCase() === 'html/css/js',
+    }));
+}
+
+export const programs: Program[] = [
+    ...processPrograms(y3s1_23AD31SC_prog, '23AD31SC'),
+    ...processPrograms(y3s1_23CS31P1_prog, '23CS31P1'),
+    ...processPrograms(y3s1_23CS31P2_prog, '23CS31P2'),
+    ...processPrograms(y3s1_23ES31P1_prog, '23ES31P1'),
+    ...processPrograms(y3s2_23CS32P1_prog, '23CS32P1'),
+];
+
+export const materials: Material[] = materialsData.materials.map(m => {
+    const sub = subjectMap.get(m.subjectId);
     return {
-      id: p.id,
-      title: p.title,
-      language: p.language,
-      tags: p.tags,
-      aim: p.problem,
-      code: p.code,
-      canRunInBrowser: p.language.toLowerCase() === 'html/css/js',
-      subjectId: subject.id,
-      year: sub.year,
-      semester: sub.semester,
-      problem: p.problem,
+        ...m,
+        year: sub?.year ?? 0,
+        semester: sub?.semester ?? 0,
     };
-  })
-).filter(Boolean) as Program[];
+}).filter(m => m.year !== 0);
 
-let noteIdCounter = 1;
-
-export const notes: Note[] = (programsData.notes || [])
-  .map(n => {
-    const matchingSubject = subjects.find(
-      s =>
-        s.shortTitle.toLowerCase() === n.subject.toLowerCase() ||
-        s.title.toLowerCase().includes(n.subject.toLowerCase())
-    );
-
-    if (!matchingSubject) {
-      console.warn('Invalid note subject:', n.subject);
-      return null;
-    }
-
-    return {
-      id: `note-${noteIdCounter++}`,
-      title: n.title,
-      subjectId: matchingSubject.id,
-      type: n.type as 'PDF' | 'Link' | 'Document' | 'Notes' | 'Assignment' | 'Question Paper' | 'Image',
-      url: n.url,
-      year: matchingSubject.year,
-      semester: matchingSubject.semester,
-      fileType: 'Link'
-    };
-  })
-  .filter(Boolean) as Note[];
-
-export const syllabi: Syllabus[] = (programsData.syllabi || [])
-  .map(s => {
-    const matchingSubject = subjectMap.get(s.subjectId);
-
-    if (!matchingSubject) {
-      console.warn('Invalid syllabus subjectId:', s.subjectId);
-      return null;
-    }
-
-    return {
-      id: s.id,
-      title: s.title,
-      subjectId: s.subjectId,
-      type: s.type as 'PDF' | 'Link' | 'Syllabus',
-      url: s.url,
-      year: matchingSubject.year,
-      semester: matchingSubject.semester,
-      fileType: 'PDF',
-    };
-  })
-  .filter(Boolean) as Syllabus[];
-
-export const materials: Material[] = materialsData.materials
-  .filter(m => {
-    const exists = subjectMap.has(m.subjectId);
-    if (!exists) {
-      console.warn('Invalid material subjectId:', m);
-    }
-    return exists;
-  })
-  .map(m => {
-    const sub = subjectMap.get(m.subjectId)!;
-    return {
-      ...m,
-      year: sub.year,
-      semester: sub.semester
-    } as Material;
-  });
+// These are now part of materials.json
+export const notes: Note[] = [];
+export const syllabi: Syllabus[] = [];
