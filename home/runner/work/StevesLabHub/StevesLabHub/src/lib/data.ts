@@ -1,5 +1,5 @@
 import type { Subject, Program, Material } from './types';
-import materialsData from './materials.json';
+import materialsData from './data/materials-data.json';
 
 // --- New Structure Data ---
 // Year 3, Semester 1
