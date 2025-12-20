@@ -1,3 +1,4 @@
+
 export interface Program {
   id: string;
   title: string;
@@ -17,7 +18,7 @@ export interface Subject {
   title: string;
   shortTitle: string;
   description: string;
-  color: 'ai' | 'fsd' | 'cn' | 'tinkering' | 'spm' | 'cyber' | 'cloud' | 'ml' | 'writing' | 'speaking' | 'cns' | 'ws' | 'sfs' | 'default';
+  color: 'ai' | 'fsd' | 'cn' | 'tinkering' | 'spm' | 'cyber' | 'cloud' | 'ml' | 'writing' | 'speaking' | 'cns' | 'ws' | 'sfs' | 'default' | 'mpmc' | 'atcd' | 'ooad';
   hasLab: boolean;
   isLabOnly: boolean;
   year: number;
@@ -36,3 +37,7 @@ export interface Material {
   year: number;
   semester: number;
 }
+
+
+export type Syllabus = Omit<Material, "type"> & { type: 'Syllabus' };
+export type Note = Omit<Material, "type"> & { type: 'Notes' | 'Link' | 'PDF' | 'Image' | 'Document' };
