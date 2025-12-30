@@ -72,7 +72,7 @@ const materialsData = {
       "subjectId": "23CS32AC",
       "type": "Notes",
       "title": "Tinkercad Lab Manual – TRW & IPR",
-      "url": "/materials/trw-ipr-tinkercad-manual.pdf",
+      "url": "public/materials/TINKERCAD LAB MANUAL_CSE(DS)_13_08_25 (1).pdf",
       "fileType": "PDF"
     },
     {
@@ -80,7 +80,7 @@ const materialsData = {
       "subjectId": "23CS31E4",
       "type": "Assignment",
       "title": "DW&M All Units Assignment Questions (2025–26) – R23",
-      "url": "/materials/dwm-assignments-r23.pdf",
+      "url": "public/materials/DW&M ALL UNITS  ASSIGNMENT QUESTIONS(2025-26) R23.pdf",
       "fileType": "PDF"
     },
     {
@@ -88,7 +88,8 @@ const materialsData = {
       "subjectId": "23CS31E4",
       "type": "Question Paper",
       "title": "DW&M (R23) Model Paper (2025–26)",
-      "url": "/materials/dwm-model-paper-r23.pdf",
+      "url": "public/materials/DW&M(R23) MODEL PAPER 2025-26.pdf
+",
       "fileType": "PDF"
     },
     {
@@ -96,7 +97,7 @@ const materialsData = {
       "subjectId": "23ES31P1",
       "type": "Notes",
       "title": "Tinkercad Lab Manual (Complete)",
-      "url": "/materials/tinkercad-lab-manual.pdf",
+      "url": "public/materials/TINKERCAD LAB MANUAL_CSE(DS)_13_08_25 (1).pdf",
       "fileType": "PDF"
     },
     {
@@ -184,7 +185,8 @@ const materialsData = {
       "subjectId": "23CS31P1",
       "type": "Syllabus",
       "title": "AI Lab Syllabus",
-      "url": "/syllabi/ai-lab-syllabus.pdf",
+      "url": "public/syllabi/23CS31T1 - ARTIFICIAL INTELLIGENCE.pdf
+",
       "fileType": "PDF"
     },
     {
@@ -200,7 +202,7 @@ const materialsData = {
       "subjectId": "23ES31T1",
       "type": "Syllabus",
       "title": "Introduction to Quantum Technologies and Applications – Syllabus",
-      "url": "/materials/23ES31T1-INTRODUCTION_TO_QUANTUM_TECHNOLOGIES_AND_APPLICATIONS.pdf",
+      "url": "public/syllabi/23ES31T1 –INTRODUCTION TO QUANTUM TECHNOLOGIES AND APPLICATIONS.pdf",
       "fileType": "PDF"
     },
     {
@@ -208,7 +210,7 @@ const materialsData = {
       "subjectId": "23CS31E4",
       "type": "Syllabus",
       "title": "Data Mining & Data Warehousing – Syllabus",
-      "url": "/materials/23CS31E4-DATA_MINING_&_DATA_WAREHOUSING.pdf",
+      "url": "public/syllabi/23CS31E4 - DATA MINING & DATA WAREHOUSING.pdf",
       "fileType": "PDF"
     },
     {
@@ -216,7 +218,8 @@ const materialsData = {
       "subjectId": "23CS31T1",
       "type": "Syllabus",
       "title": "Artificial Intelligence – Syllabus",
-      "url": "/materials/23CS31T1-ARTIFICIAL_INTELLIGENCE.pdf",
+      "url": "public/syllabi/23CS31T1 - ARTIFICIAL INTELLIGENCE.pdf
+",
       "fileType": "PDF"
     },
     {
@@ -224,7 +227,7 @@ const materialsData = {
       "subjectId": "23CS31T3",
       "type": "Syllabus",
       "title": "Automata Theory and Compiler Design – Syllabus",
-      "url": "/materials/23CS31T3-AUTOMATA_THEORY_AND_COMPILER_DESIGN.pdf",
+      "url": "public/syllabi/23CS31T3 -AUTOMATA THEORY AND COMPILER DESIGN.pdf",
       "fileType": "PDF"
     },
     {
@@ -232,7 +235,7 @@ const materialsData = {
       "subjectId": "23CS31T2",
       "type": "Syllabus",
       "title": "Computer Networks & Internet Protocols – Syllabus",
-      "url": "/materials/23CS31T2-COMPUTER_NETWORKS_&_INTERNET_PROTOCOLS.pdf",
+      "url": "public/syllabi/23CS31T2 - COMPUTER NETWORKS & INTERNET PROTOCOLS.pdf",
       "fileType": "PDF"
     },
     {
@@ -240,7 +243,8 @@ const materialsData = {
       "subjectId": "23CS32AC",
       "type": "Syllabus",
       "title": "Technical Report Writing & IPR – Syllabus",
-      "url": "/materials/23CS32AC-TECHNICAL_REPORT_WRITING_&_IPR.pdf",
+      "url": "public/syllabi/23CS32AC –TECHNICAL REPORT WRITING & IPR.pdf
+",
       "fileType": "PDF"
     },
     {
@@ -248,7 +252,8 @@ const materialsData = {
       "subjectId": "23CS32P1",
       "type": "Syllabus",
       "title": "Machine Learning Lab – Syllabus",
-      "url": "/materials/23CS32P1-MACHINE_LEARNING_LAB.pdf",
+      "url": "public/syllabi/23CS32P1 – MACHINE LEARNING LAB.pdf
+",
       "fileType": "PDF"
     },
     {
@@ -256,7 +261,7 @@ const materialsData = {
       "subjectId": "23CS32P2",
       "type": "Syllabus",
       "title": "Cryptography & Network Security Lab – Syllabus",
-      "url": "/materials/23CS32P2-CRYPTOGRAPHY_AND_NETWORK_SECURITY_LAB.pdf",
+      "url": "public/syllabi/23CS32P2 – CRYPTOGRAPHY AND NETWORK SECURITY LAB.pdf",
       "fileType": "PDF"
     },
     {
@@ -264,7 +269,8 @@ const materialsData = {
       "subjectId": "23CS32SC",
       "type": "Syllabus",
       "title": "Soft Skills – Syllabus",
-      "url": "/materials/23CS32SC-SOFT_SKILLS.pdf",
+      "url": "public/syllabi/23CS32SC –SOFT SKILLS.pdf
+",
       "fileType": "PDF"
     },
     {
@@ -272,7 +278,8 @@ const materialsData = {
       "subjectId": "23CS32T1",
       "type": "Syllabus",
       "title": "Machine Learning – Syllabus",
-      "url": "/materials/23CS32T1-MACHINE_LEARNING.pdf",
+      "url": "public/syllabi/23CS32T1 –MACHINE LEARNING.pdf
+",
       "fileType": "PDF"
     },
     {
@@ -280,7 +287,8 @@ const materialsData = {
       "subjectId": "23CS32T2",
       "type": "Syllabus",
       "title": "Cloud Computing – Syllabus",
-      "url": "/materials/23CS32T2-CLOUD_COMPUTING.pdf",
+      "url": "public/syllabi/23CS32T2 –CLOUD COMPUTING.pdf
+",
       "fileType": "PDF"
     },
     {
@@ -288,7 +296,7 @@ const materialsData = {
       "subjectId": "23CS32T3",
       "type": "Syllabus",
       "title": "Cryptography & Network Security – Syllabus",
-      "url": "/materials/23CS32T3-CRYPTOGRAPHY_AND_NETWORK_SECURITY.pdf",
+      "url": "public/syllabi/23CS32T3 –CRYPTOGRAPHY & NETWORK SECURITY.pdf",
       "fileType": "PDF"
     }
   ]
