@@ -72,7 +72,7 @@ const materialsData = {
       "subjectId": "23CS32AC",
       "type": "Notes",
       "title": "Tinkercad Lab Manual – TRW & IPR",
-      "url": "public/materials/TINKERCAD LAB MANUAL_CSE(DS)_13_08_25 (1).pdf",
+      "url": "/materials/TINKERCAD%20LAB%20MANUAL_CSE(DS)_13_08_25%20(1).pdf",
       "fileType": "PDF"
     },
     {
@@ -80,7 +80,7 @@ const materialsData = {
       "subjectId": "23CS31E4",
       "type": "Assignment",
       "title": "DW&M All Units Assignment Questions (2025–26) – R23",
-      "url": "public/materials/DW&M ALL UNITS  ASSIGNMENT QUESTIONS(2025-26) R23.pdf",
+      "url": "/materials/DW&M%20ALL%20UNITS%20%20ASSIGNMENT%20QUESTIONS(2025-26)%20R23.pdf",
       "fileType": "PDF"
     },
     {
@@ -88,8 +88,7 @@ const materialsData = {
       "subjectId": "23CS31E4",
       "type": "Question Paper",
       "title": "DW&M (R23) Model Paper (2025–26)",
-      "url": "public/materials/DW&M(R23) MODEL PAPER 2025-26.pdf
-",
+      "url": "/materials/DW&M(R23)%20MODEL%20PAPER%202025-26.pdf",
       "fileType": "PDF"
     },
     {
@@ -97,7 +96,7 @@ const materialsData = {
       "subjectId": "23ES31P1",
       "type": "Notes",
       "title": "Tinkercad Lab Manual (Complete)",
-      "url": "public/materials/TINKERCAD LAB MANUAL_CSE(DS)_13_08_25 (1).pdf",
+      "url": "/materials/TINKERCAD%20LAB%20MANUAL_CSE(DS)_13_08_25%20(1).pdf",
       "fileType": "PDF"
     },
     {
@@ -185,8 +184,7 @@ const materialsData = {
       "subjectId": "23CS31P1",
       "type": "Syllabus",
       "title": "AI Lab Syllabus",
-      "url": "public/syllabi/23CS31T1 - ARTIFICIAL INTELLIGENCE.pdf
-",
+      "url": "/syllabi/23CS31T1%20-%20ARTIFICIAL%20INTELLIGENCE.pdf",
       "fileType": "PDF"
     },
     {
@@ -202,7 +200,7 @@ const materialsData = {
       "subjectId": "23ES31T1",
       "type": "Syllabus",
       "title": "Introduction to Quantum Technologies and Applications – Syllabus",
-      "url": "public/syllabi/23ES31T1 –INTRODUCTION TO QUANTUM TECHNOLOGIES AND APPLICATIONS.pdf",
+      "url": "/syllabi/23ES31T1%20–INTRODUCTION%20TO%20QUANTUM%20TECHNOLOGIES%20AND%20APPLICATIONS.pdf",
       "fileType": "PDF"
     },
     {
@@ -210,7 +208,7 @@ const materialsData = {
       "subjectId": "23CS31E4",
       "type": "Syllabus",
       "title": "Data Mining & Data Warehousing – Syllabus",
-      "url": "public/syllabi/23CS31E4 - DATA MINING & DATA WAREHOUSING.pdf",
+      "url": "/syllabi/23CS31E4%20-%20DATA%20MINING%20&%20DATA%20WAREHOUSING.pdf",
       "fileType": "PDF"
     },
     {
@@ -218,8 +216,7 @@ const materialsData = {
       "subjectId": "23CS31T1",
       "type": "Syllabus",
       "title": "Artificial Intelligence – Syllabus",
-      "url": "public/syllabi/23CS31T1 - ARTIFICIAL INTELLIGENCE.pdf
-",
+      "url": "/syllabi/23CS31T1%20-%20ARTIFICIAL%20INTELLIGENCE.pdf",
       "fileType": "PDF"
     },
     {
@@ -227,7 +224,7 @@ const materialsData = {
       "subjectId": "23CS31T3",
       "type": "Syllabus",
       "title": "Automata Theory and Compiler Design – Syllabus",
-      "url": "public/syllabi/23CS31T3 -AUTOMATA THEORY AND COMPILER DESIGN.pdf",
+      "url": "/syllabi/23CS31T3%20-AUTOMATA%20THEORY%20AND%20COMPILER%20DESIGN.pdf",
       "fileType": "PDF"
     },
     {
@@ -235,7 +232,7 @@ const materialsData = {
       "subjectId": "23CS31T2",
       "type": "Syllabus",
       "title": "Computer Networks & Internet Protocols – Syllabus",
-      "url": "public/syllabi/23CS31T2 - COMPUTER NETWORKS & INTERNET PROTOCOLS.pdf",
+      "url": "/syllabi/23CS31T2%20-%20COMPUTER%20NETWORKS%20&%20INTERNET%20PROTOCOLS.pdf",
       "fileType": "PDF"
     },
     {
@@ -243,8 +240,7 @@ const materialsData = {
       "subjectId": "23CS32AC",
       "type": "Syllabus",
       "title": "Technical Report Writing & IPR – Syllabus",
-      "url": "public/syllabi/23CS32AC –TECHNICAL REPORT WRITING & IPR.pdf
-",
+      "url": "/syllabi/23CS32AC%20–TECHNICAL%20REPORT%20WRITING%20&%20IPR.pdf",
       "fileType": "PDF"
     },
     {
@@ -252,8 +248,7 @@ const materialsData = {
       "subjectId": "23CS32P1",
       "type": "Syllabus",
       "title": "Machine Learning Lab – Syllabus",
-      "url": "public/syllabi/23CS32P1 – MACHINE LEARNING LAB.pdf
-",
+      "url": "/syllabi/23CS32P1%20–%20MACHINE%20LEARNING%20LAB.pdf",
       "fileType": "PDF"
     },
     {
@@ -261,7 +256,7 @@ const materialsData = {
       "subjectId": "23CS32P2",
       "type": "Syllabus",
       "title": "Cryptography & Network Security Lab – Syllabus",
-      "url": "public/syllabi/23CS32P2 – CRYPTOGRAPHY AND NETWORK SECURITY LAB.pdf",
+      "url": "/syllabi/23CS32P2%20–%20CRYPTOGRAPHY%20AND%20NETWORK%20SECURITY%20LAB.pdf",
       "fileType": "PDF"
     },
     {
@@ -269,8 +264,7 @@ const materialsData = {
       "subjectId": "23CS32SC",
       "type": "Syllabus",
       "title": "Soft Skills – Syllabus",
-      "url": "public/syllabi/23CS32SC –SOFT SKILLS.pdf
-",
+      "url": "/syllabi/23CS32SC%20–SOFT%20SKILLS.pdf",
       "fileType": "PDF"
     },
     {
@@ -278,8 +272,7 @@ const materialsData = {
       "subjectId": "23CS32T1",
       "type": "Syllabus",
       "title": "Machine Learning – Syllabus",
-      "url": "public/syllabi/23CS32T1 –MACHINE LEARNING.pdf
-",
+      "url": "/syllabi/23CS32T1%20–MACHINE%20LEARNING.pdf",
       "fileType": "PDF"
     },
     {
@@ -287,8 +280,7 @@ const materialsData = {
       "subjectId": "23CS32T2",
       "type": "Syllabus",
       "title": "Cloud Computing – Syllabus",
-      "url": "public/syllabi/23CS32T2 –CLOUD COMPUTING.pdf
-",
+      "url": "/syllabi/23CS32T2%20–CLOUD%20COMPUTING.pdf",
       "fileType": "PDF"
     },
     {
@@ -296,7 +288,7 @@ const materialsData = {
       "subjectId": "23CS32T3",
       "type": "Syllabus",
       "title": "Cryptography & Network Security – Syllabus",
-      "url": "public/syllabi/23CS32T3 –CRYPTOGRAPHY & NETWORK SECURITY.pdf",
+      "url": "/syllabi/23CS32T3%20–CRYPTOGRAPHY%20&%20NETWORK%20SECURITY.pdf",
       "fileType": "PDF"
     }
   ]
@@ -393,4 +385,4 @@ export const materials: Material[] = materialsData.materials.map((m: any) => {
 export const notes: Note[] = [];
 export const syllabi: Syllabus[] = [];
 
-  
+    
