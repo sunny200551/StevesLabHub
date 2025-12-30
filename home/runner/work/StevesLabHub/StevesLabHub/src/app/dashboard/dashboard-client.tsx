@@ -1,7 +1,7 @@
+
 "use client"
 
 import React, { useState, useMemo, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { SubjectsSection } from '@/components/sections/subjects-section';
 import { AllProgramsSection } from '@/components/sections/all-programs-section';
 import { NotesSection } from '@/components/sections/notes-section';
@@ -11,16 +11,20 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 
 export function DashboardClient() {
-  const searchParams = useSearchParams();
-
-  const [activeYear, setActiveYear] = useState(searchParams.get('year') || '3');
-  const [activeSem, setActiveSem] = useState(searchParams.get('sem') || '1');
+  const [activeYear, setActiveYear] = useState('3');
+  const [activeSem, setActiveSem] = useState('1');
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // This effect ensures the component is interactive and uses client-side hooks,
-    // but we won't push URL changes in a static build to avoid issues.
-    // The initial state is already set from searchParams.
-  }, [activeYear, activeSem]);
+    // This effect runs only on the client after the component mounts.
+    // It checks the URL for query params to set the initial state.
+    const params = new URLSearchParams(window.location.search);
+    const year = params.get('year') || '3';
+    const sem = params.get('sem') || '1';
+    setActiveYear(year);
+    setActiveSem(sem);
+    setIsMounted(true); // Mark as mounted to trigger re-render with correct state
+  }, []);
 
   const filteredData = useMemo(() => {
     const year = parseInt(activeYear);
@@ -35,6 +39,12 @@ export function DashboardClient() {
 
   const syllabi = filteredData.materials.filter(m => m.type === 'Syllabus');
   const notes = filteredData.materials.filter(m => m.type !== 'Syllabus');
+
+  if (!isMounted) {
+    // Render nothing or a loading skeleton on the server and initial client render
+    // to prevent hydration mismatch.
+    return null;
+  }
 
   return (
     <div className="relative z-10 w-full overflow-hidden container py-8">
