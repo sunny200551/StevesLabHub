@@ -25,7 +25,7 @@ export default function ProgramPage({ params }: { params: { programId: string } 
   return (
     <div className="container py-12 animate-fade-in">
        <Button asChild variant="ghost" className="mb-8">
-        <Link href={`/subjects/${program.subjectId}?year=${program.year}&sem=${program.semester}`}>
+        <Link href={`/subjects/${program.subjectId}`}>
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to {subject?.shortTitle} Programs
         </Link>
