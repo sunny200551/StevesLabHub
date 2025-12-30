@@ -1,3 +1,4 @@
+
 "use client";
 
 import type { Material, Subject } from '@/lib/types';
@@ -55,23 +56,12 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
   const isDownloadable = material.fileType === 'Document';
   const assetUrl = getAssetPath(material.url);
 
-  const handleCardClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+  const handleCardClick = () => {
     if (canBeViewed) {
       setIsViewerOpen(true);
-    } else if (isExternalLink) {
-      window.open(assetUrl, '_blank', 'noopener,noreferrer');
-    } else {
-      // For downloadables or other types, trigger download via a link
-      const link = document.createElement('a');
-      link.href = assetUrl;
-      link.download = material.title || 'download';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
     }
   };
-  
+
   const getButtonContent = () => {
     if (canBeViewed) {
       return <><View className="mr-2 h-4 w-4" /> View</>;
@@ -81,13 +71,31 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
     }
     return <><Download className="mr-2 h-4 w-4" /> Download</>;
   };
+  
+  const ActionButton = () => {
+    if (canBeViewed) {
+        return (
+            <Button onClick={handleCardClick} size="sm" className="mt-4 w-full z-10">
+                {getButtonContent()}
+            </Button>
+        );
+    }
+    return (
+        <Button asChild size="sm" className="mt-4 w-full z-10">
+            <a href={assetUrl} download={!isExternalLink} target={isExternalLink ? '_blank' : '_self'} rel="noopener noreferrer">
+                {getButtonContent()}
+            </a>
+        </Button>
+    );
+  }
 
   return (
     <>
       <div
         onClick={handleCardClick}
         className={cn(
-          "group block rounded-xl border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col cursor-pointer"
+          "group block rounded-xl border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col",
+          canBeViewed && "cursor-pointer"
         )}
       >
         <div className="flex items-start justify-between">
@@ -108,9 +116,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
         )}
         <div className="flex-grow" />
         
-        <Button size="sm" className="mt-4 w-full z-10" onClick={handleCardClick}>
-            {getButtonContent()}
-        </Button>
+        <ActionButton />
       </div>
 
       {canBeViewed && (
@@ -118,11 +124,11 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
           <DialogContent className="max-w-5xl h-[90vh] p-0 animate-scale-in flex flex-col">
             <DialogHeader className="p-4 border-b flex-shrink-0">
               <DialogTitle>{material.title}</DialogTitle>
+              <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state-open]:text-muted-foreground">
+                  <X className="h-4 w-4" />
+                  <span className="sr-only">Close</span>
+              </DialogClose>
             </DialogHeader>
-            <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state-open]:text-muted-foreground">
-                <X className="h-4 w-4" />
-                <span className="sr-only">Close</span>
-            </DialogClose>
             <div className="flex-1 overflow-auto">
               {material.fileType === 'PDF' ? (
                  <iframe
