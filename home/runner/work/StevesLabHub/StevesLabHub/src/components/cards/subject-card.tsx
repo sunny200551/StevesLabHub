@@ -77,7 +77,7 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
     <Link 
       href={`/subjects/${subject.id}?year=${subject.year}&sem=${subject.semester}`}
       className={cn(
-        "group relative flex flex-col w-full rounded-2xl border-2 bg-gradient-to-br p-5 text-left transition-all duration-300 hover:-translate-y-1",
+        "group relative flex flex-col w-full rounded-2xl border-2 bg-gradient-to-br p-5 text-left transition-all duration-300 hover:-translate-y-1 h-full",
         colorClasses[safeColor]
       )}
     >
@@ -88,7 +88,7 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
             <div className='flex items-center gap-2'>
                 <Badge variant="outline" className="border-current/30 bg-current/10 text-current">R-23</Badge>
                 {subject.hasLab && (
-                    <Badge variant="outline" className="border-accent-foreground/30 bg-accent/80 text-accent-foreground">
+                    <Badge variant="outline" className="border-accent-foreground/30 bg-accent/80 text-accent-foreground whitespace-nowrap">
                         {subject.isLabOnly ? "Lab" : "Lab+Theory"}
                     </Badge>
                 )}
@@ -96,11 +96,11 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
         </div>
       
         <div className="flex-grow mt-4">
-            <h3 className="text-lg font-bold text-foreground">{subject.title}</h3>
-            <p className="mt-1 text-sm text-muted-foreground flex-grow min-h-[40px]">{subject.description}</p>
+            <h3 className="text-base sm:text-lg font-bold text-foreground">{subject.title}</h3>
+            <p className="mt-1 text-xs sm:text-sm text-muted-foreground flex-grow min-h-[40px]">{subject.description}</p>
         </div>
         
-        <div className="mt-4 flex items-center justify-between font-semibold text-foreground">
+        <div className="mt-4 flex items-center justify-between font-semibold text-foreground text-sm">
             <span>{subject.hasLab ? 'View Content' : 'View Materials'}</span>
              {subject.hasLab && programCount > 0 && (
                 <Badge className="bg-primary/10 text-primary border-primary/20">

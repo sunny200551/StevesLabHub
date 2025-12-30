@@ -4,7 +4,7 @@ This guide explains how to add new materials (like PDFs, documents, images, or e
 
 The process involves two main steps:
 1.  **Uploading the File** to the correct folder.
-2.  **Updating the Data File** (`src/lib/materials.json`) to make the app aware of the new material.
+2.  **Updating the Data File** (`src/lib/data.ts`) to make the app aware of the new material.
 
 ---
 
@@ -16,7 +16,6 @@ First, you need to add your file (e.g., a `.pdf`, `.jpg`, `.png`) to your projec
 2.  For better organization, place your file inside an appropriate subfolder. We recommend:
     *   `public/materials/` for general documents, notes, and question papers.
     *   `public/syllabi/` for syllabus documents.
-    *   `public/images/` for any image files.
 3.  **Use the "Add file" > "Upload files" button** in GitHub to upload your file to the chosen directory.
 
 **Example:**
@@ -24,12 +23,12 @@ If you have a PDF for Machine Learning notes named `ml-notes.pdf`, you would upl
 
 ---
 
-### Step 2: Update the `materials.json` Data File
+### Step 2: Update the `data.ts` Data File
 
-Next, you need to tell the application about the new material by adding an entry to the `src/lib/materials.json` file.
+Next, you need to tell the application about the new material by adding an entry to the `materialsData` constant inside the `src/lib/data.ts` file.
 
-1.  **Navigate to and edit the `src/lib/materials.json` file.**
-2.  Inside the main `materials` array, add a new JSON object for your item. Each object must have the following fields:
+1.  **Navigate to and edit the `src/lib/data.ts` file.**
+2.  Find the `materialsData` constant. Inside its `materials` array, add a new object for your item. Each object must have the following fields:
 
     *   `id`: A unique identifier for this material. Use a short, descriptive name (e.g., `"mat-ml-unit1-notes"`).
     *   `subjectId`: The official ID of the subject this material belongs to (e.g., `"23CS32T1"` for Machine Learning). You can find the subject IDs in the `src/lib/data/` directory, inside the respective `subject.json` files.
@@ -40,7 +39,7 @@ Next, you need to tell the application about the new material by adding an entry
         *   `"Syllabus"`
         *   `"Link"` (for external URLs)
         *   `"Image"`
-        *   `"Document"` (for other file types)
+        *   `"Document"`
     *   `title`: The full title that will be displayed on the material card (e.g., `"Machine Learning Unit 1 Complete Notes"`).
     *   `url`: The path to the file you uploaded in Step 1, or the full external URL for a link.
         *   **For local files:** The path must start with a `/`. For our example, this would be `"/materials/ml-notes.pdf"`.
@@ -52,10 +51,10 @@ Next, you need to tell the application about the new material by adding an entry
 
 ### Example Entry
 
-Here is an example of what to add to the `materials` array in `src/lib/materials.json` for our `ml-notes.pdf` example:
+Here is an example of what to add to the `materials` array in `src/lib/data.ts` for our `ml-notes.pdf` example:
 
-```json
-{
+```javascript
+const materialsData = {
   "materials": [
     // ... other existing materials
     {
@@ -65,9 +64,10 @@ Here is an example of what to add to the `materials` array in `src/lib/materials
       "title": "Machine Learning Unit 1 Complete Notes",
       "url": "/materials/ml-notes.pdf",
       "fileType": "PDF"
-    }
+    },
+    // ... other existing materials
   ]
-}
+};
 ```
 
 After committing these changes to your `main` branch, the website's deployment action will automatically run and your new material will appear on the site.
