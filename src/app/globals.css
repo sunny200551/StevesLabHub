@@ -48,25 +48,25 @@
   }
 
   .dark {
-    --background: 240 10% 4%; /* Near-black with a hint of navy */
-    --foreground: 210 20% 95%; /* Soft white */
-    --card: 240 8% 8%; /* Slightly lighter navy-black */
-    --card-foreground: 210 20% 95%;
-    --popover: 240 10% 4%;
-    --popover-foreground: 210 20% 95%;
-    --primary: 0 72% 51%; /* Vibrant Maroon */
-    --primary-foreground: 0 0% 100%; /* White for contrast on maroon */
-    --secondary: 220 15% 15%; /* Dark navy-gray */
-    --secondary-foreground: 210 20% 80%;
-    --muted: 220 15% 12%;
+    --background: 220 40% 5%;
+    --foreground: 210 40% 98%;
+    --card: 220 30% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 40% 5%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 180 100% 10%;
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 210 30% 80%;
+    --muted: 220 20% 12%;
     --muted-foreground: 220 10% 55%;
-    --accent: 220 20% 18%; /* Rich Navy Blue */
-    --accent-foreground: 220 80% 75%; /* Lighter, electric navy */
+    --accent: 300 100% 60%;
+    --accent-foreground: 300 100% 90%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 15% 15%; /* Navy-tinged border */
-    --input: 220 15% 15%;
-    --ring: 0 72% 51%; /* Maroon for focus rings */
+    --border: 220 20% 15%;
+    --input: 220 20% 15%;
+    --ring: 180 100% 50%;
     --success: 142 70% 45%;
 
     --subject-ai: 172 66% 50%;
@@ -86,7 +86,7 @@
     --subject-atcd: 200 83% 70%;
     --subject-ooad: 40 95% 65%;
 
-    --code-bg: 240 8% 6%;
+    --code-bg: 220 30% 6%;
   }
 }
 
