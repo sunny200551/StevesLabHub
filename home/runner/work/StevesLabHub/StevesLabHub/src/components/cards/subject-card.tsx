@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import type { Subject } from '@/lib/types';
 import { cn } from '@/lib/utils';
@@ -75,7 +76,7 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
   
   return (
     <Link 
-      href={`/subjects/${subject.id}?year=${subject.year}&sem=${subject.semester}`}
+      href={`/subjects/${subject.id}`}
       className={cn(
         "group relative flex flex-col w-full rounded-2xl border-2 bg-gradient-to-br p-5 text-left transition-all duration-300 hover:-translate-y-1 h-full",
         colorClasses[safeColor]
