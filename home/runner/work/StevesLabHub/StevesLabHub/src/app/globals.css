@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Base Desktop & Dark Theme Vars */
+    /* Base Desktop & Light Theme Vars */
     --background: 210 20% 98%;
     --foreground: 220 25% 10%;
     --card: 0 0% 100%;
@@ -25,7 +25,6 @@
     --input: 210 20% 88%;
     --ring: 217 91% 60%;
     --radius: 0.75rem; /* 12px */
-    --success: 142 70% 45%;
     
     --code-bg: 220 20% 12%;
   }
@@ -50,29 +49,28 @@
     --border: 217 33% 17%;
     --input: 217 33% 17%;
     --ring: 217 91% 60%;
-    --success: 142 70% 45%;
     --code-bg: 222 47% 9%;
   }
 
   /* ================================== */
-  /* ===== Mobile-Specific Design ===== */
+  /* ===== Mobile-Specific Override ===== */
   /* ================================== */
   @media (max-width: 768px) {
     .dark {
-      --background: 215 28% 11%; /* #0f172a - mobile-bg */
-      --foreground: 216 12% 84%; /* #e5e7eb - mobile-text */
-      --card: 220 29% 9%;      /* #111827 - mobile-card */
+      --background: 215 28% 11%;
+      --foreground: 216 12% 84%;
+      --card: 220 29% 9%;
       --card-foreground: 216 12% 84%;
       --popover: 215 28% 11%;
       --popover-foreground: 216 12% 84%;
-      --primary: 186 98% 53%;   /* #22d3ee - mobile-accent */
+      --primary: 186 98% 53%;
       --primary-foreground: 215 28% 11%;
       --secondary: 215 28% 17%;
       --secondary-foreground: 210 40% 98%;
       --muted: 220 15% 30%;
-      --muted-foreground: 217 8% 63%; /* #9ca3af - mobile-muted */
-      --accent: 186 98% 53%; /* Use primary as accent for mobile */
-      --accent-foreground: 215 28% 11%;
+      --muted-foreground: 217 8% 63%;
+      --accent: 215 28% 17%;
+      --accent-foreground: 186 98% 53%;
       --border: 215 28% 17%;
       --input: 215 28% 17%;
       --ring: 186 98% 53%;
@@ -89,12 +87,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', 'Poppins', sans-serif;
-  }
-}
-
-@layer components {
-  .responsive-grid {
-    @apply grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6;
+    font-family: 'Inter', sans-serif;
   }
 }

@@ -72,7 +72,7 @@ export function Header() {
         <div className="flex-1 md:flex-none">
           <Link href="/" className="inline-flex items-center gap-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary md:h-10 md:w-10 md:rounded-xl">
-              <span className="font-extrabold text-primary-foreground text-xl md:text-2xl">S</span>
+              <span className="text-xl font-extrabold text-primary-foreground md:text-2xl">S</span>
             </div>
             <p className="font-bold text-lg text-foreground md:text-xl">Steve's Lab Hub</p>
           </Link>

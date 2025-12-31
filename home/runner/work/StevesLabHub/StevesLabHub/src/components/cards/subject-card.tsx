@@ -72,8 +72,9 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
     <Link 
       href={`/subjects/${subject.id}?year=${subject.year}&sem=${subject.semester}`}
       className={cn(
-        "group relative flex h-full w-full flex-col rounded-2xl border-2 bg-gradient-to-br p-4 text-left transition-all duration-300 dark:border-border/50 dark:hover:shadow-glow-primary md:rounded-xl md:p-5 md:shadow-sm md:hover:-translate-y-1 md:[&_h3]:text-lg md:[&_h3]:font-bold",
+        "group relative flex flex-col w-full rounded-xl border p-4 text-left transition-all duration-300 md:rounded-2xl md:p-5 md:shadow-sm md:hover:-translate-y-1",
         "dark:md:from-card dark:md:to-card dark:md:border dark:md:border-border dark:md:text-foreground dark:md:hover:border-primary dark:md:hover:bg-primary/5",
+        "dark:border-border/50 dark:hover:shadow-glow-primary", // Mobile dark glow
         colorClasses[safeColor]
       )}
     >
@@ -92,7 +93,7 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
         </div>
       
         <div className="mt-3 flex-grow md:mt-4">
-            <h3 className="text-base font-bold text-foreground transition-colors md:group-hover:text-primary dark:md:group-hover:text-primary">{subject.title}</h3>
+            <h3 className="text-base font-bold text-foreground transition-colors md:text-lg md:group-hover:text-primary dark:md:group-hover:text-primary">{subject.title}</h3>
             <p className="mt-1 min-h-[30px] flex-grow text-xs text-muted-foreground md:min-h-[40px] md:text-sm">{subject.description}</p>
         </div>
         
