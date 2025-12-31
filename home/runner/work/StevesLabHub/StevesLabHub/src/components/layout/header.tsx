@@ -38,10 +38,9 @@ export function Header() {
   }, []);
 
   const isDashboardPage = pathname.startsWith('/dashboard');
-  const isGamesPage = pathname.startsWith('/games');
 
   const NavLink = ({ href, label, icon: Icon, isMobile = false }: { href: string, label: string, icon: React.ElementType, isMobile?: boolean }) => {
-    const isActive = (pathname === href || (href.startsWith('/dashboard') && isDashboardPage));
+    const isActive = (pathname === href || (href === '/dashboard' && isDashboardPage));
     
     return (
       <Button
@@ -66,27 +65,23 @@ export function Header() {
     <header
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
-        scrolled ? 'border-b border-border/40 bg-background/85 backdrop-blur-xl' : 'bg-transparent',
-        'md:bg-transparent' // Always transparent on desktop to start
+        scrolled ? 'border-b border-border/40 bg-background/85 backdrop-blur-xl' : 'bg-transparent'
       )}
     >
       <div className="container flex h-16 items-center md:h-20">
-        {/* Desktop Title */}
         <Link href="/" className="mr-6 hidden items-center gap-3 md:flex">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary">
             <span className="font-extrabold text-2xl text-primary-foreground">S</span>
           </div>
-          <p className="font-bold text-xl text-foreground">Steve's Lab Hub</p>
+          <p className="text-xl font-bold text-foreground">Steve's Lab Hub</p>
         </Link>
-
-        {/* Mobile Title (centered) */}
-         <div className="flex-1 text-center md:hidden">
+        
+        <div className="flex-1 text-center md:hidden">
             <Link href="/" className="inline-flex items-center gap-3">
-                 <p className="font-bold text-lg text-foreground">Steve's Lab Hub</p>
+                 <p className="text-lg font-bold text-foreground">Steve's Lab Hub</p>
             </Link>
         </div>
 
-        {/* Desktop Navigation */}
         <nav className="hidden items-center space-x-1 md:flex">
           {mainNavItems.map((item) => (
             <NavLink key={item.href} {...item} />
@@ -104,13 +99,13 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[85vw] max-w-xs p-0">
-                <SheetHeader className="p-4 border-b">
+                <SheetHeader className="border-b p-4">
                   <SheetTitle className="flex items-center justify-between">
                      <Link href="/" className="flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
                         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-                            <span className="font-extrabold text-xl text-primary-foreground">S</span>
+                            <span className="text-xl font-extrabold text-primary-foreground">S</span>
                         </div>
-                        <p className="font-bold text-lg text-foreground">Steve's Lab Hub</p>
+                        <p className="text-lg font-bold text-foreground">Steve's Lab Hub</p>
                     </Link>
                   </SheetTitle>
                 </SheetHeader>

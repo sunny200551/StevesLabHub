@@ -23,7 +23,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function SubjectPage({ params }: { params: { subjectId: string } }) {
+export default function SubjectPage({ params, searchParams }: { params: { subjectId: string }, searchParams: { year?: string, sem?: string } }) {
   const data = getSubjectData(params.subjectId);
 
   if (!data) {
@@ -31,8 +31,8 @@ export default function SubjectPage({ params }: { params: { subjectId: string } 
   }
 
   const { subject, subjectPrograms, subjectMaterials } = data;
-  const year = subject.year;
-  const sem = subject.semester;
+  const year = searchParams.year || subject.year;
+  const sem = searchParams.sem || subject.semester;
 
   return (
     <div className="container py-12">

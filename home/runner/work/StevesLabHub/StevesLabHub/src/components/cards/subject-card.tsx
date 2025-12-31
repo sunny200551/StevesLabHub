@@ -64,40 +64,36 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
   
   return (
     <Link 
-      href={`/subjects/${subject.id}`}
+      href={`/subjects/${subject.id}?year=${subject.year}&sem=${subject.semester}`}
       className={cn(
-        "group relative flex flex-col w-full border-2 bg-gradient-to-br p-4 text-left transition-all duration-300 md:hover:-translate-y-1 md:p-5",
-        "rounded-2xl md:rounded-xl",
-        "md:shadow-sm",
-        "md:[&_h3]:text-lg md:[&_h3]:font-bold",
-        colorClasses[safeColor],
+        "group relative flex h-full w-full flex-col rounded-2xl border-2 bg-gradient-to-br p-4 text-left transition-all duration-300 dark:border-border/50 dark:hover:shadow-glow-primary md:rounded-xl md:p-5 md:shadow-sm md:hover:-translate-y-1 md:[&_h3]:text-lg md:[&_h3]:font-bold",
         "dark:md:from-card dark:md:to-card dark:md:border dark:md:border-border dark:md:text-foreground dark:md:hover:border-primary dark:md:hover:bg-primary/5",
-        "dark:border-border/50 dark:hover:shadow-glow-primary" // Mobile dark glow
+        colorClasses[safeColor]
       )}
     >
-        <div className="flex justify-between items-start">
+        <div className="flex items-start justify-between">
             <div className={cn("flex h-10 w-10 items-center justify-center rounded-lg md:h-12 md:w-12 md:rounded-xl", iconBgClasses[safeColor], "dark:md:bg-primary/10 dark:md:text-primary")}>
                 {iconMap[safeColor] || iconMap.default}
             </div>
             <div className='flex items-center gap-2'>
-                <Badge variant="outline" className="border-current/30 bg-current/10 text-current text-xs dark:md:bg-secondary dark:md:text-secondary-foreground dark:md:border-border">R-23</Badge>
+                <Badge variant="outline" className="border-current/30 bg-current/10 text-xs text-current dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground">R-23</Badge>
                 {subject.hasLab && (
-                    <Badge variant="outline" className="border-accent-foreground/30 bg-accent/80 text-accent-foreground whitespace-nowrap text-xs dark:md:bg-secondary dark:md:text-secondary-foreground dark:md:border-border">
+                    <Badge variant="outline" className="whitespace-nowrap border-accent-foreground/30 bg-accent/80 text-xs text-accent-foreground dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground">
                         {subject.isLabOnly ? "Lab" : "Lab+Theory"}
                     </Badge>
                 )}
             </div>
         </div>
       
-        <div className="flex-grow mt-3 md:mt-4">
+        <div className="mt-3 flex-grow md:mt-4">
             <h3 className="text-base font-bold text-foreground transition-colors md:group-hover:text-primary dark:md:group-hover:text-primary">{subject.title}</h3>
-            <p className="mt-1 text-xs text-muted-foreground flex-grow min-h-[30px] md:text-sm md:min-h-[40px]">{subject.description}</p>
+            <p className="mt-1 min-h-[30px] flex-grow text-xs text-muted-foreground md:min-h-[40px] md:text-sm">{subject.description}</p>
         </div>
         
-        <div className="mt-4 flex items-center justify-between font-semibold text-foreground text-sm">
+        <div className="mt-4 flex items-center justify-between text-sm font-semibold text-foreground">
             <span>{subject.hasLab ? 'View Content' : 'View Materials'}</span>
              {subject.hasLab && programCount > 0 && (
-                <Badge className="bg-primary/10 text-primary border-primary/20">
+                <Badge className="border-primary/20 bg-primary/10 text-primary">
                     {programCount} Programs
                 </Badge>
             )}
