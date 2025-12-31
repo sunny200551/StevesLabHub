@@ -1,4 +1,3 @@
-
 "use client";
 
 import type { Material, Subject } from '@/lib/types';
@@ -6,7 +5,7 @@ import { cn, getAssetPath } from '@/lib/utils';
 import { FileText, Download, Image as ImageIcon, Link as LinkIcon, View } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { useState } from 'react';
 import { X } from 'lucide-react';
 
@@ -53,7 +52,6 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
   const config = fileTypeConfig[material.type] || fileTypeConfig.default;
   const canBeViewed = material.fileType === 'PDF' || material.fileType === 'Image';
   const isExternalLink = material.fileType === 'Link';
-  const isDownloadable = material.fileType === 'Document';
   const assetUrl = getAssetPath(material.url);
 
   const handleCardClick = () => {
@@ -92,29 +90,31 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
   return (
     <>
       <div
-        onClick={handleCardClick}
         className={cn(
-          "group block rounded-xl border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col",
-          canBeViewed && "cursor-pointer"
+          "group block rounded-xl border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col"
         )}
       >
-        <div className="flex items-start justify-between">
-          <div className={cn("flex h-12 w-12 items-center justify-center rounded-lg", config.color)}>
-            {config.icon}
+        <div 
+          onClick={canBeViewed ? handleCardClick : undefined}
+          className={cn("flex-grow", canBeViewed && "cursor-pointer")}
+        >
+          <div className="flex items-start justify-between">
+            <div className={cn("flex h-12 w-12 items-center justify-center rounded-lg", config.color)}>
+              {config.icon}
+            </div>
+            <Badge variant="outline" className="rounded-full">{material.type}</Badge>
           </div>
-          <Badge variant="outline" className="rounded-full">{material.type}</Badge>
+          <h3 className="mt-4 font-semibold text-foreground group-hover:text-primary transition-colors flex-grow">
+            {material.title}
+          </h3>
+          {subject && (
+            <Badge
+              className={cn("mt-2 font-medium w-fit", subjectColorClasses[subject.color || 'default'])}
+            >
+              {subject.shortTitle}
+            </Badge>
+          )}
         </div>
-        <h3 className="mt-4 font-semibold text-foreground group-hover:text-primary transition-colors flex-grow">
-          {material.title}
-        </h3>
-        {subject && (
-          <Badge
-            className={cn("mt-2 font-medium w-fit", subjectColorClasses[subject.color || 'default'])}
-          >
-            {subject.shortTitle}
-          </Badge>
-        )}
-        <div className="flex-grow" />
         
         <ActionButton />
       </div>
@@ -124,6 +124,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
           <DialogContent className="max-w-5xl h-[90vh] p-0 animate-scale-in flex flex-col">
             <DialogHeader className="p-4 border-b flex-shrink-0">
               <DialogTitle>{material.title}</DialogTitle>
+               <DialogDescription className="sr-only">A viewer for the file: {material.title}</DialogDescription>
               <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
                   <X className="h-4 w-4" />
                   <span className="sr-only">Close</span>

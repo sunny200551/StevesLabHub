@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { AppLayout } from '@/components/layout/app-layout';
-import { cn } from '@/lib/utils';
+import { cn, getAssetPath } from '@/lib/utils';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: "Steve's Lab Hub",
   description: 'A central hub for college lab programs where students can browse, copy, and run code.',
-  manifest: '/manifest.json',
+  manifest: '/StevesLabHub/manifest.json',
 };
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <meta name="theme-color" content="#121821" />
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+        <link rel="apple-touch-icon" href={getAssetPath("/icons/icon-192x192.png")} />
       </head>
       <body className={cn("font-body antialiased")}>
         <ThemeProvider
