@@ -69,20 +69,16 @@ export function Header() {
       )}
     >
       <div className="container flex h-16 items-center md:h-20">
-        <Link href="/" className="mr-6 hidden items-center gap-3 md:flex">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary">
-            <span className="font-extrabold text-2xl text-primary-foreground">S</span>
-          </div>
-          <p className="text-xl font-bold text-foreground">Steve's Lab Hub</p>
-        </Link>
-        
-        <div className="flex-1 text-center md:hidden">
-            <Link href="/" className="inline-flex items-center gap-3">
-                 <p className="text-lg font-bold text-foreground">Steve's Lab Hub</p>
-            </Link>
+        <div className="flex-1 md:flex-none">
+          <Link href="/" className="inline-flex items-center gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary md:h-10 md:w-10 md:rounded-xl">
+              <span className="font-extrabold text-primary-foreground text-xl md:text-2xl">S</span>
+            </div>
+            <p className="font-bold text-lg text-foreground md:text-xl">Steve's Lab Hub</p>
+          </Link>
         </div>
 
-        <nav className="hidden items-center space-x-1 md:flex">
+        <nav className="hidden items-center space-x-1 md:ml-6 md:flex">
           {mainNavItems.map((item) => (
             <NavLink key={item.href} {...item} />
           ))}

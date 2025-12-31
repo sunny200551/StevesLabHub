@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    /* Base Desktop & Dark Theme Vars */
     --background: 210 20% 98%;
     --foreground: 220 25% 10%;
     --card: 0 0% 100%;
@@ -27,21 +28,6 @@
     --success: 142 70% 45%;
     
     --code-bg: 220 20% 12%;
-
-    /* Subject Colors */
-    --subject-ai: 217 91% 60%;
-    --subject-fsd: 262 88% 66%;
-    --subject-cn: 30 96% 54%;
-    --subject-tinkering: 336 84% 61%;
-    --subject-spm: 231 92% 65%;
-    --subject-cyber: 0 72% 51%;
-    --subject-cloud: 204 100% 50%;
-    --subject-ml: 142 71% 45%;
-    --subject-writing: 45 93% 47%;
-    --subject-speaking: 36 93% 53%;
-    --subject-cns: 341 93% 58%;
-    --subject-ws: 180 82% 45%;
-    --subject-sfs: 174 85% 41%;
   }
 
   .dark {
@@ -68,25 +54,25 @@
     --code-bg: 222 47% 9%;
   }
 
+  /* ================================== */
+  /* ===== Mobile-Specific Design ===== */
+  /* ================================== */
   @media (max-width: 768px) {
-    :root {
-      --radius: 1rem; /* 16px for mobile */
-    }
     .dark {
-      --background: 224 71% 4%; /* #080917 - mobile-bg */
-      --foreground: 215 20% 65%; /* #94a3b8 - mobile-text */
-      --card: 224 29% 10%; /* #111827 - mobile-card */
-      --card-foreground: 215 20% 65%;
-      --popover: 224 71% 4%;
-      --popover-foreground: 215 20% 65%;
-      --primary: 186 98% 53%; /* #22d3ee - mobile-accent */
-      --primary-foreground: 224 71% 4%;
+      --background: 215 28% 11%; /* #0f172a - mobile-bg */
+      --foreground: 216 12% 84%; /* #e5e7eb - mobile-text */
+      --card: 220 29% 9%;      /* #111827 - mobile-card */
+      --card-foreground: 216 12% 84%;
+      --popover: 215 28% 11%;
+      --popover-foreground: 216 12% 84%;
+      --primary: 186 98% 53%;   /* #22d3ee - mobile-accent */
+      --primary-foreground: 215 28% 11%;
       --secondary: 215 28% 17%;
       --secondary-foreground: 210 40% 98%;
-      --muted: 215 28% 17%;
-      --muted-foreground: 215 14% 34%; /* #475569 - mobile-muted */
-      --accent: 215 28% 17%;
-      --accent-foreground: 210 40% 98%;
+      --muted: 220 15% 30%;
+      --muted-foreground: 217 8% 63%; /* #9ca3af - mobile-muted */
+      --accent: 186 98% 53%; /* Use primary as accent for mobile */
+      --accent-foreground: 215 28% 11%;
       --border: 215 28% 17%;
       --input: 215 28% 17%;
       --ring: 186 98% 53%;
@@ -102,7 +88,13 @@
     @apply scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground font-body;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .responsive-grid {
+    @apply grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6;
   }
 }
