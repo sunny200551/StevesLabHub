@@ -12,7 +12,7 @@ const assetPrefix = isProd ? '/StevesLabHub' : '';
 const nextConfig: NextConfig = {
   output: 'export',
   basePath: assetPrefix,
-  assetPrefix: assetPrefix,
+  // assetPrefix is not needed here when basePath is set for GitHub Pages.
   typescript: {
     ignoreBuildErrors: true,
   },
