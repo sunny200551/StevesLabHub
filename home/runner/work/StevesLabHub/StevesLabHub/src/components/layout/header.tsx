@@ -69,8 +69,51 @@ export function Header() {
         scrolled ? 'border-b border-border/40 bg-background/85 backdrop-blur-xl' : 'bg-transparent'
       )}
     >
-      <div className="container flex h-16 items-center sm:h-20">
-        <Link href="/" className="mr-6 flex items-center gap-3">
+      <div className="container flex h-16 items-center md:h-20">
+        <div className="md:hidden">
+          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-[80vw] sm:w-[50vw] p-0">
+                  <SheetHeader className="p-4 border-b">
+                    <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                    <SheetDescription className="sr-only">
+                      Navigation links for Steve's Lab Hub.
+                    </SheetDescription>
+                    <div className="flex items-center justify-between">
+                         <Link href="/" className="mr-6 flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
+                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
+                                <span className="font-extrabold text-xl text-primary-foreground">S</span>
+                            </div>
+                            <p className="font-bold text-lg text-foreground">Steve's Lab Hub</p>
+                        </Link>
+                        <SheetTrigger asChild>
+                             <Button variant="ghost" size="icon">
+                                <X className="h-6 w-6" />
+                             </Button>
+                        </SheetTrigger>
+                    </div>
+                  </SheetHeader>
+                <div className="p-4">
+                  <nav className="flex flex-col gap-2">
+                    {mainNavItems.map((item) => (
+                      <NavLink key={item.href} {...item} isMobile />
+                    ))}
+                    <Separator className="my-2" />
+                    {mobileExtraNavItems.map((item) => (
+                      <NavLink key={item.href} {...item} isMobile />
+                    ))}
+                  </nav>
+                </div>
+              </SheetContent>
+            </Sheet>
+        </div>
+
+        <Link href="/" className="hidden md:flex items-center gap-3 mr-6">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary">
             <span className="font-extrabold text-2xl text-primary-foreground">S</span>
           </div>
@@ -87,47 +130,6 @@ export function Header() {
 
         <div className="ml-auto flex items-center gap-2">
           <ThemeToggle />
-          
-          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Open menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-[80vw] sm:w-[50vw] p-0">
-                <SheetHeader className="p-4 border-b">
-                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
-                  <SheetDescription className="sr-only">
-                    Navigation links for Steve's Lab Hub.
-                  </SheetDescription>
-                  <div className="flex items-center justify-between">
-                       <Link href="/" className="mr-6 flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
-                          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-                              <span className="font-extrabold text-xl text-primary-foreground">S</span>
-                          </div>
-                          <p className="font-bold text-lg text-foreground">Steve's Lab Hub</p>
-                      </Link>
-                      <SheetTrigger asChild>
-                           <Button variant="ghost" size="icon">
-                              <X className="h-6 w-6" />
-                           </Button>
-                      </SheetTrigger>
-                  </div>
-                </SheetHeader>
-              <div className="p-4">
-                <nav className="flex flex-col gap-2">
-                  {mainNavItems.map((item) => (
-                    <NavLink key={item.href} {...item} isMobile />
-                  ))}
-                  <Separator className="my-2" />
-                  {mobileExtraNavItems.map((item) => (
-                    <NavLink key={item.href} {...item} isMobile />
-                  ))}
-                </nav>
-              </div>
-            </SheetContent>
-          </Sheet>
         </div>
       </div>
     </header>

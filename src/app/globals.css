@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Base Desktop & Dark Theme Vars */
+    /* Base Desktop & Light Theme Vars */
     --background: 210 20% 98%;
     --foreground: 220 25% 10%;
     --card: 0 0% 100%;
@@ -24,20 +24,19 @@
     --border: 210 20% 88%;
     --input: 210 20% 88%;
     --ring: 217 91% 60%;
-    --radius: 0.75rem; /* 12px */
-    --success: 142 70% 45%;
+    --radius: 0.75rem;
     
     --code-bg: 220 20% 12%;
   }
 
   .dark {
-    --background: 222 47% 8%; /* Dark Blue-Gray */
+    --background: 222 47% 8%;
     --foreground: 210 40% 98%;
     --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
     --popover: 222 47% 8%;
     --popover-foreground: 210 40% 98%;
-    --primary: 217 91% 60%; /* Academic Blue */
+    --primary: 217 91% 60%;
     --primary-foreground: 210 40% 98%;
     --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
@@ -50,38 +49,32 @@
     --border: 217 33% 17%;
     --input: 217 33% 17%;
     --ring: 217 91% 60%;
-    --success: 142 70% 45%;
-    
     --code-bg: 222 47% 9%;
   }
+}
 
-  /* ================================== */
-  /* ===== Mobile-Specific Design ===== */
-  /* ================================== */
-  @media (max-width: 768px) {
-    .dark {
-      --background: 215 28% 11%; /* mobile-bg: #0f172a */
-      --foreground: 216 12% 84%; /* mobile-text: #e5e7eb */
-      --card: 220 29% 9%; /* mobile-card: #111827 */
-      --card-foreground: 216 12% 84%;
-      --popover: 215 28% 11%;
-      --popover-foreground: 216 12% 84%;
-      --primary: 186 98% 53%; /* mobile-accent: #22d3ee */
-      --primary-foreground: 215 28% 11%;
-      --secondary: 215 28% 17%;
-      --secondary-foreground: 210 40% 98%;
-      --muted: 220 15% 30%;
-      --muted-foreground: 217 8% 63%; /* mobile-muted: #9ca3af */
-      --accent: 186 98% 53%;
-      --accent-foreground: 215 28% 11%;
-      --border: 215 28% 17%;
-      --input: 215 28% 17%;
-      --ring: 186 98% 53%;
-    }
-
-    html.dark {
-      background-color: hsl(var(--background));
-    }
+/* ================================== */
+/* ===== Mobile-Specific Override ===== */
+/* ================================== */
+@media (max-width: 768px) {
+  .dark {
+    --background: 220 20% 7%;      /* --mobile-bg: #0f172a */
+    --foreground: 215 20% 90%;     /* --mobile-text: #e5e7eb */
+    --card: 220 20% 9%;          /* --mobile-card: #111827 */
+    --card-foreground: 215 20% 90%;
+    --popover: 220 20% 7%;
+    --popover-foreground: 215 20% 90%;
+    --primary: 186 98% 53%;        /* --mobile-accent: #22d3ee */
+    --primary-foreground: 220 20% 7%;
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 215 20% 90%;
+    --muted: 220 15% 30%;
+    --muted-foreground: 217 10% 60%;/* --mobile-muted: #9ca3af */
+    --accent: 186 98% 53%;
+    --accent-foreground: 220 20% 7%;
+    --border: 220 20% 15%;
+    --input: 220 20% 15%;
+    --ring: 186 98% 53%;
   }
 }
 
@@ -94,74 +87,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', 'Poppins', sans-serif;
-  }
-
-  /* Desktop Typography */
-  h1 { @apply text-4xl font-semibold tracking-tight; }
-  h2 { @apply text-3xl font-semibold tracking-tight; }
-  h3 { @apply text-xl font-semibold; }
-  p, div, span, li, a { @apply text-base font-normal; }
-
-  /* Mobile Typography Overrides */
-  @media (max-width: 768px) {
-    h1 { @apply text-3xl font-bold; }
-    h2 { @apply text-2xl font-bold; }
-    h3 { @apply text-lg font-semibold; }
-    p, div, span, li, a { @apply text-sm; }
-  }
-}
-
-@layer components {
-  /* ============================= */
-  /* ===== Responsive Sizing ===== */
-  /* ============================= */
-
-  .container {
-    @apply max-w-7xl px-4;
-    
-    @media (max-width: 768px) {
-      @apply px-3;
-    }
-  }
-
-  .responsive-grid {
-    @apply grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-6;
-  }
-
-  .responsive-card {
-    @apply rounded-xl border bg-card text-card-foreground shadow-sm transition-all;
-    
-    @media (max-width: 768px) {
-      @apply rounded-2xl shadow-md; /* 16px radius */
-    }
-  }
-
-  .responsive-button {
-    @apply h-10 px-4 py-2; /* Standard desktop height */
-    
-    @media (max-width: 768px) {
-      @apply h-12 w-full text-base font-semibold; /* 48px height, full-width */
-    }
-  }
-
-  .responsive-section-padding {
-    @apply py-16 md:py-24;
-  }
-
-  .responsive-header-padding {
-    @apply p-6;
-    
-    @media (max-width: 768px) {
-      @apply p-4;
-    }
-  }
-
-  .responsive-content-padding {
-     @apply p-6;
-    
-    @media (max-width: 768px) {
-      @apply p-4;
-    }
+    font-family: 'Inter', sans-serif;
   }
 }

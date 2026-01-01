@@ -28,19 +28,19 @@ const iconMap: Record<Subject['color'], React.ReactNode> = {
 };
 
 const colorClasses: Record<Subject['color'], string> = {
-  ai: 'from-subject-ai/20 to-subject-ai/5 border-subject-ai/30 hover:border-subject-ai/60 text-subject-ai dark:hover:shadow-glow-ai',
-  fsd: 'from-subject-fsd/20 to-subject-fsd/5 border-subject-fsd/30 hover:border-subject-fsd/60 text-subject-fsd dark:hover:shadow-glow-fsd',
-  cn: 'from-subject-cn/20 to-subject-cn/5 border-subject-cn/30 hover:border-subject-cn/60 text-subject-cn dark:hover:shadow-glow-cn',
-  tinkering: 'from-subject-tinkering/20 to-subject-tinkering/5 border-subject-tinkering/30 hover:border-subject-tinkering/60 text-subject-tinkering dark:hover:shadow-glow-tinkering',
-  spm: 'from-purple-500/20 to-purple-500/5 border-purple-500/30 hover:border-purple-500/60 text-purple-500 dark:hover:shadow-glow-spm',
-  cyber: 'from-red-500/20 to-red-500/5 border-red-500/30 hover:border-red-500/60 text-red-500 dark:hover:shadow-glow-cyber',
-  cloud: 'from-blue-500/20 to-blue-500/5 border-blue-500/30 hover:border-blue-500/60 text-blue-500 dark:hover:shadow-glow-cloud',
-  ml: 'from-green-500/20 to-green-500/5 border-green-500/30 hover:border-green-500/60 text-green-500 dark:hover:shadow-glow-ml',
-  writing: 'from-yellow-500/20 to-yellow-500/5 border-yellow-500/30 hover:border-yellow-500/60 text-yellow-500 dark:hover:shadow-glow-writing',
-  speaking: 'from-orange-500/20 to-orange-500/5 border-orange-500/30 hover:border-orange-500/60 text-orange-500 dark:hover:shadow-glow-speaking',
-  cns: 'from-pink-500/20 to-pink-500/5 border-pink-500/30 hover:border-pink-500/60 text-pink-500 dark:hover:shadow-glow-cns',
-  ws: 'from-indigo-500/20 to-indigo-500/5 border-indigo-500/30 hover:border-indigo-500/60 text-indigo-500 dark:hover:shadow-glow-ws',
-  sfs: 'from-teal-500/20 to-teal-500/5 border-teal-500/30 hover:border-teal-500/60 text-teal-500 dark:hover:shadow-glow-sfs',
+  ai: 'from-subject-ai/20 to-subject-ai/5 border-subject-ai/30 hover:border-subject-ai/60 text-subject-ai',
+  fsd: 'from-subject-fsd/20 to-subject-fsd/5 border-subject-fsd/30 hover:border-subject-fsd/60 text-subject-fsd',
+  cn: 'from-subject-cn/20 to-subject-cn/5 border-subject-cn/30 hover:border-subject-cn/60 text-subject-cn',
+  tinkering: 'from-subject-tinkering/20 to-subject-tinkering/5 border-subject-tinkering/30 hover:border-subject-tinkering/60 text-subject-tinkering',
+  spm: 'from-purple-500/20 to-purple-500/5 border-purple-500/30 hover:border-purple-500/60 text-purple-500',
+  cyber: 'from-red-500/20 to-red-500/5 border-red-500/30 hover:border-red-500/60 text-red-500',
+  cloud: 'from-blue-500/20 to-blue-500/5 border-blue-500/30 hover:border-blue-500/60 text-blue-500',
+  ml: 'from-green-500/20 to-green-500/5 border-green-500/30 hover:border-green-500/60 text-green-500',
+  writing: 'from-yellow-500/20 to-yellow-500/5 border-yellow-500/30 hover:border-yellow-500/60 text-yellow-500',
+  speaking: 'from-orange-500/20 to-orange-500/5 border-orange-500/30 hover:border-orange-500/60 text-orange-500',
+  cns: 'from-pink-500/20 to-pink-500/5 border-pink-500/30 hover:border-pink-500/60 text-pink-500',
+  ws: 'from-indigo-500/20 to-indigo-500/5 border-indigo-500/30 hover:border-indigo-500/60 text-indigo-500',
+  sfs: 'from-teal-500/20 to-teal-500/5 border-teal-500/30 hover:border-teal-500/60 text-teal-500',
   default: 'from-slate-500/20 to-slate-500/5 border-slate-500/30 hover:border-slate-500/60 text-slate-500',
 };
 
@@ -67,35 +67,35 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
     <Link 
       href={`/subjects/${subject.id}?year=${subject.year}&sem=${subject.semester}`}
       className={cn(
-        "group relative flex flex-col w-full rounded-xl border p-4 text-left transition-all duration-300 md:rounded-2xl md:p-5 md:shadow-sm md:hover:-translate-y-1",
-        "dark:md:from-card dark:md:to-card dark:md:border dark:md:border-border dark:md:text-foreground dark:md:hover:border-primary dark:md:hover:bg-primary/5",
-        "dark:border-border/50 dark:hover:shadow-glow-primary", // Mobile dark glow
-        colorClasses[subject.color]
+        "group relative flex flex-col w-full rounded-2xl border-2 bg-gradient-to-br p-5 text-left transition-all duration-300 md:hover:-translate-y-1",
+        colorClasses[subject.color],
+        "dark:md:from-card dark:md:to-card dark:md:border dark:md:border-border dark:md:text-foreground dark:md:hover:border-primary dark:md:hover:bg-primary/5 dark:hover:shadow-none",
+        "md:shadow-none"
       )}
     >
-        <div className="flex items-start justify-between">
-            <div className={cn("flex h-10 w-10 items-center justify-center rounded-lg md:h-12 md:w-12 md:rounded-xl", iconBgClasses[subject.color], "dark:md:bg-primary/10 dark:md:text-primary")}>
+        <div className="flex justify-between items-start">
+            <div className={cn("flex h-12 w-12 items-center justify-center rounded-xl", iconBgClasses[subject.color], "dark:md:bg-primary/10 dark:md:text-primary")}>
                 {iconMap[subject.color]}
             </div>
             <div className='flex items-center gap-2'>
-                <Badge variant="outline" className="border-current/30 bg-current/10 text-xs text-current dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground">R-23</Badge>
+                <Badge variant="outline" className="border-current/30 bg-current/10 text-current dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground">R-23</Badge>
                 {subject.hasLab && (
-                    <Badge variant="outline" className="whitespace-nowrap border-accent-foreground/30 bg-accent/80 text-xs text-accent-foreground dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground">
+                    <Badge variant="outline" className="border-accent-foreground/30 bg-accent/80 text-accent-foreground dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground">
                         {subject.isLabOnly ? "Lab" : "Lab+Theory"}
                     </Badge>
                 )}
             </div>
         </div>
       
-        <div className="mt-3 flex-grow md:mt-4">
-            <h3 className="text-base font-bold text-foreground transition-colors md:text-lg md:group-hover:text-primary dark:md:group-hover:text-primary">{subject.title}</h3>
-            <p className="mt-1 min-h-[30px] flex-grow text-xs text-muted-foreground md:min-h-[40px] md:text-sm">{subject.description}</p>
+        <div className="flex-grow mt-4">
+            <h3 className="text-lg font-bold text-foreground md:group-hover:text-primary dark:md:group-hover:text-primary transition-colors">{subject.title}</h3>
+            <p className="mt-1 text-sm text-muted-foreground flex-grow min-h-[40px]">{subject.description}</p>
         </div>
         
-        <div className="mt-4 flex items-center justify-between text-sm font-semibold text-foreground">
+        <div className="mt-4 flex items-center justify-between font-semibold text-foreground">
             <span>{subject.hasLab ? 'View Content' : 'View Materials'}</span>
              {subject.hasLab && programCount > 0 && (
-                <Badge className="border-primary/20 bg-primary/10 text-primary">
+                <Badge className="bg-primary/10 text-primary border-primary/20">
                     {programCount} Programs
                 </Badge>
             )}
