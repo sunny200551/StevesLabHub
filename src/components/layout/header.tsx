@@ -110,7 +110,7 @@ export function Header() {
                   </nav>
                 </div>
               </SheetContent>
-            </Sheet>>
+            </Sheet>
         </div>
 
         <Link href="/" className="hidden md:flex items-center gap-3 mr-6">
