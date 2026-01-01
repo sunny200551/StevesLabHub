@@ -76,7 +76,7 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
         "group relative flex flex-col w-full rounded-2xl border-2 bg-gradient-to-br p-4 text-left transition-all duration-300",
         "md:p-5 md:hover:-translate-y-1",
         colorClasses[safeColor],
-        "dark:md:from-card dark:md:to-card dark:md:border dark:md:border-border dark:md:hover:border-primary dark:md:hover:bg-primary/5 dark:hover:shadow-none"
+        "dark:md:from-card dark:md:to-card dark:md:border dark:md:border-border dark:md:text-foreground dark:md:hover:border-primary dark:md:hover:bg-primary/5 dark:hover:shadow-none"
       )}
       style={{'--glow-color': `hsl(var(--subject-${safeColor}))`} as React.CSSProperties}
     >

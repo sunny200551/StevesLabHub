@@ -64,12 +64,6 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
     }
   };
 
-  const getButtonContent = () => {
-    if (canBeViewed) return <><View className="mr-2 h-4 w-4" /> View</>;
-    if (isExternalLink) return <><LinkIcon className="mr-2 h-4 w-4" /> Open Link</>;
-    return <><Download className="mr-2 h-4 w-4" /> Download</>;
-  };
-  
   const ActionButton = () => {
     if (isPDF) {
       return (
@@ -89,7 +83,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
     if (canBeViewed) {
         return (
             <Button onClick={handleAction} size="sm" className="mt-4 w-full z-10 responsive-button">
-                {getButtonContent()}
+                <View className="mr-2 h-4 w-4" /> View
             </Button>
         );
     }
@@ -97,7 +91,8 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
     return (
         <Button asChild size="sm" className="mt-4 w-full z-10 responsive-button">
             <a href={assetUrl} download={!isExternalLink} target={isExternalLink ? '_blank' : '_self'} rel="noopener noreferrer">
-                {getButtonContent()}
+                {isExternalLink ? <LinkIcon className="mr-2 h-4 w-4" /> : <Download className="mr-2 h-4 w-4" />}
+                {isExternalLink ? 'Open Link' : 'Download'}
             </a>
         </Button>
     );
