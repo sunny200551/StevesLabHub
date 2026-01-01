@@ -64,19 +64,26 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
     <Link 
       href={`/subjects/${subject.id}?year=${subject.year}&sem=${subject.semester}`}
       className={cn(
-        // Base mobile styles
         "group relative flex flex-col w-full rounded-2xl p-4 text-left transition-all duration-300",
         "bg-card border-2 border-border/10 shadow-lg",
         // Desktop overrides
         "md:p-5 md:bg-gradient-to-br md:shadow-none md:hover:-translate-y-1",
         "md:from-card md:to-card md:border md:border-border",
+        // The following classes are for the DESKTOP dark theme, mobile will just use its own --primary
         "dark:md:from-card dark:md:to-card dark:md:border-border/50 dark:md:hover:border-primary dark:md:hover:bg-primary/5 dark:hover:shadow-none",
         colorClasses[safeColor]
       )}
       style={{'--glow-color': `hsl(var(--subject-${safeColor}))`} as React.CSSProperties}
     >
         <div className="flex justify-between items-start">
-            <div className={cn("flex h-12 w-12 items-center justify-center rounded-xl", iconBgClasses[safeColor])}>
+            <div className={cn(
+              "flex h-12 w-12 items-center justify-center rounded-xl", 
+              iconBgClasses[safeColor],
+              // On desktop, the icon uses the specific subject color. On mobile, it uses the primary (green) theme color.
+              "md:bg-inherit", // Reset background for desktop so gradient/color classes take over
+              "dark:text-primary dark:md:text-current", // Mobile icon text is primary, desktop is current subject color
+              "dark:bg-primary/10 dark:md:bg-transparent" // Mobile icon bg is primary, desktop is transparent
+            )}>
                 {iconMap[safeColor] || iconMap.default}
             </div>
             <div className='flex items-center gap-2'>
@@ -90,7 +97,7 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
         </div>
       
         <div className="flex-grow mt-4">
-            <h3 className="text-base font-bold text-foreground transition-colors md:text-lg md:group-hover:text-primary">{subject.title}</h3>
+            <h3 className="text-base font-bold text-foreground transition-colors md:text-lg group-hover:text-primary">{subject.title}</h3>
             <p className="mt-1 text-sm text-muted-foreground flex-grow min-h-[36px] md:min-h-[40px]">{subject.description}</p>
         </div>
         
