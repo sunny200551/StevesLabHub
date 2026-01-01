@@ -18,8 +18,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        body: ['"Plus Jakarta Sans"', 'sans-serif'],
-        headline: ['"Plus Jakarta Sans"', 'sans-serif'],
+        sans: ['Inter', 'Poppins', 'sans-serif'],
         code: ['"JetBrains Mono"', 'monospace'],
       },
       colors: {
@@ -57,6 +56,7 @@ const config = {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         success: 'hsl(var(--success))',
+        
         subject: {
           ai: 'hsl(var(--subject-ai))',
           fsd: 'hsl(var(--subject-fsd))',
@@ -71,34 +71,44 @@ const config = {
           cns: 'hsl(var(--subject-cns))',
           ws: 'hsl(var(--subject-ws))',
           sfs: 'hsl(var(--subject-sfs))',
+          mpmc: 'hsl(var(--subject-mpmc))',
+          atcd: 'hsl(var(--subject-atcd))',
+          ooad: 'hsl(var(--subject-ooad))',
         },
         'code-bg': 'hsl(var(--code-bg))',
       },
       borderRadius: {
-        '2xl': 'calc(var(--radius) * 1.333)', // 16px
-        xl: 'calc(var(--radius) * 1)', // 12px
-        lg: 'calc(var(--radius) * 0.666)', // 8px
-        md: 'calc(var(--radius) - 4px)',
-        sm: 'calc(var(--radius) - 6px)',
+        '2xl': 'calc(var(--radius) + 4px)',
+        xl: 'var(--radius)',
+        lg: 'calc(var(--radius) - 4px)',
+        md: 'calc(var(--radius) - 6px)',
+        sm: 'calc(var(--radius) - 8px)',
       },
       boxShadow: {
-        sm: '0 1px 2px 0 hsl(220 25% 10% / 0.03)',
-        md: '0 4px 6px -1px hsl(220 25% 10% / 0.05), 0 2px 4px -2px hsl(220 25% 10% / 0.05)',
-        lg: '0 10px 15px -3px hsl(220 25% 10% / 0.08), 0 4px 6px -4px hsl(220 25% 10% / 0.05)',
-        xl: '0 20px 25px -5px hsl(220 25% 10% / 0.1), 0 8px 10px -6px hsl(220 25% 10% / 0.05)',
-        'glow-ai': '0 0 15px 0 hsl(var(--subject-ai) / 0.3)',
-        'glow-fsd': '0 0 15px 0 hsl(var(--subject-fsd) / 0.3)',
-        'glow-cn': '0 0 15px 0 hsl(var(--subject-cn) / 0.3)',
-        'glow-tinkering': '0 0 15px 0 hsl(var(--subject-tinkering) / 0.3)',
-        'glow-spm': '0 0 15px 0 hsl(var(--subject-spm) / 0.3)',
-        'glow-cyber': '0 0 15px 0 hsl(var(--subject-cyber) / 0.3)',
-        'glow-cloud': '0 0 15px 0 hsl(var(--subject-cloud) / 0.3)',
-        'glow-ml': '0 0 15px 0 hsl(var(--subject-ml) / 0.3)',
-        'glow-writing': '0 0 15px 0 hsl(var(--subject-writing) / 0.3)',
-        'glow-speaking': '0 0 15px 0 hsl(var(--subject-speaking) / 0.3)',
-        'glow-cns': '0 0 15px 0 hsl(var(--subject-cns) / 0.3)',
-        'glow-ws': '0 0 15px 0 hsl(var(--subject-ws) / 0.3)',
-        'glow-sfs': '0 0 15px 0 hsl(var(--subject-sfs) / 0.3)',
+        // Desktop shadows
+        sm: '0 1px 2px 0 hsl(220 25% 10% / 0.05)',
+        DEFAULT: '0 1px 3px 0 hsl(220 25% 10% / 0.1), 0 1px 2px -1px hsl(220 25% 10% / 0.1)',
+        md: '0 4px 6px -1px hsl(220 25% 10% / 0.1), 0 2px 4px -2px hsl(220 25% 10% / 0.1)',
+        lg: '0 10px 15px -3px hsl(220 25% 10% / 0.1), 0 4px 6px -4px hsl(220 25% 10% / 0.1)',
+        xl: '0 20px 25px -5px hsl(220 25% 10% / 0.1), 0 8px 10px -6px hsl(220 25% 10% / 0.1)',
+
+        // Mobile Glow Shadows
+        'glow-ai': '0 0 20px 0 hsl(var(--subject-ai) / 0.4)',
+        'glow-fsd': '0 0 20px 0 hsl(var(--subject-fsd) / 0.4)',
+        'glow-cn': '0 0 20px 0 hsl(var(--subject-cn) / 0.4)',
+        'glow-tinkering': '0 0 20px 0 hsl(var(--subject-tinkering) / 0.4)',
+        'glow-spm': '0 0 20px 0 hsl(var(--subject-spm) / 0.4)',
+        'glow-cyber': '0 0 20px 0 hsl(var(--subject-cyber) / 0.4)',
+        'glow-cloud': '0 0 20px 0 hsl(var(--subject-cloud) / 0.4)',
+        'glow-ml': '0 0 20px 0 hsl(var(--subject-ml) / 0.4)',
+        'glow-writing': '0 0 20px 0 hsl(var(--subject-writing) / 0.4)',
+        'glow-speaking': '0 0 20px 0 hsl(var(--subject-speaking) / 0.4)',
+        'glow-cns': '0 0 20px 0 hsl(var(--subject-cns) / 0.4)',
+        'glow-ws': '0 0 20px 0 hsl(var(--subject-ws) / 0.4)',
+        'glow-sfs': '0 0 20px 0 hsl(var(--subject-sfs) / 0.4)',
+        'glow-mpmc': '0 0 20px 0 hsl(var(--subject-mpmc) / 0.4)',
+        'glow-atcd': '0 0 20px 0 hsl(var(--subject-atcd) / 0.4)',
+        'glow-ooad': '0 0 20px 0 hsl(var(--subject-ooad) / 0.4)',
       },
       keyframes: {
         'accordion-down': {

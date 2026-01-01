@@ -31,30 +31,28 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 const colorClasses: Record<string, string> = {
-  ai: 'from-blue-500/10 to-blue-500/5 border-blue-500/20 hover:border-blue-500/40 text-blue-500',
-  fsd: 'from-purple-500/10 to-purple-500/5 border-purple-500/20 hover:border-purple-500/40 text-purple-500',
-  cn: 'from-orange-500/10 to-orange-500/5 border-orange-500/20 hover:border-orange-500/40 text-orange-500',
-  tinkering: 'from-pink-500/10 to-pink-500/5 border-pink-500/20 hover:border-pink-500/40 text-pink-500',
-  spm: 'from-indigo-500/10 to-indigo-500/5 border-indigo-500/20 hover:border-indigo-500/40 text-indigo-500',
-  cyber: 'from-red-500/10 to-red-500/5 border-red-500/20 hover:border-red-500/40 text-red-500',
-  cloud: 'from-sky-500/10 to-sky-500/5 border-sky-500/20 hover:border-sky-500/40 text-sky-500',
-  ml: 'from-green-500/10 to-green-500/5 border-green-500/20 hover:border-green-500/40 text-green-500',
-  writing: 'from-yellow-500/10 to-yellow-500/5 border-yellow-500/20 hover:border-yellow-500/40 text-yellow-500',
-  speaking: 'from-amber-500/10 to-amber-500/5 border-amber-500/20 hover:border-amber-500/40 text-amber-500',
-  cns: 'from-rose-500/10 to-rose-500/5 border-rose-500/20 hover:border-rose-500/40 text-rose-500',
-  ws: 'from-cyan-500/10 to-cyan-500/5 border-cyan-500/20 hover:border-cyan-500/40 text-cyan-500',
-  sfs: 'from-teal-500/10 to-teal-500/5 border-teal-500/20 hover:border-teal-500/40 text-teal-500',
-  mpmc: 'from-lime-500/10 to-lime-500/5 border-lime-500/20 hover:border-lime-500/40 text-lime-500',
-  atcd: 'from-violet-500/10 to-violet-500/5 border-violet-500/20 hover:border-violet-500/40 text-violet-500',
-  ooad: 'from-emerald-500/10 to-emerald-500/5 border-emerald-500/20 hover:border-emerald-500/40 text-emerald-500',
-  default: 'from-slate-500/10 to-slate-500/5 border-slate-500/20 hover:border-slate-500/40 text-slate-500',
+  ai: 'dark:from-subject-ai/10 dark:to-subject-ai/5 border-subject-ai/20 dark:hover:border-subject-ai/40 text-subject-ai dark:hover:shadow-glow-ai',
+  fsd: 'dark:from-subject-fsd/10 dark:to-subject-fsd/5 border-subject-fsd/20 dark:hover:border-subject-fsd/40 text-subject-fsd dark:hover:shadow-glow-fsd',
+  cn: 'dark:from-subject-cn/10 dark:to-subject-cn/5 border-subject-cn/20 dark:hover:border-subject-cn/40 text-subject-cn dark:hover:shadow-glow-cn',
+  tinkering: 'dark:from-subject-tinkering/10 dark:to-subject-tinkering/5 border-subject-tinkering/20 dark:hover:border-subject-tinkering/40 text-subject-tinkering dark:hover:shadow-glow-tinkering',
+  spm: 'dark:from-indigo-500/10 dark:to-indigo-500/5 border-indigo-500/20 dark:hover:border-indigo-500/40 text-indigo-500 dark:hover:shadow-glow-spm',
+  cyber: 'dark:from-red-500/10 dark:to-red-500/5 border-red-500/20 dark:hover:border-red-500/40 text-red-500 dark:hover:shadow-glow-cyber',
+  cloud: 'dark:from-sky-500/10 dark:to-sky-500/5 border-sky-500/20 dark:hover:border-sky-500/40 text-sky-500 dark:hover:shadow-glow-cloud',
+  ml: 'dark:from-green-500/10 dark:to-green-500/5 border-green-500/20 dark:hover:border-green-500/40 text-green-500 dark:hover:shadow-glow-ml',
+  writing: 'dark:from-yellow-500/10 dark:to-yellow-500/5 border-yellow-500/20 dark:hover:border-yellow-500/40 text-yellow-500 dark:hover:shadow-glow-writing',
+  speaking: 'dark:from-amber-500/10 dark:to-amber-500/5 border-amber-500/20 dark:hover:border-amber-500/40 text-amber-500 dark:hover:shadow-glow-speaking',
+  cns: 'dark:from-rose-500/10 dark:to-rose-500/5 border-rose-500/20 dark:hover:border-rose-500/40 text-rose-500 dark:hover:shadow-glow-cns',
+  mpmc: 'dark:from-lime-500/10 dark:to-lime-500/5 border-lime-500/20 dark:hover:border-lime-500/40 text-lime-500 dark:hover:shadow-glow-mpmc',
+  atcd: 'dark:from-violet-500/10 dark:to-violet-500/5 border-violet-500/20 dark:hover:border-violet-500/40 text-violet-500 dark:hover:shadow-glow-atcd',
+  ooad: 'dark:from-emerald-500/10 dark:to-emerald-500/5 border-emerald-500/20 dark:hover:border-emerald-500/40 text-emerald-500 dark:hover:shadow-glow-ooad',
+  default: 'dark:from-slate-500/10 dark:to-slate-500/5 border-slate-500/20 dark:hover:border-slate-500/40 text-slate-500',
 };
 
 const iconBgClasses: Record<string, string> = {
-    ai: 'bg-blue-500/10', fsd: 'bg-purple-500/10', cn: 'bg-orange-500/10', tinkering: 'bg-pink-500/10',
+    ai: 'bg-subject-ai/10', fsd: 'bg-subject-fsd/10', cn: 'bg-subject-cn/10', tinkering: 'bg-subject-tinkering/10',
     spm: 'bg-indigo-500/10', cyber: 'bg-red-500/10', cloud: 'bg-sky-500/10', ml: 'bg-green-500/10',
-    writing: 'bg-yellow-500/10', speaking: 'bg-amber-500/10', cns: 'bg-rose-500/10', ws: 'bg-cyan-500/10',
-    sfs: 'bg-teal-500/10', mpmc: 'bg-lime-500/10', atcd: 'bg-violet-500/10', ooad: 'bg-emerald-500/10',
+    writing: 'bg-yellow-500/10', speaking: 'bg-amber-500/10', cns: 'bg-rose-500/10',
+    mpmc: 'bg-lime-500/10', atcd: 'bg-violet-500/10', ooad: 'bg-emerald-500/10',
     default: 'bg-slate-500/10',
 };
 
@@ -66,19 +64,25 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
     <Link 
       href={`/subjects/${subject.id}?year=${subject.year}&sem=${subject.semester}`}
       className={cn(
-        "group relative flex flex-col w-full rounded-2xl border-2 bg-gradient-to-br p-5 text-left transition-all duration-300 md:hover:-translate-y-1",
-        colorClasses[safeColor],
-        "dark:from-card dark:to-card dark:border-border/50 dark:hover:border-primary dark:hover:bg-primary/5 dark:hover:shadow-none"
+        // Base mobile styles
+        "group relative flex flex-col w-full rounded-2xl p-4 text-left transition-all duration-300",
+        "bg-card border-2 border-border/10 shadow-lg",
+        // Desktop overrides
+        "md:p-5 md:bg-gradient-to-br md:shadow-none md:hover:-translate-y-1",
+        "md:from-card md:to-card md:border md:border-border",
+        "dark:md:from-card dark:md:to-card dark:md:border-border/50 dark:md:hover:border-primary dark:md:hover:bg-primary/5 dark:hover:shadow-none",
+        colorClasses[safeColor]
       )}
+      style={{'--glow-color': `hsl(var(--subject-${safeColor}))`} as React.CSSProperties}
     >
         <div className="flex justify-between items-start">
-            <div className={cn("flex h-12 w-12 items-center justify-center rounded-xl", iconBgClasses[safeColor], "dark:md:bg-primary/10 dark:md:text-primary")}>
+            <div className={cn("flex h-12 w-12 items-center justify-center rounded-xl", iconBgClasses[safeColor])}>
                 {iconMap[safeColor] || iconMap.default}
             </div>
             <div className='flex items-center gap-2'>
-                <Badge variant="outline" className="border-current/30 bg-current/10 text-current dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground">R-23</Badge>
+                <Badge variant="outline" className="border-border/30 bg-secondary text-secondary-foreground text-xs">R-23</Badge>
                 {subject.hasLab && (
-                    <Badge variant="outline" className="border-accent-foreground/30 bg-accent/80 text-accent-foreground dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground">
+                    <Badge variant="outline" className="border-border/30 bg-secondary text-secondary-foreground text-xs">
                         {subject.isLabOnly ? "Lab" : "Lab+Theory"}
                     </Badge>
                 )}
@@ -86,11 +90,11 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
         </div>
       
         <div className="flex-grow mt-4">
-            <h3 className="text-lg font-bold text-foreground md:group-hover:text-primary dark:md:group-hover:text-primary transition-colors">{subject.title}</h3>
-            <p className="mt-1 text-sm text-muted-foreground flex-grow min-h-[40px]">{subject.description}</p>
+            <h3 className="text-base font-bold text-foreground transition-colors md:text-lg md:group-hover:text-primary">{subject.title}</h3>
+            <p className="mt-1 text-sm text-muted-foreground flex-grow min-h-[36px] md:min-h-[40px]">{subject.description}</p>
         </div>
         
-        <div className="mt-4 flex items-center justify-between font-semibold text-foreground">
+        <div className="mt-4 flex items-center justify-between text-sm font-semibold text-foreground md:text-base">
             <span>{subject.hasLab ? 'View Content' : 'View Materials'}</span>
              {subject.hasLab && programCount > 0 && (
                 <Badge className="bg-primary/10 text-primary border-primary/20">

@@ -6,7 +6,7 @@ import { cn, getAssetPath } from '@/lib/utils';
 import { FileText, Download, Image as ImageIcon, Link as LinkIcon, View } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { useState } from 'react';
 import { X } from 'lucide-react';
 
@@ -53,35 +53,32 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
   const config = fileTypeConfig[material.type] || fileTypeConfig.default;
   const canBeViewed = material.fileType === 'PDF' || material.fileType === 'Image';
   const isExternalLink = material.fileType === 'Link';
-  const isDownloadable = material.fileType === 'Document';
   const assetUrl = getAssetPath(material.url);
 
-  const handleCardClick = () => {
+  const handleAction = () => {
     if (canBeViewed) {
       setIsViewerOpen(true);
+    } else {
+      window.open(assetUrl, isExternalLink ? '_blank' : '_self');
     }
   };
 
   const getButtonContent = () => {
-    if (canBeViewed) {
-      return <><View className="mr-2 h-4 w-4" /> View</>;
-    }
-    if (isExternalLink) {
-      return <><LinkIcon className="mr-2 h-4 w-4" /> Open Link</>;
-    }
+    if (canBeViewed) return <><View className="mr-2 h-4 w-4" /> View</>;
+    if (isExternalLink) return <><LinkIcon className="mr-2 h-4 w-4" /> Open Link</>;
     return <><Download className="mr-2 h-4 w-4" /> Download</>;
   };
   
   const ActionButton = () => {
     if (canBeViewed) {
         return (
-            <Button onClick={handleCardClick} size="sm" className="mt-4 w-full z-10">
+            <Button onClick={handleAction} size="sm" className="mt-4 w-full z-10 responsive-button">
                 {getButtonContent()}
             </Button>
         );
     }
     return (
-        <Button asChild size="sm" className="mt-4 w-full z-10">
+        <Button asChild size="sm" className="mt-4 w-full z-10 responsive-button">
             <a href={assetUrl} download={!isExternalLink} target={isExternalLink ? '_blank' : '_self'} rel="noopener noreferrer">
                 {getButtonContent()}
             </a>
@@ -92,10 +89,9 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
   return (
     <>
       <div
-        onClick={handleCardClick}
         className={cn(
-          "group block rounded-xl border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1 h-full flex flex-col",
-          canBeViewed && "cursor-pointer"
+          "responsive-card group flex flex-col transition-all duration-200 h-full",
+          "md:hover:-translate-y-1"
         )}
       >
         <div className="flex items-start justify-between">
@@ -127,11 +123,16 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
               <DialogDescription className="sr-only">
                 A viewer for the file: {material.title}
               </DialogDescription>
-              <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-                  <X className="h-4 w-4" />
-                  <span className="sr-only">Close</span>
-              </DialogClose>
             </DialogHeader>
+             <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsViewerOpen(false)}
+                className="absolute right-2 top-2 rounded-full h-8 w-8 z-10"
+                aria-label="Close viewer"
+              >
+                <X className="h-4 w-4" />
+              </Button>
             <div className="flex-1 overflow-auto">
               {material.fileType === 'PDF' ? (
                  <iframe

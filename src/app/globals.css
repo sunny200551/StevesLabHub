@@ -27,6 +27,24 @@
     --radius: 0.75rem;
     
     --code-bg: 220 20% 12%;
+
+    /* Subject Colors (Desktop) */
+    --subject-ai: 217 91% 60%;
+    --subject-fsd: 262 88% 66%;
+    --subject-cn: 30 96% 54%;
+    --subject-tinkering: 330 84% 61%;
+    --subject-spm: 240 5.9% 10%; /* Not used, placeholder */
+    --subject-cyber: 0 72% 51%;
+    --subject-cloud: 204 100% 50%;
+    --subject-ml: 142 71% 45%;
+    --subject-writing: 45 93% 47%;
+    --subject-speaking: 22 95% 53%;
+    --subject-cns: 340 82% 52%;
+    --subject-ws: 180 82% 35%; /* Not used */
+    --subject-sfs: 174 72% 42%; /* Not used */
+    --subject-mpmc: 80 61% 50%;
+    --subject-atcd: 258 92% 66%;
+    --subject-ooad: 145 63% 42%;
   }
 
   .dark {
@@ -50,31 +68,48 @@
     --input: 217 33% 17%;
     --ring: 217 91% 60%;
     --code-bg: 222 47% 9%;
-  }
-}
 
-/* ================================== */
-/* ===== Mobile-Specific Override ===== */
-/* ================================== */
-@media (max-width: 768px) {
-  .dark {
-    --background: 220 20% 7%;      /* --mobile-bg: #0f172a */
-    --foreground: 215 20% 90%;     /* --mobile-text: #e5e7eb */
-    --card: 220 20% 9%;          /* --mobile-card: #111827 */
-    --card-foreground: 215 20% 90%;
-    --popover: 220 20% 7%;
-    --popover-foreground: 215 20% 90%;
-    --primary: 186 98% 53%;        /* --mobile-accent: #22d3ee */
-    --primary-foreground: 220 20% 7%;
-    --secondary: 220 20% 15%;
-    --secondary-foreground: 215 20% 90%;
-    --muted: 220 15% 30%;
-    --muted-foreground: 217 10% 60%;/* --mobile-muted: #9ca3af */
-    --accent: 186 98% 53%;
-    --accent-foreground: 220 20% 7%;
-    --border: 220 20% 15%;
-    --input: 220 20% 15%;
-    --ring: 186 98% 53%;
+    /* Subject Colors (Desktop Dark) */
+    --subject-ai: 217 91% 60%;
+    --subject-fsd: 262 88% 70%;
+    --subject-cn: 30 96% 64%;
+    --subject-tinkering: 330 84% 71%;
+    --subject-cyber: 0 82% 61%;
+    --subject-cloud: 204 100% 60%;
+    --subject-ml: 142 71% 55%;
+    --subject-writing: 45 93% 57%;
+    --subject-speaking: 22 95% 63%;
+    --subject-cns: 340 82% 62%;
+    --subject-mpmc: 80 61% 60%;
+    --subject-atcd: 258 92% 76%;
+    --subject-ooad: 145 63% 52%;
+  }
+
+  /* ================================== */
+  /* ===== Mobile-Specific Override ===== */
+  /* ================================== */
+  @media (max-width: 768px) {
+    .dark {
+      --background: 224 71% 4%; /* #020817 */
+      --foreground: 210 40% 98%;
+      --card: 224 71% 9%; /* #1e293b */
+      --card-foreground: 210 40% 98%;
+      --popover: 224 71% 4%;
+      --popover-foreground: 210 40% 98%;
+      --primary: 142 71% 45%; /* Green accent */
+      --primary-foreground: 210 40% 98%;
+      --secondary: 215 28% 17%;
+      --secondary-foreground: 210 40% 98%;
+      --muted: 215 28% 17%;
+      --muted-foreground: 215 20% 65%;
+      --accent: 215 28% 17%;
+      --accent-foreground: 210 40% 98%;
+      --destructive: 0 63% 31%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 215 28% 17%;
+      --input: 215 28% 17%;
+      --ring: 142 71% 45%;
+    }
   }
 }
 
@@ -88,5 +123,17 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .responsive-card {
+    @apply rounded-2xl border bg-card p-5 shadow-md transition-all duration-300;
+  }
+  .responsive-button {
+    @apply h-12 text-base md:h-10 md:text-sm;
+  }
+  .responsive-grid {
+    @apply grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4;
   }
 }
