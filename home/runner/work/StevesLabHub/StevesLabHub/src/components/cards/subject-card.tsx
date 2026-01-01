@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import type { Subject } from '@/lib/types';
 import { cn } from '@/lib/utils';
-import { Bot, Code, Network, Wrench, BookOpen, ShieldCheck, Cloud, BrainCircuit, PenTool, Mic, KeyRound, Presentation, Hand, FileQuestion, Cpu, Binary, Layers } from 'lucide-react';
+import { Bot, Code, Network, Wrench, BookOpen, ShieldCheck, Cloud, BrainCircuit, PenTool, Mic, KeyRound, Presentation, Hand, FileQuestion } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 type SubjectCardProps = {
@@ -10,7 +10,7 @@ type SubjectCardProps = {
   programCount: number;
 };
 
-const iconMap: Record<string, React.ReactNode> = {
+const iconMap: Record<Subject['color'], React.ReactNode> = {
   ai: <Bot size={28} />,
   fsd: <Code size={28} />,
   cn: <Network size={28} />,
@@ -24,13 +24,10 @@ const iconMap: Record<string, React.ReactNode> = {
   cns: <KeyRound size={28} />,
   ws: <Presentation size={28} />,
   sfs: <Hand size={28} />,
-  mpmc: <Cpu size={28} />,
-  atcd: <Binary size={28} />,
-  ooad: <Layers size={28} />,
   default: <FileQuestion size={28} />,
 };
 
-const colorClasses: Record<string, string> = {
+const colorClasses: Record<Subject['color'], string> = {
   ai: 'from-subject-ai/20 to-subject-ai/5 border-subject-ai/30 hover:border-subject-ai/60 text-subject-ai dark:hover:shadow-glow-ai',
   fsd: 'from-subject-fsd/20 to-subject-fsd/5 border-subject-fsd/30 hover:border-subject-fsd/60 text-subject-fsd dark:hover:shadow-glow-fsd',
   cn: 'from-subject-cn/20 to-subject-cn/5 border-subject-cn/30 hover:border-subject-cn/60 text-subject-cn dark:hover:shadow-glow-cn',
@@ -47,7 +44,7 @@ const colorClasses: Record<string, string> = {
   default: 'from-slate-500/20 to-slate-500/5 border-slate-500/30 hover:border-slate-500/60 text-slate-500',
 };
 
-const iconBgClasses: Record<string, string> = {
+const iconBgClasses: Record<Subject['color'], string> = {
     ai: 'bg-subject-ai/10',
     fsd: 'bg-subject-fsd/10',
     cn: 'bg-subject-cn/10',
@@ -66,8 +63,6 @@ const iconBgClasses: Record<string, string> = {
 
 
 export function SubjectCard({ subject, programCount }: SubjectCardProps) {
-  const safeColor = subject.color || 'default';
-  
   return (
     <Link 
       href={`/subjects/${subject.id}?year=${subject.year}&sem=${subject.semester}`}
@@ -75,12 +70,12 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
         "group relative flex flex-col w-full rounded-xl border p-4 text-left transition-all duration-300 md:rounded-2xl md:p-5 md:shadow-sm md:hover:-translate-y-1",
         "dark:md:from-card dark:md:to-card dark:md:border dark:md:border-border dark:md:text-foreground dark:md:hover:border-primary dark:md:hover:bg-primary/5",
         "dark:border-border/50 dark:hover:shadow-glow-primary", // Mobile dark glow
-        colorClasses[safeColor]
+        colorClasses[subject.color]
       )}
     >
         <div className="flex items-start justify-between">
-            <div className={cn("flex h-10 w-10 items-center justify-center rounded-lg md:h-12 md:w-12 md:rounded-xl", iconBgClasses[safeColor], "dark:md:bg-primary/10 dark:md:text-primary")}>
-                {iconMap[safeColor] || iconMap.default}
+            <div className={cn("flex h-10 w-10 items-center justify-center rounded-lg md:h-12 md:w-12 md:rounded-xl", iconBgClasses[subject.color], "dark:md:bg-primary/10 dark:md:text-primary")}>
+                {iconMap[subject.color]}
             </div>
             <div className='flex items-center gap-2'>
                 <Badge variant="outline" className="border-current/30 bg-current/10 text-xs text-current dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground">R-23</Badge>
