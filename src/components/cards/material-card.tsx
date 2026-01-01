@@ -52,6 +52,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
 
   const config = fileTypeConfig[material.type] || fileTypeConfig.default;
   const canBeViewed = material.fileType === 'PDF' || material.fileType === 'Image';
+  const isPDF = material.fileType === 'PDF';
   const isExternalLink = material.fileType === 'Link';
   const assetUrl = getAssetPath(material.url);
 
@@ -70,6 +71,21 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
   };
   
   const ActionButton = () => {
+    if (isPDF) {
+      return (
+        <div className="mt-4 w-full z-10 flex flex-col md:flex-row gap-2">
+            <Button onClick={handleAction} size="sm" className="w-full responsive-button">
+                <View className="mr-2 h-4 w-4" /> View
+            </Button>
+             <Button asChild size="sm" variant="secondary" className="w-full responsive-button md:hidden">
+                <a href={assetUrl} download>
+                    <Download className="mr-2 h-4 w-4" /> Download
+                </a>
+            </Button>
+        </div>
+      );
+    }
+    
     if (canBeViewed) {
         return (
             <Button onClick={handleAction} size="sm" className="mt-4 w-full z-10 responsive-button">
@@ -77,6 +93,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
             </Button>
         );
     }
+
     return (
         <Button asChild size="sm" className="mt-4 w-full z-10 responsive-button">
             <a href={assetUrl} download={!isExternalLink} target={isExternalLink ? '_blank' : '_self'} rel="noopener noreferrer">
@@ -105,7 +122,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
         </h3>
         {subject && (
           <Badge
-            className={cn("mt-2 font-medium w-fit", subjectColorClasses[subject.color || 'default'])}
+            className={cn("mt-2 font-medium w-fit text-xs", subjectColorClasses[subject.color || 'default'])}
           >
             {subject.shortTitle}
           </Badge>
@@ -117,7 +134,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
 
       {canBeViewed && (
         <Dialog open={isViewerOpen} onOpenChange={setIsViewerOpen}>
-          <DialogContent className="max-w-5xl h-[90vh] p-0 animate-scale-in flex flex-col">
+          <DialogContent className="max-w-5xl h-[90vh] md:h-full p-0 animate-scale-in flex flex-col">
             <DialogHeader className="p-4 border-b flex-shrink-0">
               <DialogTitle>{material.title}</DialogTitle>
               <DialogDescription className="sr-only">

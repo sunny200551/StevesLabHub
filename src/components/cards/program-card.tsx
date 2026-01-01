@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Program, Subject } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -32,7 +33,7 @@ export function ProgramCard({ program, subject }: ProgramCardProps) {
   return (
     <Link
       href={`/programs/${program.id}`}
-      className="group flex flex-col rounded-xl border bg-card p-5 text-left transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-1"
+      className="group flex flex-col rounded-xl border bg-card p-5 text-left transition-all duration-200 hover:border-primary/50 hover:shadow-lg md:hover:-translate-y-1"
     >
       <div className="flex-grow">
         <div className="mb-3 flex items-start justify-between">
@@ -51,9 +52,9 @@ export function ProgramCard({ program, subject }: ProgramCardProps) {
           {program.title}
         </h3>
         <p className="text-xs font-medium text-muted-foreground mt-1">{program.language}</p>
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div className="mt-3 flex flex-wrap gap-1">
           {program.tags.map((tag) => (
-            <Badge key={tag} variant="secondary" className="rounded-full bg-accent px-2.5 py-1 text-xs text-accent-foreground">
+            <Badge key={tag} variant="secondary" className="rounded-full bg-accent px-2 py-0.5 text-xs text-accent-foreground">
               {tag}
             </Badge>
           ))}
@@ -62,8 +63,8 @@ export function ProgramCard({ program, subject }: ProgramCardProps) {
       <div className="mt-4 flex items-center justify-between pt-4 border-t">
         <div className="flex items-center gap-2">
             {program.canRunInBrowser && (
-            <Badge className="bg-primary/10 text-primary border-primary/30 font-medium">
-                <CheckCircle2 className="mr-1.5 h-3.5 w-3.5" />
+            <Badge className="bg-primary/10 text-primary border-primary/30 font-medium text-xs">
+                <CheckCircle2 className="mr-1 h-3 w-3" />
                 Runnable
             </Badge>
             )}

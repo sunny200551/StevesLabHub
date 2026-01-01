@@ -86,10 +86,10 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
             )}>
                 {iconMap[safeColor] || iconMap.default}
             </div>
-            <div className='flex items-center gap-2'>
-                <Badge variant="outline" className="border-border/30 bg-secondary text-secondary-foreground text-xs">R-23</Badge>
+            <div className='flex flex-col items-end gap-2'>
+                <Badge variant="outline" className="border-border/30 bg-secondary text-secondary-foreground text-xs px-2">R-23</Badge>
                 {subject.hasLab && (
-                    <Badge variant="outline" className="border-border/30 bg-secondary text-secondary-foreground text-xs">
+                    <Badge variant="outline" className="border-border/30 bg-secondary text-secondary-foreground text-xs px-2">
                         {subject.isLabOnly ? "Lab" : "Lab+Theory"}
                     </Badge>
                 )}
@@ -101,10 +101,10 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
             <p className="mt-1 text-sm text-muted-foreground flex-grow min-h-[36px] md:min-h-[40px]">{subject.description}</p>
         </div>
         
-        <div className="mt-4 flex items-center justify-between text-sm font-semibold text-foreground md:text-base">
-            <span>{subject.hasLab ? 'View Content' : 'View Materials'}</span>
+        <div className="mt-4 flex items-center justify-between text-sm font-semibold text-foreground">
+            <span className="md:text-base">{subject.hasLab ? 'View Content' : 'View Materials'}</span>
              {subject.hasLab && programCount > 0 && (
-                <Badge className="bg-primary/10 text-primary border-primary/20">
+                <Badge className="bg-primary/10 text-primary border-primary/20 text-xs md:text-sm">
                     {programCount} Programs
                 </Badge>
             )}
