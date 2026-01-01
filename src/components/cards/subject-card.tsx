@@ -76,7 +76,6 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
         "group relative flex flex-col w-full rounded-2xl border-2 bg-gradient-to-br p-4 text-left transition-all duration-300",
         "md:p-5 md:hover:-translate-y-1",
         colorClasses[safeColor],
-        // Mobile dark theme uses the green primary color, so we override the subject-specific colors for the card border/glow
         "dark:md:from-card dark:md:to-card dark:md:border dark:md:border-border dark:md:hover:border-primary dark:md:hover:bg-primary/5 dark:hover:shadow-none"
       )}
       style={{'--glow-color': `hsl(var(--subject-${safeColor}))`} as React.CSSProperties}
@@ -85,10 +84,8 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
             <div className={cn(
               "flex h-12 w-12 items-center justify-center rounded-xl", 
               iconBgClasses[safeColor],
-              // On desktop, the icon uses the specific subject color. On mobile, it uses the primary (green) theme color.
-              "md:bg-inherit",
               "dark:text-primary dark:md:text-current",
-              "dark:bg-primary/10 dark:md:bg-transparent"
+              "dark:bg-primary/10 dark:md:bg-inherit"
             )}>
                 {iconMap[safeColor] || iconMap.default}
             </div>

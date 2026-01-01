@@ -41,7 +41,7 @@ export function ProgramCard({ program, subject }: ProgramCardProps) {
             <Badge
               className={cn(
                 "font-semibold",
-                subjectColorClasses[subject.color] || "bg-secondary text-secondary-foreground"
+                subjectColorClasses[subject.color || 'default']
               )}
             >
               {subject.shortTitle}

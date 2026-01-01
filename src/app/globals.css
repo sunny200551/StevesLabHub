@@ -34,7 +34,7 @@
     --subject-fsd: 262 88% 66%;
     --subject-cn: 30 96% 54%;
     --subject-tinkering: 330 84% 61%;
-    --subject-spm: 190 84% 61%; /* Replaced purple for consistency */
+    --subject-spm: 190 84% 61%;
     --subject-cyber: 0 72% 51%;
     --subject-cloud: 204 100% 50%;
     --subject-ml: 142 71% 45%;
@@ -86,12 +86,9 @@
     --subject-ooad: 145 63% 52%;
   }
 
-  /* ========================================= */
-  /* ===== Mobile-Specific Theme Override ===== */
-  /* ========================================= */
   @media (max-width: 768px) {
     .dark {
-      --background: 224 71% 4%; /* #020817 */
+      --background: 224 71% 4%;
       --foreground: 210 40% 98%;
       --card: 224 71% 9%;
       --card-foreground: 210 40% 98%;
@@ -137,4 +134,3 @@
     @apply h-11 text-sm md:h-10;
   }
 }
-
