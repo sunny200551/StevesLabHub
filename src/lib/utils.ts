@@ -1,3 +1,4 @@
+
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
@@ -12,5 +13,6 @@ export function getAssetPath(path: string) {
   if (path.startsWith('http')) {
     return path;
   }
+  // Ensure the path starts with a single slash
   return `${basePath}${path.startsWith('/') ? '' : '/'}${path}`;
 }

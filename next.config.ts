@@ -1,3 +1,4 @@
+
 import type {NextConfig} from 'next';
 import withPWAInit from "@ducanh2912/next-pwa";
 
@@ -7,12 +8,12 @@ const withPWA = withPWAInit({
 });
 
 const isProd = process.env.NODE_ENV === 'production';
-const assetPrefix = isProd ? '/StevesLabHub' : '';
+const repoName = '/StevesLabHub';
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: assetPrefix,
-  // assetPrefix is not needed here when basePath is set for GitHub Pages.
+  basePath: isProd ? repoName : '',
+  assetPrefix: isProd ? repoName : '',
   typescript: {
     ignoreBuildErrors: true,
   },

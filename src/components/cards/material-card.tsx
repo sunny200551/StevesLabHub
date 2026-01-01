@@ -107,7 +107,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
     <>
       <div
         className={cn(
-          "responsive-card group flex flex-col transition-all duration-200 h-full",
+          "responsive-card group flex flex-col h-full",
           "md:hover:-translate-y-1"
         )}
       >
@@ -134,7 +134,7 @@ export function MaterialCard({ material, subject }: MaterialCardProps) {
 
       {canBeViewed && (
         <Dialog open={isViewerOpen} onOpenChange={setIsViewerOpen}>
-          <DialogContent className="max-w-5xl h-[90vh] md:h-full p-0 animate-scale-in flex flex-col">
+          <DialogContent className="max-w-5xl h-[90svh] p-0 animate-scale-in flex flex-col">
             <DialogHeader className="p-4 border-b flex-shrink-0">
               <DialogTitle>{material.title}</DialogTitle>
               <DialogDescription className="sr-only">

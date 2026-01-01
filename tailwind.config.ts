@@ -6,7 +6,7 @@ const config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,mdx}',
   ],
   theme: {
     container: {
@@ -18,7 +18,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'Poppins', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', 'sans-serif'],
         code: ['"JetBrains Mono"', 'monospace'],
       },
       colors: {
@@ -92,7 +93,7 @@ const config = {
         lg: '0 10px 15px -3px hsl(220 25% 10% / 0.1), 0 4px 6px -4px hsl(220 25% 10% / 0.1)',
         xl: '0 20px 25px -5px hsl(220 25% 10% / 0.1), 0 8px 10px -6px hsl(220 25% 10% / 0.1)',
 
-        // Mobile Glow Shadows
+        // Glow Shadows
         'glow-ai': '0 0 20px 0 hsl(var(--subject-ai) / 0.4)',
         'glow-fsd': '0 0 20px 0 hsl(var(--subject-fsd) / 0.4)',
         'glow-cn': '0 0 20px 0 hsl(var(--subject-cn) / 0.4)',

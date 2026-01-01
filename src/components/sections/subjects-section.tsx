@@ -1,7 +1,7 @@
 
 "use client"
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Program, Subject } from '@/lib/types';
 import { SubjectCard } from '@/components/cards/subject-card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -19,13 +19,15 @@ export function SubjectsSection({ subjects, programs }: SubjectsSectionProps) {
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
+    // Use a short timeout to allow for animation
+    const timer = setTimeout(() => {
       const theory = subjects.filter(s => !s.isLabOnly);
       const lab = subjects.filter(s => s.hasLab);
       setTheorySubjects(theory);
       setLabSubjects(lab);
       setLoading(false);
     }, 300);
+    return () => clearTimeout(timer);
   }, [subjects]);
 
 
@@ -38,7 +40,7 @@ export function SubjectsSection({ subjects, programs }: SubjectsSectionProps) {
       return <p className="text-center text-muted-foreground mt-8">No subjects for this semester.</p>
     }
     return (
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className="responsive-grid">
         {subjectList.map((subject) => (
           <SubjectCard key={subject.id} subject={subject} programCount={getProgramCount(subject.id)} />
         ))}
@@ -47,9 +49,9 @@ export function SubjectsSection({ subjects, programs }: SubjectsSectionProps) {
   };
 
   const SkeletonGrid = () => (
-    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+    <div className="responsive-grid">
       {Array.from({ length: 4 }).map((_, i) => (
-        <Skeleton key={i} className="h-[220px] w-full rounded-2xl" />
+        <Skeleton key={i} className="h-[230px] w-full rounded-2xl" />
       ))}
     </div>
   );
@@ -66,12 +68,12 @@ export function SubjectsSection({ subjects, programs }: SubjectsSectionProps) {
 
         {loading ? (
           <div className="flex flex-col items-center">
-            <Skeleton className="h-10 w-full max-w-lg mb-8" />
+            <Skeleton className="h-10 w-full max-w-sm md:max-w-lg mb-8" />
             <SkeletonGrid />
           </div>
         ) : (
           <Tabs defaultValue="all" className="w-full animate-fade-in">
-            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 max-w-lg mx-auto h-auto">
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 max-w-sm md:max-w-lg mx-auto h-auto">
               <TabsTrigger value="all" className="py-2">All</TabsTrigger>
               <TabsTrigger value="subjects" className="py-2">Subjects</TabsTrigger>
               <TabsTrigger value="labs" className="py-2">Labs</TabsTrigger>

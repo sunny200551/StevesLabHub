@@ -31,31 +31,40 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 const colorClasses: Record<string, string> = {
-  ai: 'dark:from-subject-ai/10 dark:to-subject-ai/5 border-subject-ai/20 dark:hover:border-subject-ai/40 text-subject-ai dark:hover:shadow-glow-ai',
-  fsd: 'dark:from-subject-fsd/10 dark:to-subject-fsd/5 border-subject-fsd/20 dark:hover:border-subject-fsd/40 text-subject-fsd dark:hover:shadow-glow-fsd',
-  cn: 'dark:from-subject-cn/10 dark:to-subject-cn/5 border-subject-cn/20 dark:hover:border-subject-cn/40 text-subject-cn dark:hover:shadow-glow-cn',
-  tinkering: 'dark:from-subject-tinkering/10 dark:to-subject-tinkering/5 border-subject-tinkering/20 dark:hover:border-subject-tinkering/40 text-subject-tinkering dark:hover:shadow-glow-tinkering',
-  spm: 'dark:from-indigo-500/10 dark:to-indigo-500/5 border-indigo-500/20 dark:hover:border-indigo-500/40 text-indigo-500 dark:hover:shadow-glow-spm',
-  cyber: 'dark:from-red-500/10 dark:to-red-500/5 border-red-500/20 dark:hover:border-red-500/40 text-red-500 dark:hover:shadow-glow-cyber',
-  cloud: 'dark:from-sky-500/10 dark:to-sky-500/5 border-sky-500/20 dark:hover:border-sky-500/40 text-sky-500 dark:hover:shadow-glow-cloud',
-  ml: 'dark:from-green-500/10 dark:to-green-500/5 border-green-500/20 dark:hover:border-green-500/40 text-green-500 dark:hover:shadow-glow-ml',
-  writing: 'dark:from-yellow-500/10 dark:to-yellow-500/5 border-yellow-500/20 dark:hover:border-yellow-500/40 text-yellow-500 dark:hover:shadow-glow-writing',
-  speaking: 'dark:from-amber-500/10 dark:to-amber-500/5 border-amber-500/20 dark:hover:border-amber-500/40 text-amber-500 dark:hover:shadow-glow-speaking',
-  cns: 'dark:from-rose-500/10 dark:to-rose-500/5 border-rose-500/20 dark:hover:border-rose-500/40 text-rose-500 dark:hover:shadow-glow-cns',
-  mpmc: 'dark:from-lime-500/10 dark:to-lime-500/5 border-lime-500/20 dark:hover:border-lime-500/40 text-lime-500 dark:hover:shadow-glow-mpmc',
-  atcd: 'dark:from-violet-500/10 dark:to-violet-500/5 border-violet-500/20 dark:hover:border-violet-500/40 text-violet-500 dark:hover:shadow-glow-atcd',
-  ooad: 'dark:from-emerald-500/10 dark:to-emerald-500/5 border-emerald-500/20 dark:hover:border-emerald-500/40 text-emerald-500 dark:hover:shadow-glow-ooad',
-  default: 'dark:from-slate-500/10 dark:to-slate-500/5 border-slate-500/20 dark:hover:border-slate-500/40 text-slate-500',
+  ai: 'from-subject-ai/20 to-subject-ai/5 border-subject-ai/30 hover:border-subject-ai/60 text-subject-ai dark:hover:shadow-glow-ai',
+  fsd: 'from-subject-fsd/20 to-subject-fsd/5 border-subject-fsd/30 hover:border-subject-fsd/60 text-subject-fsd dark:hover:shadow-glow-fsd',
+  cn: 'from-subject-cn/20 to-subject-cn/5 border-subject-cn/30 hover:border-subject-cn/60 text-subject-cn dark:hover:shadow-glow-cn',
+  tinkering: 'from-subject-tinkering/20 to-subject-tinkering/5 border-subject-tinkering/30 hover:border-subject-tinkering/60 text-subject-tinkering dark:hover:shadow-glow-tinkering',
+  spm: 'from-purple-500/20 to-purple-500/5 border-purple-500/30 hover:border-purple-500/60 text-purple-500 dark:hover:shadow-glow-spm',
+  cyber: 'from-red-500/20 to-red-500/5 border-red-500/30 hover:border-red-500/60 text-red-500 dark:hover:shadow-glow-cyber',
+  cloud: 'from-blue-500/20 to-blue-500/5 border-blue-500/30 hover:border-blue-500/60 text-blue-500 dark:hover:shadow-glow-cloud',
+  ml: 'from-green-500/20 to-green-500/5 border-green-500/30 hover:border-green-500/60 text-green-500 dark:hover:shadow-glow-ml',
+  writing: 'from-yellow-500/20 to-yellow-500/5 border-yellow-500/30 hover:border-yellow-500/60 text-yellow-500 dark:hover:shadow-glow-writing',
+  speaking: 'from-orange-500/20 to-orange-500/5 border-orange-500/30 hover:border-orange-500/60 text-orange-500 dark:hover:shadow-glow-speaking',
+  cns: 'from-pink-500/20 to-pink-500/5 border-pink-500/30 hover:border-pink-500/60 text-pink-500 dark:hover:shadow-glow-cns',
+  mpmc: 'from-lime-500/20 to-lime-500/5 border-lime-500/30 hover:border-lime-500/60 text-lime-500 dark:hover:shadow-glow-mpmc',
+  atcd: 'from-violet-500/20 to-violet-500/5 border-violet-500/30 hover:border-violet-500/60 text-violet-500 dark:hover:shadow-glow-atcd',
+  ooad: 'from-emerald-500/20 to-emerald-500/5 border-emerald-500/30 hover:border-emerald-500/60 text-emerald-500 dark:hover:shadow-glow-ooad',
+  default: 'from-slate-500/20 to-slate-500/5 border-slate-500/30 hover:border-slate-500/60 text-slate-500',
 };
 
 const iconBgClasses: Record<string, string> = {
-    ai: 'bg-subject-ai/10', fsd: 'bg-subject-fsd/10', cn: 'bg-subject-cn/10', tinkering: 'bg-subject-tinkering/10',
-    spm: 'bg-indigo-500/10', cyber: 'bg-red-500/10', cloud: 'bg-sky-500/10', ml: 'bg-green-500/10',
-    writing: 'bg-yellow-500/10', speaking: 'bg-amber-500/10', cns: 'bg-rose-500/10',
-    mpmc: 'bg-lime-500/10', atcd: 'bg-violet-500/10', ooad: 'bg-emerald-500/10',
+    ai: 'bg-subject-ai/10',
+    fsd: 'bg-subject-fsd/10',
+    cn: 'bg-subject-cn/10',
+    tinkering: 'bg-subject-tinkering/10',
+    spm: 'bg-purple-500/10',
+    cyber: 'bg-red-500/10',
+    cloud: 'bg-blue-500/10',
+    ml: 'bg-green-500/10',
+    writing: 'bg-yellow-500/10',
+    speaking: 'bg-orange-500/10',
+    cns: 'bg-pink-500/10',
+    mpmc: 'bg-lime-500/10',
+    atcd: 'bg-violet-500/10',
+    ooad: 'bg-emerald-500/10',
     default: 'bg-slate-500/10',
 };
-
 
 export function SubjectCard({ subject, programCount }: SubjectCardProps) {
   const safeColor = subject.color || 'default';
@@ -64,14 +73,11 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
     <Link 
       href={`/subjects/${subject.id}?year=${subject.year}&sem=${subject.semester}`}
       className={cn(
-        "group relative flex flex-col w-full rounded-2xl p-4 text-left transition-all duration-300",
-        "bg-card border-2 border-border/10 shadow-lg",
-        // Desktop overrides
-        "md:p-5 md:bg-gradient-to-br md:shadow-none md:hover:-translate-y-1",
-        "md:from-card md:to-card md:border md:border-border",
-        // The following classes are for the DESKTOP dark theme, mobile will just use its own --primary
-        "dark:md:from-card dark:md:to-card dark:md:border-border/50 dark:md:hover:border-primary dark:md:hover:bg-primary/5 dark:hover:shadow-none",
-        colorClasses[safeColor]
+        "group relative flex flex-col w-full rounded-2xl border-2 bg-gradient-to-br p-4 text-left transition-all duration-300",
+        "md:p-5 md:hover:-translate-y-1",
+        colorClasses[safeColor],
+        // Mobile dark theme uses the green primary color, so we override the subject-specific colors for the card border/glow
+        "dark:md:from-card dark:md:to-card dark:md:border dark:md:border-border dark:md:hover:border-primary dark:md:hover:bg-primary/5 dark:hover:shadow-none"
       )}
       style={{'--glow-color': `hsl(var(--subject-${safeColor}))`} as React.CSSProperties}
     >
@@ -80,16 +86,16 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
               "flex h-12 w-12 items-center justify-center rounded-xl", 
               iconBgClasses[safeColor],
               // On desktop, the icon uses the specific subject color. On mobile, it uses the primary (green) theme color.
-              "md:bg-inherit", // Reset background for desktop so gradient/color classes take over
-              "dark:text-primary dark:md:text-current", // Mobile icon text is primary, desktop is current subject color
-              "dark:bg-primary/10 dark:md:bg-transparent" // Mobile icon bg is primary, desktop is transparent
+              "md:bg-inherit",
+              "dark:text-primary dark:md:text-current",
+              "dark:bg-primary/10 dark:md:bg-transparent"
             )}>
                 {iconMap[safeColor] || iconMap.default}
             </div>
             <div className='flex flex-col items-end gap-2'>
-                <Badge variant="outline" className="border-border/30 bg-secondary text-secondary-foreground text-xs px-2">R-23</Badge>
+                <Badge variant="outline" className="border-current/30 bg-current/10 text-current dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground text-xs px-2">R-23</Badge>
                 {subject.hasLab && (
-                    <Badge variant="outline" className="border-border/30 bg-secondary text-secondary-foreground text-xs px-2">
+                    <Badge variant="outline" className="border-accent-foreground/30 bg-accent/80 text-accent-foreground dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground text-xs px-2 whitespace-nowrap">
                         {subject.isLabOnly ? "Lab" : "Lab+Theory"}
                     </Badge>
                 )}
