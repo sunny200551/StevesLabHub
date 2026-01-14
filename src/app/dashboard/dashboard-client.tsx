@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useState, useMemo, useEffect } from 'react';
@@ -6,7 +7,7 @@ import { SubjectsSection } from '@/components/sections/subjects-section';
 import { AllProgramsSection } from '@/components/sections/all-programs-section';
 import { NotesSection } from '@/components/sections/notes-section';
 import { SyllabusSection } from '@/components/sections/syllabus-section';
-import { AttendanceSection } from '@/components/sections/attendance-section';
+// import { AttendanceSection } from '@/components/sections/attendance-section';
 import { materials, programs, subjects } from '@/lib/data';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
@@ -59,7 +60,7 @@ export function DashboardClient() {
         </ToggleGroup>
       </div>
 
-      <AttendanceSection />
+      {/* <AttendanceSection /> */}
       <SubjectsSection subjects={filteredData.subjects} programs={filteredData.programs} />
       <SyllabusSection syllabi={syllabi} subjects={filteredData.subjects} />
       <AllProgramsSection programs={filteredData.programs} subjects={filteredData.subjects} />
