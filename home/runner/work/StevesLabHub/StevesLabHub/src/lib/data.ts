@@ -382,5 +382,6 @@ export const materials: Material[] = materialsData.materials.map((m: any) => {
     };
 }).filter((m: any) => m.year !== 0);
 
+
 export const notes: Note[] = [];
 export const syllabi: Syllabus[] = [];

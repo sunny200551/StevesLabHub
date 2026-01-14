@@ -67,20 +67,18 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
     <Link 
       href={`/subjects/${subject.id}?year=${subject.year}&sem=${subject.semester}`}
       className={cn(
-        "group relative flex flex-col w-full rounded-2xl border-2 bg-gradient-to-br p-5 text-left transition-all duration-300 md:hover:-translate-y-1",
-        colorClasses[subject.color],
-        "dark:md:from-card dark:md:to-card dark:md:border dark:md:border-border dark:md:text-foreground dark:md:hover:border-primary dark:md:hover:bg-primary/5 dark:hover:shadow-none",
-        "md:shadow-none"
+        "group relative flex flex-col w-full rounded-2xl border-2 bg-gradient-to-br p-5 text-left transition-all duration-300 hover:-translate-y-1",
+        colorClasses[subject.color]
       )}
     >
         <div className="flex justify-between items-start">
-            <div className={cn("flex h-12 w-12 items-center justify-center rounded-xl", iconBgClasses[subject.color], "dark:md:bg-primary/10 dark:md:text-primary")}>
+            <div className={cn("flex h-12 w-12 items-center justify-center rounded-xl", iconBgClasses[subject.color])}>
                 {iconMap[subject.color]}
             </div>
             <div className='flex items-center gap-2'>
-                <Badge variant="outline" className="border-current/30 bg-current/10 text-current dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground">R-23</Badge>
+                <Badge variant="outline" className="border-current/30 bg-current/10 text-current">R-23</Badge>
                 {subject.hasLab && (
-                    <Badge variant="outline" className="border-accent-foreground/30 bg-accent/80 text-accent-foreground dark:md:border-border dark:md:bg-secondary dark:md:text-secondary-foreground">
+                    <Badge variant="outline" className="border-accent-foreground/30 bg-accent/80 text-accent-foreground">
                         {subject.isLabOnly ? "Lab" : "Lab+Theory"}
                     </Badge>
                 )}
@@ -88,7 +86,7 @@ export function SubjectCard({ subject, programCount }: SubjectCardProps) {
         </div>
       
         <div className="flex-grow mt-4">
-            <h3 className="text-lg font-bold text-foreground md:group-hover:text-primary dark:md:group-hover:text-primary transition-colors">{subject.title}</h3>
+            <h3 className="text-lg font-bold text-foreground">{subject.title}</h3>
             <p className="mt-1 text-sm text-muted-foreground flex-grow min-h-[40px]">{subject.description}</p>
         </div>
         
