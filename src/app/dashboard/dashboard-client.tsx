@@ -30,7 +30,7 @@ export function DashboardClient() {
 
     return {
       subjects: subjects.filter(s => s.year === year && s.semester === sem),
-      programs: programs.filter(p => p.year === year && p.semester === sem),
+      programs: programs.filter(p => p.year === year && s.semester === sem),
       materials: materials.filter(m => m.year === year && m.semester === sem),
     };
   }, [activeYear, activeSem]);
